@@ -1,0 +1,70 @@
+//变量定义
+
+$borRadiusSmall: 6px;
+$borRadiusBig: 12px;
+
+
+//自定义主题色
+$primaryWhite: #f3f3f3;
+$primaryGreen: #34d0b2;
+$primaryRed: #f75652;
+$primaryBlue: #008aff;
+$primaryDeepBlue: #020252;
+$primaryYellow: #ffffb6;
+$primaryDeepYellow: #ffc933;
+
+
+
+//自定义函数
+@mixin disFlex ($row, $col) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $row;
+    align-items: $col;
+}
+
+@mixin posiAR($AR, $top, $left) {
+    position: $AR;
+    top: $top;
+    left: $left;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+//按钮
+button {
+    width: 5.6rem;
+    height: 2.5rem;
+    background-color: $primaryGreen;
+    color: $primaryWhite;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    outline: none;
+    border-radius: $borRadiusSmall;
+}
+
+a {
+    text-decoration: none;
+    color: $primaryWhite;
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 0 15px;
+
+}
+
+li {
+    list-style: none;
+}
