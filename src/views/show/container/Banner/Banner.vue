@@ -30,6 +30,5 @@ export default defineComponent({
     width: 90rem;
     height: 40rem;
     padding:  3rem 0;
-    border:1px solid blue;
 }
 </style>

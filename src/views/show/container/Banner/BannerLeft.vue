@@ -33,7 +33,7 @@ export default defineComponent({
 
 #BannerLeft {
     @include posiAR(relative, 0rem, 0rem);
-    width: 40rem;
+    width: 42rem;
     height: 30rem;
     background-color: $primaryRed;
     border-radius: $borRadiusBig;
@@ -42,7 +42,7 @@ export default defineComponent({
     transition: all 1s;
 
     img {
-        @include posiAR(absolute, 13rem, 17rem);
+        @include posiAR(absolute, 13rem, 18rem);
         width: 22rem;
         transition: all 1s;
     }
