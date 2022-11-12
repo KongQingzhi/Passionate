@@ -84,6 +84,7 @@ export default defineComponent({
     @include disFlex(space-around, center);
     width: 90rem;
     height: 9.5rem;
+    margin-bottom:8rem;
 
     .boxContent {
         position: relative;

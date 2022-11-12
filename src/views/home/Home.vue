@@ -1,14 +1,14 @@
 <template>
-    <div id="Show">
+    <div id="Home">
         <HeadVue></HeadVue>
-        <ContainerVue></ContainerVue>
+        <MainVue></MainVue>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HeadVue from './Head/Head.vue';
-import ContainerVue from './container/Container.vue';
+import HeadVue from './head/Head.vue';
+import MainVue from './main/Main.vue';
 export default defineComponent({
     setup() {
 
@@ -17,7 +17,7 @@ export default defineComponent({
     },
     components: {
         HeadVue,
-        ContainerVue
+        MainVue
     }
 })
 </script>
@@ -25,7 +25,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../assets/style.scss';
 
-#Show {
+#Home {
     width: 100vw;
     height: 100vh;
 }

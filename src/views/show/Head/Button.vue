@@ -1,5 +1,5 @@
 <template>
-    <button id="btn">
+    <button id="Button" @click="toUser">
         <div class="svg-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z"></path>
@@ -14,12 +14,22 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
     setup() {
-
-
-        return {}
+        const router = useRouter()
+        const route = useRoute()
+        function toUser() {
+            router.push({
+                name: 'User',
+                query: {
+                    ...route.query,
+                },
+            })
+        }
+        return {
+            toUser
+        }
     }
 })
 </script>
@@ -27,7 +37,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../assets/style.scss';
 
-#btn {
+#Button {
     background-color: $primaryWhite;
     font-family: inherit;
     font-size: 1rem;

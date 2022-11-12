@@ -1,26 +1,24 @@
 <template>
     <div id="Nav">
         <LogoVue></LogoVue>
-        <NavListVue></NavListVue>
-        <ButtonVue></ButtonVue>
+        <ClassListVue></ClassListVue>
+        <UserVue></UserVue>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import LogoVue from './Logo.vue';
-import NavListVue from './NavList.vue'
-import ButtonVue from './Button.vue';
+import LogoVue from '../../show/head/Logo.vue';
+import ClassListVue from './ClassList.vue';
+import UserVue from './User.vue';
 export default defineComponent({
     setup() {
-
-
         return {}
     },
     components: {
         LogoVue,
-        NavListVue,
-        ButtonVue
+        ClassListVue,
+        UserVue
     }
 })
 </script>

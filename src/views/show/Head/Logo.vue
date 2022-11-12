@@ -1,5 +1,5 @@
 <template>
-    <div id="logo">
+    <div id="Logo">
         <img src="../../../assets/img/logo.png" width="48" alt="">
         <h1><i>a</i><i>ssionate</i></h1>
     </div>
@@ -18,12 +18,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../assets/style.scss';
 
-#logo {
+#Logo {
     @include posiAR(relative, 0, 0);
-    // @include disFlex(space-between,center);
-    width: 20rem;
+    width: 10rem;
     height: 3rem;
-    // background-color: blue;
     border-radius: $borRadiusSmall;
     overflow: hidden;
 

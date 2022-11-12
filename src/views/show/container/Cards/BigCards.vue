@@ -1,17 +1,59 @@
 <template>
     <div id="BigCards">
-
+        <div class="cards" :class="{ orderScroll: flagMid }" v-for="(items, index) in list">
+            <div class="img">
+                <img :src="items.src" alt="" height="150">
+            </div>
+            <div class="cirle"></div>
+            <div class="content">
+                <div class="contentTitle">{{ items.title }}</div>
+                <div class="contentCon">{{ items.aside }}</div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 
 export default defineComponent({
     setup() {
 
+        const list = [
+            {
+                title: '聊得火热',
+                aside: '既要志同道合,也要兴趣同好',
+                src: '/src/assets/img/交流.svg'
+            },
+            {
+                title: '玩得火热',
+                aside: '一起探险、一起游戏，不知疲倦',
+                src: '/src/assets/img/玩耍.svg'
+            },
+            {
+                title: '生活火热',
+                aside: '发现更多有趣，打破生活边界，点亮精彩瞬间',
+                src: '/src/assets/img/生活.svg'
+            },
+            {
+                title: '内心火热',
+                aside: '那些现实中不曾发出的声音,请把它留在这里',
+                src: '/src/assets/img/内心.svg'
+            }
+        ];
+        let flagMid = ref(false);
+        function orderScroll(event: any) {
+            if (flagMid.value == false && window.pageYOffset > 1200) {
+                flagMid.value = true;
+            }
+        }
+        onMounted(() => {
+            window.addEventListener('scroll', orderScroll)
+        })
         return {
-
+            list,
+            flagMid,
+            orderScroll
         }
     }
 })
@@ -20,5 +62,101 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../assets/style.scss';
 
-#BigCards {}
+.orderScroll {
+    animation: move 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+#BigCards {
+    @include disFlex(space-around, center);
+    width: 100%;
+    height: 38rem;
+    padding: 4.5rem 0;
+
+    .cards {
+        position: relative;
+        width: 17rem;
+        height: 22rem;
+        border-radius: $borRadiusBig;
+        background-color: #fff;
+        box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.07);
+        overflow: hidden;
+
+        .img {
+            @include posiAR(absolute, 0, 4.7rem);
+            width: 9.3rem;
+            height: 9.3rem;
+            z-index: 2;
+            transition: all 0.8s;
+        }
+
+        .cirle {
+            @include posiAR(absolute, 0, 4rem);
+            width: 9.4rem;
+            height: 9.4rem;
+            overflow: hidden;
+            border-radius: 50%;
+            background-color: rgb(159, 233, 218);
+            transition: all 0.8s;
+            z-index: 1;
+        }
+
+        .content {
+            @include posiAR(absolute, 15.5rem, 0rem);
+            width: 17rem;
+            height: 15.5rem;
+            padding: 10px 30px;
+            background-color: $primaryGreen;
+            border-radius: 50% 50% 0 0;
+            transition: all 0.8s;
+            z-index: 2;
+
+            .contentTitle {
+                height: 6.25rem;
+                line-height: 6.25rem;
+                text-align: center;
+                letter-spacing: 0.625rem;
+                font-size: 1.375rem;
+                font-weight: 700;
+                color: #fff;
+            }
+
+            .contentCon {
+                line-height: 1.875rem;
+                font-size: 1.125rem;
+                letter-spacing: 0.1875rem;
+                color: $primaryWhite;
+                text-align: center;
+            }
+        }
+
+        &:hover>.cirle {
+            top: -3.125rem;
+            left: 9.375rem;
+            transform: scale(2);
+        }
+
+        &:hover>.content {
+            border-radius: 0;
+            top: 9.375rem;
+        }
+
+        &:hover>.img {
+            left: 1.25rem;
+        }
+    }
+}
 </style>

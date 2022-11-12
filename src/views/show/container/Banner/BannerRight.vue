@@ -2,7 +2,7 @@
     <div id="BannerRight">
         <h1 class="title">{{ title }}</h1>
         <h1 class="aside">{{ aside }}</h1>
-        <button class="btn">
+        <button class="btn" @click="toUser">
             <div class="maskpad"></div>
             <span>Get it!</span>
         </button>
@@ -12,15 +12,26 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
     setup() {
 
         const title = 'And line and see and calm, and listen and forget and with the wind.'
-        const aside = 'Life is hot because of you.'
+        const aside = 'Life is hot because of you.';
+        const router = useRouter()
+        const route = useRoute()
+        function toUser() {
+            router.push({
+                name: 'User',
+                query: {
+                    ...route.query,
+                },
+            })
+        }
         return {
             title,
-            aside
+            aside,
+            toUser
         }
     }
 })

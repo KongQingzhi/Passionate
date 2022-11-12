@@ -1,6 +1,6 @@
 <template>
     <ul id="NavList">
-        <li v-for="(items, index) in list" @click="toBottom(index)">
+        <li v-for="(items, index) in list" @click="">
             <span>{{ items }}</span>
             <div class="border"></div>
         </li>
@@ -8,26 +8,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
     setup() {
-        const list: string[] = [
-            '首页',
-            '新花样',
-            '关于',
-        ];
-        function toBottom(index: number): void {
-            switch (index) {
-                case 0: document.documentElement.scrollTop = 0; break;
-                case 1: document.documentElement.scrollTop = 1380; break;
-                case 2: document.documentElement.scrollTop = 2900; break;
-            }
-        }
-
+        const list: string[] = ['推荐', '关注', '朋友', '搞笑', '新鲜', '生活'];
+       
         return {
             list,
-            toBottom
+
         }
     }
 })
@@ -38,9 +27,8 @@ export default defineComponent({
 
 #NavList {
     @include disFlex(space-between, center);
-    width: 60rem;
+    width: 50rem;
     height: 4rem;
-    padding-left: 45rem;
     font-size: 18px;
     cursor: pointer;
 
@@ -51,17 +39,15 @@ export default defineComponent({
         span {
             letter-spacing: 0.125rem;
             transition: all 0.3s;
-            font-weight: 400;
         }
 
         .border {
             margin-top: 0.3rem;
             width: 0;
             height: 0.2rem;
-            background-color: $primaryWhite;
+            background-color: $primaryBlue;
             transition: width 0.3s;
         }
-
 
 
         &:hover .border {

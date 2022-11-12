@@ -6,18 +6,10 @@
             </div>
 
             <div class="form">
-                <h3><span>注 册</span></h3>
+                <h3><span>找回密码</span></h3>
                 <div class="account">
                     <i class="bi bi-envelope-fill"></i>
                     <input type="emmail" ref="input" placeholder="邮箱">
-                </div>
-                <div class="passwordFirst">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="password" ref="input" placeholder="密码">
-                </div>
-                <div class="passwordSecond">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="text" ref="input" placeholder="确认密码">
                 </div>
                 <div class="verificate">
                     <i class="bi bi-person-check-fill"></i>
@@ -29,17 +21,20 @@
                         </div>
                     </button>
                 </div>
+                <div class="passwordFirst">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <input type="password" ref="input" placeholder="新密码">
+                </div>
+                <div class="passwordSecond">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <input type="text" ref="input" placeholder="确认密码">
+                </div>
+                
                 <div class="operation">
                     <button @click="toUser">
                         <div class="content">
                             <i class="bi bi-arrow-left-circle-fill"></i>
                             <span>去登陆</span>
-                        </div>
-                    </button>
-                    <button>
-                        <div class="content">
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                            <span>注册</span>
                         </div>
                     </button>
                 </div>
