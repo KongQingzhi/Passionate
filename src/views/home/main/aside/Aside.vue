@@ -1,19 +1,20 @@
 <template>
-    <div id="Aside">
-        <div class="circle" @click="changeAsideFlag()" :style="ratote">
+    <div id="Aside" :style="{ width: asideFlag ? '12rem' : '5rem' }">
+        <div class="circle" @click="asideFlag = !asideFlag"
+            :style="{ transform: asideFlag ? 'rotate(0deg)' : 'rotate(180deg)' }">
             <i class="bi bi-caret-left-fill"></i>
         </div>
         <div class="User">
             <div class="userHeadImg">
                 <img src="../../../../assets/UserHeadImg/male.svg" alt="UserHeadImage">
             </div>
-            <div class="userInfo">
+            <div class="userInfo" :style="{ height: asideFlag ? '3rem' : '0rem' }">
                 <h3>{{ UserName }}</h3>
                 <h5>{{ UserAccount }}</h5>
             </div>
         </div>
         <ul>
-            <li v-for="(items, index) in optionList" key="index">
+            <li v-for="(items, index) in optionList" key="index" :style="{ marginLeft: asideFlag ? '1rem' : '' }">
                 <i :class="items.className"></i>
                 <span>{{ items.name }}</span>
             </li>
@@ -22,17 +23,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
     setup() {
         let UserName = ref<string>('Trevor');
         const UserAccount = ref<string>('123456789@qq.com');
         let asideFlag = ref(false);
-        const ratote = {
-            'transform': asideFlag ? 'rotate(0deg)' : 'rotate(40deg)'
-        }
-
 
         interface IOption {
             className: string,
@@ -76,20 +73,12 @@ export default defineComponent({
             }
         ];
 
-        function changeAsideFlag() {
-            asideFlag.value = !asideFlag.value
-            console.log(asideFlag.value);
-
-        }
-
-
         return {
             UserName,
             UserAccount,
             optionList,
             asideFlag,
-            changeAsideFlag,
-            ratote
+
         }
     },
     components: {
@@ -102,16 +91,13 @@ export default defineComponent({
 @import '../../../../assets/style.scss';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
 
+
 #Aside {
     position: relative;
-    width: 12rem;
-    width: 5rem;
-    // height: 40rem;
     padding: 2rem 0.5rem;
     background-color: $primaryGreen;
-    // background-color: $primaryBlue;
     border-radius: $borRadiusBig;
-
+    transition: all 0.3s;
 
     .circle {
         position: absolute;
@@ -123,6 +109,7 @@ export default defineComponent({
         background-color: $primaryGreen;
         text-align: center;
         cursor: pointer;
+        transition: all 0.3s;
 
         i {
             color: $primaryWhite;
@@ -133,18 +120,7 @@ export default defineComponent({
         }
     }
 
-    /**
-    我的信息
-    我的点赞
-    我的收藏
-    我的发布
-    我的关注
-    我的粉丝
-    我的私信
-    */
     .User {
-
-        // height: 8rem;
         margin-bottom: 1rem;
 
         .userHeadImg {
@@ -161,12 +137,12 @@ export default defineComponent({
         }
 
         .userInfo {
-            display: none;
             margin-top: 1rem;
             width: 11rem;
-            height: 3rem;
+            height: 0rem;
             text-align: center;
-
+            transition: all 0.3s;
+            overflow: hidden;
 
             h3 {
                 line-height: 2.2rem;
@@ -189,11 +165,11 @@ export default defineComponent({
         li {
             width: 12rem;
             height: 2.5rem;
-            // margin-left: 1rem;
             margin-bottom: 1rem;
             padding: 0 1rem;
-            // background-color: #fff;
             border-radius: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
 
             i {
                 display: inline-block;

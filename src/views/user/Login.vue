@@ -125,8 +125,8 @@ export default defineComponent({
                 i {
                     display: inline-block;
                     width: 6rem;
-                    height: 2.6rem;
-                    border-radius: 1.3rem;
+                    height: 2.8rem;
+                    border-radius: 1.4rem;
                     background-color: $primaryGreen;
                     color: $primaryWhite;
                     font-size: 2rem;
@@ -196,7 +196,7 @@ export default defineComponent({
                     }
 
                     &:hover {
-                        transform: translateY(-0.1rem);
+                        transform: translateY(-0.025rem);
                         box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.1);
                     }
 

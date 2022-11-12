@@ -220,16 +220,15 @@ export default defineComponent({
                         line-height: 2.9rem;
                         vertical-align: middle;
                         transition: all 0.3s;
-
                     }
 
                     span {
                         display: inline-block;
-                        width: 5rem;
+                        width: 4rem;
                         height: 3rem;
                         font-size: 1.1rem;
                         line-height: 3rem;
-                        // vertical-align: middle;
+                        margin-right: 1rem;
                     }
                 }
 
