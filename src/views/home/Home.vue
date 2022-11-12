@@ -26,12 +26,12 @@ export default defineComponent({
 @import '../../assets/style.scss';
 
 #Home {
-    width: 100vw;
+    width: 100%;
 
     .HeadVue {
         position: fixed;
         top: 0;
-
+        z-index: 22;
     }
 }
 </style>

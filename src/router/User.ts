@@ -4,21 +4,21 @@ import FindPwdVue from "../views/user/FindPwd.vue"
 export default {
     name: "User",
     path: "/user",
-    redirect: "/user/login",
+    redirect: "/login",
     children: [
         {
             name: "Login",
-            path: "login",
+            path: "/login",
             component: LoginVue,
         },
         {
             name: "Register",
-            path: "register",
+            path: "/register",
             component: RegisterVue,
         },
         {
             name: "FindPwd",
-            path: "findPwd",
+            path: "/findPwd",
             component: FindPwdVue,
         }
     ]

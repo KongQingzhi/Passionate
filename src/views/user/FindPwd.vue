@@ -29,7 +29,7 @@
                     <i class="bi bi-shield-lock-fill"></i>
                     <input type="text" ref="input" placeholder="确认密码">
                 </div>
-                
+
                 <div class="operation">
                     <button @click="toUser">
                         <div class="content">
@@ -70,7 +70,7 @@ export default defineComponent({
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 #Register {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: $primaryWhite;
 
@@ -133,7 +133,8 @@ export default defineComponent({
                 border-radius: 2.8rem;
                 background-color: $primaryGreen;
                 color: $primaryWhite;
-                font-size: 2rem;
+                font-size: 1.5rem;
+                line-height: 2.6rem;
                 text-align: center;
                 vertical-align: middle;
             }
@@ -168,7 +169,7 @@ export default defineComponent({
                         display: inline-block;
                         width: 5.6rem;
                         height: 2.6rem;
-                        font-size: 1.8rem;
+                        font-size: 1.5rem;
                         font-weight: 700;
                         vertical-align: middle;
                     }
@@ -211,7 +212,7 @@ export default defineComponent({
                         display: inline-block;
                         width: 3rem;
                         height: 3rem;
-                        font-size: 2.5rem;
+                        font-size: 1.5rem;
                         line-height: 2.9rem;
                         vertical-align: middle;
                         transition: all 0.3s;

@@ -68,7 +68,7 @@ export default defineComponent({
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 #Login {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: $primaryWhite;
 
@@ -129,7 +129,8 @@ export default defineComponent({
                     border-radius: 1.4rem;
                     background-color: $primaryGreen;
                     color: $primaryWhite;
-                    font-size: 2rem;
+                    font-size: 1.5rem;
+                    line-height: 2.8rem;
                     text-align: center;
                     vertical-align: middle;
                 }
@@ -177,7 +178,7 @@ export default defineComponent({
                             display: inline-block;
                             width: 7rem;
                             height: 2.5rem;
-                            font-size: 1.8rem;
+                            font-size: 1.5rem;
                             font-weight: 700;
                             vertical-align: middle;
                         }

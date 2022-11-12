@@ -1,5 +1,5 @@
 <template>
-    <div id="Aside" :style="{ width: asideFlag ? '12rem' : '5rem' }">
+    <div id="Aside" ref="aside" :style="{ width: asideFlag ? '12rem' : '5rem' }">
         <div class="circle" @click="asideFlag = !asideFlag"
             :style="{ transform: asideFlag ? 'rotate(0deg)' : 'rotate(180deg)' }">
             <i class="bi bi-caret-left-fill"></i>
@@ -14,7 +14,7 @@
             </div>
         </div>
         <ul>
-            <li v-for="(items, index) in optionList" key="index" :style="{ marginLeft: asideFlag ? '1rem' : '' }">
+            <li v-for="(items, index) in optionList" key="index" :style="liStyle">
                 <i :class="items.className"></i>
                 <span>{{ items.name }}</span>
             </li>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, reactive } from 'vue'
 
 export default defineComponent({
     setup() {
@@ -73,12 +73,21 @@ export default defineComponent({
             }
         ];
 
+        const liStyle = computed(() => {
+            return {
+                width: asideFlag.value ? '12rem' : '5rem',
+                marginLeft: asideFlag.value ? '1rem' : '',
+            }
+        })
+
+
+
         return {
             UserName,
             UserAccount,
             optionList,
             asideFlag,
-
+            liStyle
         }
     },
     components: {
@@ -94,7 +103,9 @@ export default defineComponent({
 
 #Aside {
     position: relative;
+    width: 12rem;
     padding: 2rem 0.5rem;
+    margin-right: 2rem;
     background-color: $primaryGreen;
     border-radius: $borRadiusBig;
     transition: all 0.3s;
@@ -163,13 +174,13 @@ export default defineComponent({
 
     ul {
         li {
-            width: 12rem;
             height: 2.5rem;
             margin-bottom: 1rem;
             padding: 0 1rem;
             border-radius: 1.25rem;
             cursor: pointer;
             transition: all 0.3s;
+            overflow: hidden;
 
             i {
                 display: inline-block;

@@ -1,24 +1,34 @@
 <template>
     <div id="Main">
-        <AsideVue></AsideVue>
-        <ContainerVue></ContainerVue>
+        <AsideVue class="asideVue"></AsideVue>
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import AsideVue from './aside/Aside.vue';
-import ContainerVue from './container/Container.vue';
 export default defineComponent({
     setup() {
 
+        let top = ref(0);
+        // function orderScroll() {
+        //     top.value = window.pageYOffset + 150;
+        // }
+        // onMounted(() => {
+        //     window.addEventListener('scroll', orderScroll)
+        // })
 
-        return {}
+        return {
+            top
+        }
     },
     components: {
         AsideVue,
-        ContainerVue
-    }
+    },
+
 })
 </script>
 
@@ -26,12 +36,20 @@ export default defineComponent({
 @import '../../../assets/style.scss';
 
 #Main {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
     width: 90rem;
     margin: 4rem auto 0;
-    padding: 2rem;
-    // background-color: blueviolet;
-    border: 1px solid #000;
+    padding: 2rem 0;
+
+
+    .asideVue {
+        position: fixed;
+    }
+
+    .container {
+        width: 70rem;
+        padding: 0 2rem;
+        margin-left: 12rem;
+    }
 }
 </style>
