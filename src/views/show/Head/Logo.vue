@@ -20,7 +20,7 @@ export default defineComponent({
 
 #Logo {
     @include posiAR(relative, 0, 0);
-    width: 10rem;
+    width: 12.5rem;
     height: 3rem;
     border-radius: $borRadiusSmall;
     overflow: hidden;

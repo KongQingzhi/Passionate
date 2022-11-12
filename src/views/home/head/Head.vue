@@ -23,6 +23,7 @@ export default defineComponent({
 @import '../../../assets/style.scss';
 
 #Head {
+    width: 100vw;
     height: 4rem;
     background-color: $primaryGreen;
 }

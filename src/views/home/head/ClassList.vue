@@ -29,6 +29,7 @@ export default defineComponent({
     @include disFlex(space-between, center);
     width: 50rem;
     height: 4rem;
+    padding: 0 5rem;
     font-size: 18px;
     cursor: pointer;
 

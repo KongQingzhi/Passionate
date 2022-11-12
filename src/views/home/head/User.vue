@@ -7,7 +7,6 @@
             <h3>{{ UserName }}</h3>
             <h5>{{ UserAccount }}</h5>
         </div>
-
     </div>
 </template>
 
@@ -67,8 +66,6 @@ export default defineComponent({
             font-size: 0.8rem;
             color: $primaryWhite;
         }
-
-
     }
 }
 </style>

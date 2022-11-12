@@ -1,6 +1,6 @@
 <template>
     <div id="Home">
-        <HeadVue></HeadVue>
+        <HeadVue class="HeadVue"></HeadVue>
         <MainVue></MainVue>
     </div>
 </template>
@@ -27,6 +27,11 @@ export default defineComponent({
 
 #Home {
     width: 100vw;
-    height: 100vh;
+
+    .HeadVue {
+        position: fixed;
+        top: 0;
+
+    }
 }
 </style>
