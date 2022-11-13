@@ -1,51 +1,80 @@
 <template>
-        <AticleVue v-for="items in list" :Info="items"></AticleVue>
+    <div id="Aticle">
+<div class="element">
+            <div class="elementTop">
+                <div class="elementTopUser">
+                    <div class="elementTopUserHeadImg">
+                        <img :src="list.headImg" alt="">
+                    </div>
+                    <div class="elementTopUserInfo">
+                        <div class="elementTopUserName">{{ list.name }}</div>
+                        <div class="elementTopUserAccount">{{ list.account }}</div>
+                    </div>
+                </div>
+                <button class="elementTopFocus">
+                    <div class="FocusContent">
+                        <i class="bi bi-plus-lg"></i>
+                        <span>关 注</span>
+                    </div>
+                </button>
+            </div>
+            <div class="elementMid">
+                <el-col :span="24">
+                    <el-carousel indicator-position="outside" height="25rem">
+                        <el-carousel-item v-for="item in list.src" :key="item">
+                            <div class="elementItems">
+                                <img :src="item" alt="">
+                            </div>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-col>
+            </div>
+            <div class="elementBottom">
+                <div class="elementBottomLeft">
+                    <span>发布时间</span>
+                    <span>{{ list.time }}</span>
+                </div>
+                <div class="elementBottomRight">
+                    <div class="elementBottomRightLike">
+                        <div class="left">
+                            <i v-if="list.likeFlag" class="bi bi-heart-fill"></i>
+                            <i v-else class="bi bi-heart"></i>
+                        </div>
+                        <div class="right">
+                            {{ list.likeNum }}
+                        </div>
+                    </div>
+                    <div class="elementBottomRightCollect">
+                        <div class="left">
+                            <i v-if="list.collectFlag" class="bi bi-star-fill"></i>
+                            <i v-else class="bi bi-star"></i>
+                        </div>
+                        <div class="right">
+                            {{ list.collectNum }}
+                        </div>
+                    </div>
+                    <button class="elementBottomcomments" @click="toComments(list)">
+                        <div class="commentsContent">
+                            <i class="bi bi-chat-square-text-fill"></i>
+                            <span>进入评论</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, onBeforeMount,ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import AticleVue from './Aticle.vue'
 export default defineComponent({
-    setup() {
-        const list = [
-            {
-                articleId: 1,
-                name: 'Trevor',
-                account: '123456789@qq.com',
-                headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-                time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
-            },
-            {
-                articleId: 1,
-                name: 'Trevor',
-                account: '123456789@qq.com',
-                headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-                time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
-            },
-            {
-                articleId: 1,
-                name: 'Trevor',
-                account: '123456789@qq.com',
-                headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-                time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
-            },
-        ]
+    props: {
+        Info: Object
+    },
+    setup(props) {
+        // let list = ref<any>(null);
+        let list: any = props.Info;
         const router = useRouter();
         const route = useRoute();
         const User = {
@@ -63,13 +92,18 @@ export default defineComponent({
             })
         }
 
+        // onBeforeMount(() => {
+        
+        //     console.log(props.Info);
+        //     // list.value = props.Info;
+        //     list = props.Info;
+        //     console.log(list);
+
+        // })
         return {
-            list,
-            toComments
+            toComments,
+            list
         }
-    },
-    components: {
-        AticleVue
     }
 })
 </script>
@@ -77,7 +111,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
-#ClassShow {
+#Aticle {
     width: 64rem;
 
     .element {
@@ -95,7 +129,6 @@ export default defineComponent({
             .elementTopUser {
                 width: 20rem;
                 @include disFlex(flex-start, center);
-                // margin: 1rem 0;
 
                 .elementTopUserHeadImg {
                     width: 4rem;
@@ -179,8 +212,6 @@ export default defineComponent({
             @include disFlex(space-between, center);
             height: 5rem;
             color: #333;
-            border: 1px solid #000;
-
 
             .elementBottomLeft {
                 @include disFlex(space-between, center);

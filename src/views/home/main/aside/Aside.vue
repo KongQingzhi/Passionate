@@ -109,6 +109,7 @@ export default defineComponent({
     background-color: $primaryGreen;
     border-radius: $borRadiusBig;
     transition: all 0.3s;
+    z-index: 99;
 
     .circle {
         position: absolute;

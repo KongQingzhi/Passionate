@@ -1,5 +1,6 @@
 import HomeVue from "../views/home/Home.vue";
 import ClassShowVue from "../views/home/main/Container/classShow/ClassShow.vue";
+import ClassShowCommentsVue from "../views/home/main/Container/classShow/ClassShowComments.vue";
 export default {
     name: "Home",
     path: "/home",
@@ -9,7 +10,11 @@ export default {
         {
             name: "ClassShow",
             path: "/classShow",
-            component: ClassShowVue
+            component: ClassShowVue,
+        }, {
+            name: "ClassShowComments",
+            path: "/classShowComments",
+            component: ClassShowCommentsVue,
         }
     ]
 }
