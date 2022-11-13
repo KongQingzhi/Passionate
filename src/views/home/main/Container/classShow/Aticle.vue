@@ -1,29 +1,13 @@
 <template>
     <div id="Aticle">
-<div class="element">
-            <div class="elementTop">
-                <div class="elementTopUser">
-                    <div class="elementTopUserHeadImg">
-                        <img :src="list.headImg" alt="">
-                    </div>
-                    <div class="elementTopUserInfo">
-                        <div class="elementTopUserName">{{ list.name }}</div>
-                        <div class="elementTopUserAccount">{{ list.account }}</div>
-                    </div>
-                </div>
-                <button class="elementTopFocus">
-                    <div class="FocusContent">
-                        <i class="bi bi-plus-lg"></i>
-                        <span>关 注</span>
-                    </div>
-                </button>
-            </div>
+        <div class="element">
+            <ArticleTopVue :articleTop="list"></ArticleTopVue>
             <div class="elementMid">
                 <el-col :span="24">
                     <el-carousel indicator-position="outside" height="25rem">
-                        <el-carousel-item v-for="item in list.src" :key="item">
+                        <el-carousel-item v-for="(items, index) in list.src" :key="index">
                             <div class="elementItems">
-                                <img :src="item" alt="">
+                                <img :src="items" alt="">
                             </div>
                         </el-carousel-item>
                     </el-carousel>
@@ -37,7 +21,7 @@
                 <div class="elementBottomRight">
                     <div class="elementBottomRightLike">
                         <div class="left">
-                            <i v-if="list.likeFlag" class="bi bi-heart-fill"></i>
+                            <i v-if="list.likeFlag == 1" class="bi bi-heart-fill"></i>
                             <i v-else class="bi bi-heart"></i>
                         </div>
                         <div class="right">
@@ -46,7 +30,7 @@
                     </div>
                     <div class="elementBottomRightCollect">
                         <div class="left">
-                            <i v-if="list.collectFlag" class="bi bi-star-fill"></i>
+                            <i v-if="list.collectFlag == 1" class="bi bi-star-fill"></i>
                             <i v-else class="bi bi-star"></i>
                         </div>
                         <div class="right">
@@ -66,15 +50,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeMount,ref } from 'vue'
+import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import ArticleTopVue from './ArticleTop.vue'
 export default defineComponent({
     props: {
-        Info: Object
+        articleInfo: Object
     },
     setup(props) {
-        // let list = ref<any>(null);
-        let list: any = props.Info;
+        let list: any = props.articleInfo;
         const router = useRouter();
         const route = useRoute();
         const User = {
@@ -91,19 +75,17 @@ export default defineComponent({
                 }
             })
         }
+        onMounted(() => {
+            console.log(list);
+        })
 
-        // onBeforeMount(() => {
-        
-        //     console.log(props.Info);
-        //     // list.value = props.Info;
-        //     list = props.Info;
-        //     console.log(list);
-
-        // })
         return {
             toComments,
             list
         }
+    },
+    components: {
+        ArticleTopVue
     }
 })
 </script>
@@ -113,13 +95,13 @@ export default defineComponent({
 
 #Aticle {
     width: 64rem;
-
     .element {
         width: 100%;
         margin-bottom: 1rem;
         padding: 2rem 4rem;
         background-color: #fff;
         border-radius: $borRadiusBig;
+        box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
 
         .elementTop {
             height: 5rem;

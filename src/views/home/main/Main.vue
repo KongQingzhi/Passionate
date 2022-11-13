@@ -48,7 +48,7 @@ export default defineComponent({
 
     .container {
         width: 70rem;
-        padding: 0 2rem;
+        padding: 0 3rem;
         margin-left: 12rem;
     }
 }

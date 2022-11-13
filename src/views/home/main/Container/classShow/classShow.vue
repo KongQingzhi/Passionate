@@ -1,5 +1,5 @@
 <template>
-        <AticleVue v-for="items in list" :Info="items"></AticleVue>
+    <AticleVue v-for="items in articleList" :articleInfo="items"></AticleVue>
 </template>
 
 <script lang="ts">
@@ -8,42 +8,42 @@ import { useRouter, useRoute } from 'vue-router'
 import AticleVue from './Aticle.vue'
 export default defineComponent({
     setup() {
-        const list = [
+        const articleList = [
             {
                 articleId: 1,
-                name: 'Trevor',
+                name: 'Trevor1',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                 src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
                 time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
+                likeNum: 1,
+                collectNum: 11,
+                likeFlag: 1,
+                collectFlag: 0
             },
             {
                 articleId: 1,
-                name: 'Trevor',
+                name: 'Trevor2',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                 src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-                time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
+                time: '2000-9-25',
+                likeNum: 2,
+                collectNum: 22,
+                likeFlag: 1,
+                collectFlag: 1
             },
             {
                 articleId: 1,
-                name: 'Trevor',
+                name: 'Trevor3',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
                 src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
                 time: '2000-10-22',
-                likeNum: 1223,
-                collectNum: 456,
-                likeFlag: true,
-                collectFlag: false
+                likeNum: 3,
+                collectNum: 33,
+                likeFlag: 0,
+                collectFlag: 0
             },
         ]
         const router = useRouter();
@@ -64,7 +64,7 @@ export default defineComponent({
         }
 
         return {
-            list,
+            articleList,
             toComments
         }
     },
@@ -79,176 +79,5 @@ export default defineComponent({
 
 #ClassShow {
     width: 64rem;
-
-    .element {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 2rem 4rem;
-        background-color: #fff;
-        border-radius: $borRadiusBig;
-
-        .elementTop {
-            height: 5rem;
-            margin-bottom: 2rem;
-            @include disFlex(space-between, center);
-
-            .elementTopUser {
-                width: 20rem;
-                @include disFlex(flex-start, center);
-                // margin: 1rem 0;
-
-                .elementTopUserHeadImg {
-                    width: 4rem;
-                    height: 4rem;
-                    border-radius: 2rem;
-                    margin-right: 1rem;
-                    overflow: hidden;
-
-                    img {
-                        width: 4rem;
-                        height: 4rem;
-                        object-fit: cover;
-                    }
-                }
-
-                .elementTopUserInfo {
-                    max-width: 15rem;
-                    overflow: hidden;
-
-                    .elementTopUserName {
-                        font-size: 2rem;
-                        font-weight: 700;
-                    }
-
-                    .elementTopUserAccount {
-                        font-size: 1rem;
-                    }
-                }
-            }
-
-            .elementTopFocus {
-                overflow: hidden;
-                cursor: pointer;
-
-                .FocusContent {
-                    width: 11.25rem;
-                    height: 2.5rem;
-                    transform: translateX(-5.625rem);
-                    transition: all 0.3s;
-
-                    i,
-                    span {
-                        display: inline-block;
-                        width: 5.625rem;
-                        height: 2.5rem;
-                    }
-
-                    i {
-                        font-size: 1.5rem;
-                        vertical-align: middle;
-                    }
-
-                    &:hover {
-                        transform: translateX(0);
-                    }
-                }
-
-            }
-        }
-
-        .elementMid {
-            height: 28rem;
-            padding-bottom: 3rem;
-
-            .elementItems {
-                text-align: center;
-                width: 56rem;
-                height: 25rem;
-
-
-                img {
-                    height: 25rem;
-                    object-fit: cover;
-                }
-            }
-
-
-        }
-
-        .elementBottom {
-            @include disFlex(space-between, center);
-            height: 5rem;
-            color: #333;
-            border: 1px solid #000;
-
-
-            .elementBottomLeft {
-                @include disFlex(space-between, center);
-                width: 11rem;
-            }
-
-            .elementBottomRight {
-                @include disFlex(space-between, center);
-                width: 25rem;
-
-                .elementBottomRightLike,
-                .elementBottomRightCollect {
-                    @include disFlex(space-between, center);
-                    width: 9rem;
-
-                    .left,
-                    .right {
-                        height: 3rem;
-                        line-height: 3rem;
-                        font-size: 1.5rem;
-                    }
-
-                    .left {
-                        width: 3rem;
-                        color: $primaryRed;
-                        line-height: 3rem;
-                        text-align: center;
-                        cursor: pointer;
-                    }
-
-                    .right {
-                        width: 6rem;
-                    }
-
-                }
-
-                .elementBottomcomments {
-                    overflow: hidden;
-                    cursor: pointer;
-
-                    .commentsContent {
-                        width: 11.25rem;
-                        height: 2.5rem;
-                        transform: translateX(-5.625rem);
-                        transition: all 0.3s;
-
-                        i,
-                        span {
-                            display: inline-block;
-                            width: 5.625rem;
-                            height: 2.5rem;
-                        }
-
-                        i {
-                            font-size: 1.5rem;
-                            vertical-align: middle;
-                        }
-
-                        &:hover {
-                            transform: translateX(0);
-                        }
-                    }
-                }
-
-
-            }
-        }
-
-    }
 }
 </style>
