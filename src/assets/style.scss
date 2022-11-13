@@ -71,3 +71,15 @@ input {
 li {
     list-style: none;
 }
+
+select {
+    outline: none;
+    letter-spacing: 0.1rem;
+
+    option {
+        display: inline-block;
+        
+        height: 3rem;
+        letter-spacing: 0.1rem;
+    }
+}

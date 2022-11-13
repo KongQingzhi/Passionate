@@ -57,7 +57,7 @@ export default defineComponent({
 
 #AticleTop {
     height: 5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     @include disFlex(space-between, center);
 
     .elementTopUser {
@@ -79,16 +79,20 @@ export default defineComponent({
         }
 
         .elementTopUserInfo {
+            height: 4rem;
+            margin-left: 0.5rem;
             max-width: 15rem;
             overflow: hidden;
 
             .elementTopUserName {
-                font-size: 2rem;
+                font-size: 1.3rem;
                 font-weight: 700;
+                line-height: 2.5rem;
             }
 
             .elementTopUserAccount {
                 font-size: 1rem;
+                line-height: 1.5rem;
             }
         }
     }
@@ -119,97 +123,6 @@ export default defineComponent({
                 transform: translateX(0);
             }
         }
-
-    }
-}
-
-.elementMid {
-    height: 28rem;
-    padding-bottom: 3rem;
-
-    .elementItems {
-        text-align: center;
-        width: 56rem;
-        height: 25rem;
-
-
-        img {
-            height: 25rem;
-            object-fit: cover;
-        }
-    }
-
-
-}
-
-.elementBottom {
-    @include disFlex(space-between, center);
-    height: 5rem;
-    color: #333;
-
-    .elementBottomLeft {
-        @include disFlex(space-between, center);
-        width: 11rem;
-    }
-
-    .elementBottomRight {
-        @include disFlex(space-between, center);
-        width: 25rem;
-
-        .elementBottomRightLike,
-        .elementBottomRightCollect {
-            @include disFlex(space-between, center);
-            width: 9rem;
-
-            .left,
-            .right {
-                height: 3rem;
-                line-height: 3rem;
-                font-size: 1.5rem;
-            }
-
-            .left {
-                width: 3rem;
-                color: $primaryRed;
-                line-height: 3rem;
-                text-align: center;
-                cursor: pointer;
-            }
-
-            .right {
-                width: 6rem;
-            }
-
-        }
-
-        .elementBottomcomments {
-            overflow: hidden;
-            cursor: pointer;
-
-            .commentsContent {
-                width: 11.25rem;
-                height: 2.5rem;
-                transform: translateX(-5.625rem);
-                transition: all 0.3s;
-
-                i,
-                span {
-                    display: inline-block;
-                    width: 5.625rem;
-                    height: 2.5rem;
-                }
-
-                i {
-                    font-size: 1.5rem;
-                    vertical-align: middle;
-                }
-
-                &:hover {
-                    transform: translateX(0);
-                }
-            }
-        }
-
 
     }
 }

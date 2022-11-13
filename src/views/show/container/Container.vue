@@ -2,10 +2,11 @@
     <div id="Container">
         <BannerVue></BannerVue>
         <TitleVue></TitleVue>
-        <SmallCardsVue></SmallCardsVue>
         <MidVue></MidVue>
-        <BigCardsVue></BigCardsVue>
+        <SmallCardsVue></SmallCardsVue>
         <MidSecondVue></MidSecondVue>
+        <BigCardsVue></BigCardsVue>
+        <MidThirdVue></MidThirdVue>
         <FooterVue></FooterVue>
     </div>
 </template>
@@ -17,6 +18,7 @@ import SmallCardsVue from './Cards/SmallCards.vue';
 import BigCardsVue from './Cards/BigCards.vue';
 import MidVue from './Mid/Mid.vue';
 import MidSecondVue from './Mid/MidSecond.vue';
+import MidThirdVue from './Mid/MidThird.vue';
 import FooterVue from './Footer/Foot.vue';
 
 import { defineComponent } from 'vue'
@@ -36,6 +38,7 @@ export default defineComponent({
         MidVue,
         BigCardsVue,
         MidSecondVue,
+        MidThirdVue,
         FooterVue
     }
 })

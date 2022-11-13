@@ -25,7 +25,7 @@ export default defineComponent({
         const title: string[] = ['研究生活细节', '分享美好时光'];
         const button: string = 'PASSIONATE---火热';
         function toBottom(): void {
-            document.documentElement.scrollTop = 905;
+            document.documentElement.scrollTop = 940;
         }
         return {
             title,

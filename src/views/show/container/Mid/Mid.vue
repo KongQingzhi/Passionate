@@ -1,26 +1,24 @@
 <template>
     <div id="Mid">
-        <div class="img">
-            <img src="../../../../assets/img/拍照.svg" alt="" height="500">
+        <div class="image">
+            <img src="../../../../assets//img/向日葵.svg" alt="">
         </div>
-        <div class="card" @click="toUser">
-            <div class="card-img">
-                <p class="first">在这里，你可以记录：</p>
-                <p>美食烹饪心得、美妆护肤评测；</p>
-                <p>影音书观后感、旅行风光游记；</p>
-                <p>住家收纳经验、手作心得教程；</p>
-                <p>绘画心路历程、铲屎官人日记......</p>
-            </div>
-            <div class="card-info">
-                <div class="card-text">
-                    <p class="text-title">研究生活细节</p>
-                    <p class="text-subtitle">分享美好时光</p>
+        <div class="left">
+            <div class="mask">
+                <div class="top">珍惜每一个相遇的灵魂</div>
+                <div class="bottom">
+                    <span>享受文字尽情放飞灵魂；</span>
+                    <span>世界很美,而你正好有空</span>
                 </div>
-                <div class="card-icon">
-                    <svg viewBox="0 0 28 25">
-                        <path d="M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z">
-                        </path>
-                    </svg>
+            </div>
+        </div>
+       
+        <div class="right">
+            <div class="mask">
+                <div class="top">铭记每一刻难忘的瞬间</div>
+                <div class="bottom">
+                    <span>活在云里雾里总好过活得云里雾里</span>
+                    <span>生活没有剧本,每个人都有自己的活法</span>
                 </div>
             </div>
         </div>
@@ -53,99 +51,84 @@ export default defineComponent({
 @import '../../../../assets/style.scss';
 
 #Mid {
+    @include disFlex(space-around, center);
     width: 100%;
-    height: 48rem;
-    padding: 8rem 3.1rem;
+    height: 40rem;
+    padding: 0 9.3rem;
+    margin-bottom: 8rem;
     background-color: $primaryGreen;
-    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
-    transition: all 0.3s;
+    border-radius: $borRadiusBig;
 
-    .img {
-        float: left;
-        width: 31rem;
-        height: 31rem;
+    .image{
+        margin:0 5rem;
     }
-
-    .card {
+    .left,
+    .right {
         position: relative;
-        float: right;
-        padding: 1.875rem 0;
-        margin: 3.125rem 9.375rem;
-        width: 18.75rem;
-        height: 25rem;
-        background: $primaryWhite;
-        transition: box-shadow .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border-radius: $borRadiusBig;
+        width: 12rem;
+        height: 40rem;
+        // background-color: $primaryWhite;
+        background-color: $primaryRed;
         overflow: hidden;
 
-        .card-img {
-            position: absolute;
-            padding: 1.25rem;
-            height: 100%;
-            width: 100%;
+        .mask {
+            @include posiAR(absolute, 0, 0);
+            width: 12rem;
+            height: 80rem;
+            padding: 0 2rem;
+            transition: all 0.5s;
 
-
-            .first {
-                font-size: 1.375rem;
+            .top {
+                height: 40rem;
+                padding: 0 2.5rem;
+                font-size: 3rem;
                 font-weight: 700;
-                color: $primaryDeepBlue;
-                margin-bottom: 1.875rem;
+                color: $primaryWhite;
+                text-align: center;
             }
 
-            p {
-                line-height: 1.875rem;
-                font-size: 1rem;
-                color: $primaryDeepBlue;
-            }
-        }
+            .bottom {
+                height: 40rem;
+                padding: 10rem 0.5rem;
+                color: $primaryWhite;
 
-        .card-info {
-            position: absolute;
-            bottom: 20px;
-            @include disFlex(space-between, flex-end);
-            width: 100%;
-            padding: 1rem;
+                span:nth-child(1) {
+                    display: inline-block;
+                    margin-bottom: 2.5rem;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    letter-spacing: 0.2rem;
+                }
 
-            .card-icon {
-                opacity: 0;
-                transform: translateX(-20%);
-                width: 2em;
-                height: 2em;
-                transition: all .3s ease-in-out;
-
-                svg {
-                    width: 1.25rem;
-                    height: 1.25rem;
-
+                span:nth-child(2) {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    letter-spacing: 0.2rem;
                 }
             }
-
-            p {
-                line-height: 140%;
-                color: $primaryDeepBlue;
-            }
-
-            .text-title {
-                font-weight: 900;
-                font-size: 1.125rem;
-
-            }
-
-            .text-subtitle {
-                font-weight: 500;
-                font-size: 1rem;
-            }
-
         }
+    }
 
-        &:hover .card-icon {
-            opacity: 1;
-            transform: translateX(20%);
-        }
+    .right .mask {
+        top: -40rem;
+    }
+
+    .left .mask {
+        top: 0rem;
     }
 
     &:hover {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        .right .mask {
+            top: 0rem;
+        }
+
+        .left .mask {
+            top: -40rem;
+        }
     }
+
+
+
+
 }
 </style>

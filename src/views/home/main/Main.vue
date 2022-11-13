@@ -12,17 +12,16 @@ import { defineComponent, onMounted, ref } from 'vue';
 import AsideVue from './aside/Aside.vue';
 export default defineComponent({
     setup() {
-
-        let top = ref(0);
+        // let top = ref(0);
         // function orderScroll() {
         //     top.value = window.pageYOffset + 150;
         // }
         // onMounted(() => {
         //     window.addEventListener('scroll', orderScroll)
         // })
-
+        
         return {
-            top
+            // top
         }
     },
     components: {

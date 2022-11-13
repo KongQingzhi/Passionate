@@ -20,8 +20,8 @@ export default defineComponent({
         function toBottom(index: number): void {
             switch (index) {
                 case 0: document.documentElement.scrollTop = 0; break;
-                case 1: document.documentElement.scrollTop = 1380; break;
-                case 2: document.documentElement.scrollTop = 2900; break;
+                case 1: document.documentElement.scrollTop = 2130; break;
+                case 2: document.documentElement.scrollTop = 5000; break;
             }
         }
 

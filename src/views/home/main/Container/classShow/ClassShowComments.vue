@@ -19,9 +19,7 @@
                     </div>
                 </button>
             </div>
-            <textarea  class="myCommentsBottom">
-
-            </textarea>
+            <textarea rows="10" cols="50" class="myCommentsBottom" placeholder="请输入评论"></textarea>
         </div>
         <CommentsVue v-for="(items, index) in comments" :articleInfo="articleInfo" :commentsInfo="items"></CommentsVue>
     </div>
@@ -61,7 +59,7 @@ export default defineComponent({
             },
         ]
         onMounted(() => {
-            console.log(articleInfo);
+            // console.log(articleInfo);
         })
 
         return {
@@ -80,10 +78,9 @@ export default defineComponent({
 @import '../../../../../assets/style.scss';
 
 #ClassShowcomments {
-
+    width: 64rem;
 
     .myComments {
-        width: 64rem;
         padding: 1rem 4rem;
         margin-bottom: 2rem;
         background-color: #fff;
@@ -114,16 +111,20 @@ export default defineComponent({
                 }
 
                 .elementTopUserInfo {
+                    height: 4rem;
+                    margin-left: 0.5rem;
                     max-width: 15rem;
                     overflow: hidden;
 
                     .elementTopUserName {
-                        font-size: 2rem;
+                        font-size: 1.3rem;
                         font-weight: 700;
+                        line-height: 2.5rem;
                     }
 
                     .elementTopUserAccount {
                         font-size: 1rem;
+                        line-height: 1.5rem;
                     }
                 }
             }
@@ -158,11 +159,17 @@ export default defineComponent({
         }
 
         .myCommentsBottom {
-            padding: 1rem 2rem;
+            width: 100%;
+            height: 10rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
             border-radius: $borRadiusBig;
             border: 2px solid #f3f3f3;
+            outline: none;
+            font-size: 1rem;
+            font-family: 'Microsoft YaHei';
+            resize: none;
         }
-
     }
 }
 </style>

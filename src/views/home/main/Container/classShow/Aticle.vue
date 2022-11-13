@@ -37,7 +37,7 @@
                             {{ list.collectNum }}
                         </div>
                     </div>
-                    <button class="elementBottomcomments" @click="toComments(list)">
+                    <button class="elementBottomComments" @click="toComments(list)">
                         <div class="commentsContent">
                             <i class="bi bi-chat-square-text-fill"></i>
                             <span>进入评论</span>
@@ -76,7 +76,7 @@ export default defineComponent({
             })
         }
         onMounted(() => {
-            console.log(list);
+            // console.log(list);
         })
 
         return {
@@ -95,6 +95,7 @@ export default defineComponent({
 
 #Aticle {
     width: 64rem;
+
     .element {
         width: 100%;
         margin-bottom: 1rem;
@@ -103,74 +104,7 @@ export default defineComponent({
         border-radius: $borRadiusBig;
         box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
 
-        .elementTop {
-            height: 5rem;
-            margin-bottom: 2rem;
-            @include disFlex(space-between, center);
-
-            .elementTopUser {
-                width: 20rem;
-                @include disFlex(flex-start, center);
-
-                .elementTopUserHeadImg {
-                    width: 4rem;
-                    height: 4rem;
-                    border-radius: 2rem;
-                    margin-right: 1rem;
-                    overflow: hidden;
-
-                    img {
-                        width: 4rem;
-                        height: 4rem;
-                        object-fit: cover;
-                    }
-                }
-
-                .elementTopUserInfo {
-                    max-width: 15rem;
-                    overflow: hidden;
-
-                    .elementTopUserName {
-                        font-size: 2rem;
-                        font-weight: 700;
-                    }
-
-                    .elementTopUserAccount {
-                        font-size: 1rem;
-                    }
-                }
-            }
-
-            .elementTopFocus {
-                overflow: hidden;
-                cursor: pointer;
-
-                .FocusContent {
-                    width: 11.25rem;
-                    height: 2.5rem;
-                    transform: translateX(-5.625rem);
-                    transition: all 0.3s;
-
-                    i,
-                    span {
-                        display: inline-block;
-                        width: 5.625rem;
-                        height: 2.5rem;
-                    }
-
-                    i {
-                        font-size: 1.5rem;
-                        vertical-align: middle;
-                    }
-
-                    &:hover {
-                        transform: translateX(0);
-                    }
-                }
-
-            }
-        }
-
+       
         .elementMid {
             height: 28rem;
             padding-bottom: 3rem;
@@ -180,14 +114,11 @@ export default defineComponent({
                 width: 56rem;
                 height: 25rem;
 
-
                 img {
                     height: 25rem;
                     object-fit: cover;
                 }
             }
-
-
         }
 
         .elementBottom {
@@ -213,7 +144,6 @@ export default defineComponent({
                     .right {
                         height: 3rem;
                         line-height: 3rem;
-                        font-size: 1.5rem;
                     }
 
                     .left {
@@ -222,15 +152,16 @@ export default defineComponent({
                         line-height: 3rem;
                         text-align: center;
                         cursor: pointer;
+                        font-size: 1.5rem;
                     }
 
                     .right {
                         width: 6rem;
+                        font-size: 1.1rem;
                     }
-
                 }
 
-                .elementBottomcomments {
+                .elementBottomComments {
                     overflow: hidden;
                     cursor: pointer;
 
@@ -257,11 +188,8 @@ export default defineComponent({
                         }
                     }
                 }
-
-
             }
         }
-
     }
 }
 </style>

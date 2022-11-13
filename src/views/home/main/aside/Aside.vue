@@ -8,7 +8,7 @@
             <div class="userHeadImg">
                 <img src="../../../../assets/UserHeadImg/male.svg" alt="UserHeadImage">
             </div>
-            <div class="userInfo" :style="{ height: asideFlag ? '3rem' : '0rem' }">
+            <div class="userInfo" :style="{ height: asideFlag ? '4rem' : '0rem' }">
                 <h3>{{ UserName }}</h3>
                 <h5>{{ UserAccount }}</h5>
             </div>
