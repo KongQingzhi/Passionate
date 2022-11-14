@@ -1,10 +1,14 @@
 <template>
-    <div id="Aticle">
-        <div class="element">
-            <ArticleTopVue :articleTop="list"></ArticleTopVue>
-            <AticleMidVue :articleMid="list"></AticleMidVue>
-            <AticleBottomVue :articleBottom="list"></AticleBottomVue>
-        </div>
+    <div id="AticleMid">
+        <el-col :span="24">
+            <el-carousel indicator-position="outside" height="25rem">
+                <el-carousel-item v-for="(items, index) in list.src" :key="index">
+                    <div class="elementItems">
+                        <img :src="items" alt="">
+                    </div>
+                </el-carousel-item>
+            </el-carousel>
+        </el-col>
     </div>
 </template>
 
@@ -12,14 +16,12 @@
 import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import ArticleTopVue from './ArticleTop.vue'
-import AticleMidVue from './AticleMid.vue'
-import AticleBottomVue from './AticleBottom.vue'
 export default defineComponent({
     props: {
-        articleInfo: Object
+        articleMid: Object
     },
     setup(props) {
-        let list: any = props.articleInfo;
+        let list: any = props.articleMid;
         const router = useRouter();
         const route = useRoute();
         const User = {
@@ -37,6 +39,8 @@ export default defineComponent({
             })
         }
         onMounted(() => {
+
+
             // console.log(list);
         })
 
@@ -46,9 +50,7 @@ export default defineComponent({
         }
     },
     components: {
-        ArticleTopVue,
-        AticleMidVue,
-        AticleBottomVue
+        ArticleTopVue
     }
 })
 </script>
@@ -56,16 +58,22 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
-#Aticle {
-    width: 64rem;
 
-    .element {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 2rem 4rem;
-        background-color: #fff;
-        border-radius: $borRadiusBig;
-        box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
+
+#AticleMid {
+    height: 28rem;
+    margin: 0 4rem;
+    padding-bottom: 3rem;
+
+    .elementItems {
+        text-align: center;
+        width: 56rem;
+        height: 25rem;
+
+        img {
+            height: 25rem;
+            object-fit: cover;
+        }
     }
 }
 </style>
