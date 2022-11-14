@@ -43,6 +43,7 @@ export default defineComponent({
 
     .asideVue {
         position: fixed;
+        top: 12rem;
     }
 
     .container {

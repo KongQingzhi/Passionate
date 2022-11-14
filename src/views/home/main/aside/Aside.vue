@@ -45,10 +45,10 @@ export default defineComponent({
                 // className: 'bi bi-send-check-fill',
                 name: '已发布'
             },
-            {
-                className: 'bi bi-info-circle-fill',
-                name: '信息'
-            },
+            // {
+            //     className: 'bi bi-info-circle-fill',
+            //     name: '信息'
+            // },
             {
                 className: 'bi bi-clipboard2-check-fill',
                 name: '我的'
@@ -67,10 +67,11 @@ export default defineComponent({
             }, {
                 className: 'bi bi-heart-fill',
                 name: '喜欢'
-            }, {
-                className: 'bi bi-chat-dots-fill',
-                name: '消息'
-            }
+            },
+            // {
+            //     className: 'bi bi-chat-dots-fill',
+            //     name: '消息'
+            // }
         ];
 
         const liStyle = computed(() => {
@@ -79,9 +80,6 @@ export default defineComponent({
                 marginLeft: asideFlag.value ? '1rem' : '',
             }
         })
-
-
-
         return {
             UserName,
             UserAccount,

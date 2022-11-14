@@ -1,133 +1,120 @@
 <template>
     <div id="Information">
-        <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm"
-            :size="formSize" status-icon>
-            <el-form-item label="Activity name" prop="name">
-                <el-input v-model="ruleForm.name" />
-            </el-form-item>
-            <el-form-item label="Activity zone" prop="region">
-                <el-select v-model="ruleForm.region" placeholder="Activity zone">
-                    <el-option label="Zone one" value="shanghai" />
-                    <el-option label="Zone two" value="beijing" />
-                </el-select>
-            </el-form-item>
-            <el-form-item label="Activity count" prop="count">
-                <el-select-v2 v-model="ruleForm.count" placeholder="Activity count" :options="options" />
-            </el-form-item>
-            <el-form-item label="Activity time" required>
-                <el-col :span="11">
-                    <el-form-item prop="date1">
-                        <el-date-picker v-model="ruleForm.date1" type="date" label="Pick a date"
-                            placeholder="Pick a date" style="width: 100%" />
+        <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="5rem" class="demo-ruleForm"
+            status-icon>
+            <el-col :span="24">
+                <div class="image">
+                    <img src="../../../../../assets/img/交流.svg" width="192" alt="">
+                    <input type="file">
+                </div>
+                <p>点击更换头像</p>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="昵 称" prop="name">
+                    <el-input v-model="ruleForm.name" placeholder="王 磊" />
+                </el-form-item>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="账 号" prop="account">
+                    <el-input disabled="false" v-model="ruleForm.account" />
+                </el-form-item>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="性 别" prop="gender">
+                    <el-radio-group v-model="ruleForm.gender">
+                        <el-radio label="小哥哥" />
+                        <el-radio label="小姐姐" />
+                    </el-radio-group>
+                </el-form-item>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="生 日" required>
+                    <el-form-item prop="birthday">
+                        <el-date-picker v-model="ruleForm.birthday" type="date" placeholder="请选择"
+                            style="width: 255px;" />
                     </el-form-item>
-                </el-col>
-                <el-col class="text-center" :span="2">
-                    <span class="text-gray-500">-</span>
-                </el-col>
-                <el-col :span="11">
-                    <el-form-item prop="date2">
-                        <el-time-picker v-model="ruleForm.date2" label="Pick a time" placeholder="Pick a time"
-                            style="width: 100%" />
-                    </el-form-item>
-                </el-col>
-            </el-form-item>
-            <el-form-item label="Instant delivery" prop="delivery">
-                <el-switch v-model="ruleForm.delivery" />
-            </el-form-item>
-            <el-form-item label="Activity type" prop="type">
-                <el-checkbox-group v-model="ruleForm.type">
-                    <el-checkbox label="Online activities" name="type" />
-                    <el-checkbox label="Promotion activities" name="type" />
-                    <el-checkbox label="Offline activities" name="type" />
-                    <el-checkbox label="Simple brand exposure" name="type" />
-                </el-checkbox-group>
-            </el-form-item>
-            <el-form-item label="Resources" prop="resource">
-                <el-radio-group v-model="ruleForm.resource">
-                    <el-radio label="Sponsorship" />
-                    <el-radio label="Venue" />
-                </el-radio-group>
-            </el-form-item>
-            <el-form-item label="Activity form" prop="desc">
-                <el-input v-model="ruleForm.desc" type="textarea" />
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="submitForm(ruleFormRef)">Create</el-button>
-                <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-            </el-form-item>
+                </el-form-item>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="家 乡" prop="hometown">
+                    <el-input v-model="ruleForm.hometown" placeholder="嘉祥" />
+                </el-form-item>
+            </el-col>
+            <el-col :span="24">
+                <el-form-item label="签 名" prop="desc">
+                    <el-input v-model="ruleForm.desc" type="textarea" />
+                </el-form-item>
+            </el-col>
         </el-form>
+        <div class="formBottom">
+            <button @click="submitForm(ruleFormRef)">
+                <div class="content">
+                    <i class="bi bi-check-lg"></i>
+                    <span>保 存</span>
+                </div>
+            </button>
+            <button @click="resetForm(ruleFormRef)">
+                <div class="content">
+                    <i class="bi bi-trash-fill"></i>
+                    <span>取 消</span>
+                </div>
+            </button>
+        </div>
+        <div class="mask">
+            <img src="../../../../../assets/img/堆雪人.svg" alt="">
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { defineComponent, reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-    name: 'Hello',
-    region: '',
-    count: '',
-    date1: '',
-    date2: '',
-    delivery: false,
-    type: [],
-    resource: '',
+    name: '',
+    account: '12345678@qq.com',
+    gender: '',
+    birthday: '',
+    hometown: '',
     desc: '',
 })
 
 const rules = reactive<FormRules>({
     name: [
-        { required: true, message: 'Please input Activity name', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    region: [
         {
             required: true,
-            message: 'Please select Activity zone',
+            message: '请输入昵称',
+            trigger: 'blur'
+        },
+    ],
+    gender: [
+        {
+            required: true,
+            message: '请选择性别',
             trigger: 'change',
         },
     ],
-    count: [
-        {
-            required: true,
-            message: 'Please select Activity count',
-            trigger: 'change',
-        },
-    ],
-    date1: [
+    birthday: [
         {
             type: 'date',
             required: true,
-            message: 'Please pick a date',
+            message: '请选择生日',
             trigger: 'change',
         },
     ],
-    date2: [
-        {
-            type: 'date',
-            required: true,
-            message: 'Please pick a time',
-            trigger: 'change',
-        },
-    ],
-    type: [
-        {
-            type: 'array',
-            required: true,
-            message: 'Please select at least one activity type',
-            trigger: 'change',
-        },
-    ],
-    resource: [
+    hometown: [
         {
             required: true,
-            message: 'Please select activity resource',
+            message: '请输入家乡',
             trigger: 'change',
         },
     ],
     desc: [
-        { required: true, message: 'Please input activity form', trigger: 'blur' },
+        {
+            required: true,
+            message: '请输入个性签名',
+            trigger: 'blur'
+        },
     ],
 })
 
@@ -147,20 +134,116 @@ const resetForm = (formEl: FormInstance | undefined) => {
     formEl.resetFields()
 }
 
-const options = Array.from({ length: 10000 }).map((_, idx) => ({
-    value: `${idx + 1}`,
-    label: `${idx + 1}`,
-}))
 </script>
 
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
 #Information {
+    position: relative;
     width: 64rem;
     padding: 2rem 4rem;
     background-color: #fff;
     border-radius: $borRadiusBig;
     box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
+    overflow: hidden;
+
+    .demo-ruleForm {
+        width: 21rem;
+
+        .image {
+            position: relative;
+            width: 12rem;
+            height: 12rem;
+            margin: 0 4.5rem;
+            margin-bottom: 1rem;
+            border-radius: 6rem;
+            overflow: hidden;
+            text-align: center;
+            border: 0.2rem solid #f3f3f3;
+
+            img {
+                @include posiAR(absolute, 0, 0);
+                object-fit: cover;
+                // z-index: 99;
+            }
+
+            input {
+                @include posiAR(absolute, -2rem, 0);
+                height: 14rem;
+            }
+        }
+
+        p {
+            text-align: center;
+            color: #606266;
+            font-size: 0.75rem;
+            letter-spacing: 0.1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .formBottom {
+        width: 23rem;
+        margin-top: 2rem;
+        padding: 0 4rem;
+        @include disFlex(space-between, center);
+
+        button {
+            width: 7rem;
+            overflow: hidden;
+
+            .content {
+                width: 14rem;
+                height: 2.5rem;
+                transform: translateX(-7rem);
+                transition: all 0.5s;
+
+                i {
+                    display: inline-block;
+                    width: 7rem;
+                    height: 2.5rem;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    vertical-align: middle;
+                }
+
+                span {
+                    display: inline-block;
+                    width: 7rem;
+                    height: 2.5rem;
+                    line-height: 2.5rem;
+                    font-size: 1rem;
+                }
+            }
+
+            &:hover .content {
+                transform: translateX(0);
+            }
+
+            &:hover {
+                box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.1);
+            }
+
+            &:active {
+                transform: translateY(0rem);
+                box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.2);
+            }
+        }
+    }
+
+    .mask {
+        @include posiAR(absolute, -4rem, 32rem);
+        width: 40rem;
+        height: 40rem;
+        border-radius: 20rem;
+        background-color: $primaryGreen;
+
+        img {
+            width: 35rem;
+            @include posiAR(absolute, 14rem, -2rem);
+        }
+    }
+
 }
 </style>
