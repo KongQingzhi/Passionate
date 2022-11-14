@@ -1,10 +1,8 @@
 <template>
     <div id="Aticle">
-        <div class="element">
             <ArticleTopVue :articleTop="list"></ArticleTopVue>
             <AticleMidVue :articleMid="list"></AticleMidVue>
             <AticleBottomVue :articleBottom="list"></AticleBottomVue>
-        </div>
     </div>
 </template>
 
@@ -58,14 +56,10 @@ export default defineComponent({
 
 #Aticle {
     width: 64rem;
-
-    .element {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 2rem 4rem;
-        background-color: #fff;
-        border-radius: $borRadiusBig;
-        box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
-    }
+    margin-bottom: 1rem;
+    padding: 2rem 4rem;
+    background-color: #fff;
+    border-radius: $borRadiusBig;
+    box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
 }
 </style>

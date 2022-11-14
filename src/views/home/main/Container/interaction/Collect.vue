@@ -1,18 +1,18 @@
 <template>
-    <div id="ClassShow">
-        <AticleVue v-for="items in articleList" :key="items.articleId" :articleInfo="items"></AticleVue>
+    <div id="Collect">
+        <ArticleVue v-for="items in likeList" :key="items.articleId" :articleInfo="items"></ArticleVue>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import AticleVue from './Aticle.vue'
+import ArticleVue from "../classShow/Aticle.vue"
 export default defineComponent({
     setup() {
-        const articleList = [
+        const likeList = [
             {
                 articleId: 1,
+                articleClass: '搞笑',
                 name: 'Trevor1',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -25,6 +25,7 @@ export default defineComponent({
             },
             {
                 articleId: 1,
+                articleClass: '生活',
                 name: 'Trevor2',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -37,6 +38,7 @@ export default defineComponent({
             },
             {
                 articleId: 1,
+                articleClass: '新鲜',
                 name: 'Trevor3',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -48,30 +50,12 @@ export default defineComponent({
                 collectFlag: 0
             },
         ]
-        const router = useRouter();
-        const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
-
-        function toComments(items: object) {
-            router.push({
-                name: 'ClassShowComments',
-                query: {
-                    ...items, ...User
-                }
-            })
-        }
-
         return {
-            articleList,
-            toComments
+            likeList
         }
     },
     components: {
-        AticleVue
+        ArticleVue
     }
 })
 </script>
@@ -79,7 +63,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
-#ClassShow {
+#Collect {
     width: 64rem;
 }
 </style>

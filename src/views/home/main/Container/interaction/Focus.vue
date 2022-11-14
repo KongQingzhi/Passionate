@@ -1,18 +1,21 @@
 <template>
-    <div id="ClassShow">
-        <AticleVue v-for="items in articleList" :key="items.articleId" :articleInfo="items"></AticleVue>
+    <div id="Focus">
+        <!-- <UserCardsVue v-for=" in 5"></UserCardsVue> -->
+        <div class="focusElement" v-for="(items, index) in focusList">
+            <ArticleTopVue :articleTop="items"></ArticleTopVue>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import AticleVue from './Aticle.vue'
+import ArticleTopVue from '../classShow/ArticleTop.vue';
 export default defineComponent({
     setup() {
-        const articleList = [
+        const focusList = [
             {
                 articleId: 1,
+                articleClass: '搞笑',
                 name: 'Trevor1',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -25,6 +28,7 @@ export default defineComponent({
             },
             {
                 articleId: 1,
+                articleClass: '生活',
                 name: 'Trevor2',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -37,6 +41,7 @@ export default defineComponent({
             },
             {
                 articleId: 1,
+                articleClass: '新鲜',
                 name: 'Trevor3',
                 account: '123456789@qq.com',
                 headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
@@ -48,30 +53,13 @@ export default defineComponent({
                 collectFlag: 0
             },
         ]
-        const router = useRouter();
-        const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
-
-        function toComments(items: object) {
-            router.push({
-                name: 'ClassShowComments',
-                query: {
-                    ...items, ...User
-                }
-            })
-        }
 
         return {
-            articleList,
-            toComments
+            focusList
         }
     },
     components: {
-        AticleVue
+        ArticleTopVue
     }
 })
 </script>
@@ -79,7 +67,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
-#ClassShow {
+#Focus {
     width: 64rem;
+    display: flex;
+    flex-wrap: wrap;
+
+
+    .focusElement {
+        width: 30rem;
+        margin:0 0 1rem 2rem;
+        padding: 2rem 2rem 1rem;
+        background-color: #fff;
+        border-radius: $borRadiusBig;
+        box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
+    }
 }
 </style>

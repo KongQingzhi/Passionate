@@ -62,7 +62,6 @@ export default defineComponent({
 
 #AticleMid {
     height: 28rem;
-    margin: 0 4rem;
     padding-bottom: 3rem;
 
     .elementItems {
