@@ -28,7 +28,6 @@
                                 <span>获 取</span>
                             </div>
                             <span v-else>{{ countdown }}s后重新获取</span>
-
                         </button>
                     </div>
                     <div class="tip">
@@ -119,7 +118,6 @@ export default defineComponent({
         }
 
         function toRigster() {
-            console.log(VerificateCode.value, VerificateCodeRes.value);
             if (VerificateCode.value == '' || VerificateCodeRes.value == '') {
                 tipText.value = '验证码不能为空，请输入验证码';
                 tipFlag.value = true;
@@ -313,7 +311,7 @@ export default defineComponent({
 
         .operation {
             @include disFlex(center, center);
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
             height: 3rem;
 
             button {

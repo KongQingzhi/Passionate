@@ -6,44 +6,48 @@
             </div>
             <div class="form">
                 <h3><span>找回密码</span></h3>
-                <div class="account">
-                    <i class="bi bi-envelope-fill"></i>
-                    <input type="emmail" ref="input" placeholder="邮箱">
-                </div>
-                <div class="verificate">
-                    <i class="bi bi-person-check-fill"></i>
-                    <input type="text" ref="input" placeholder="验证码">
-                    <button class="obtain">
-                        <div v-if="!isDisabled" class="content">
-                            <i class="bi bi-arrow-right"></i>
-                            <span>获 取</span>
-                        </div>
-                        <span v-else>{{ countdown }}s后重新获取</span>
-                    </button>
-                </div>
-                <div class="passwordFirst">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="password" ref="input" placeholder="新密码">
-                </div>
-                <div class="passwordSecond">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="text" ref="input" placeholder="确认密码">
-                </div>
-
-                <div class="operation">
-                    <button @click="toUser">
-                        <div class="content">
-                            <i class="bi bi-arrow-left-circle-fill"></i>
-                            <span>去登陆</span>
-                        </div>
-                    </button>
-                    <button @click="toFindPassword">
-                        <div class="content">
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                            <span>找回</span>
-                        </div>
-                    </button>
-                </div>
+                <form>
+                    <div class="account">
+                        <i class="bi bi-envelope-fill"></i>
+                        <input type="email" v-model="UserAccount" ref="input" placeholder="邮箱" required>
+                    </div>
+                    <div class="passwordFirst">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <input type="password" v-model="UserPassword" ref="input" placeholder="新密码" required>
+                    </div>
+                    <div class="passwordSecond">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <input type="password" ref="input" v-model="UserPasswordSecond" placeholder="确认新密码" required>
+                    </div>
+                    <div class="verificate">
+                        <i class="bi bi-person-check-fill"></i>
+                        <input type="text" ref="input" v-model="VerificateCode" placeholder="验证码">
+                        <button :disabled="isDisabled" class="obtain" @click="toVerificate">
+                            <div v-if="!isDisabled" class="content">
+                                <i class="bi bi-arrow-right"></i>
+                                <span>获 取</span>
+                            </div>
+                            <span v-else>{{ countdown }}s后重新获取</span>
+                        </button>
+                    </div>
+                    <div class="tip">
+                        <span v-show="tipFlag">{{ tipText }}</span>
+                    </div>
+                    <div class="operation">
+                        <button @click="toUser">
+                            <div class="content">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                                <span>去登陆</span>
+                            </div>
+                        </button>
+                        <button @click="toFindPassword">
+                            <div class="content">
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                                <span>找回</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -107,6 +111,8 @@ export default defineComponent({
                     }
                 }, 1000)
                 api.verificate({ UserAccount: UserAccount.value }).then(res => {
+                    console.log(res.data);
+
                     VerificateCodeRes.value = res.data;
                 })
             }
@@ -114,6 +120,7 @@ export default defineComponent({
 
         function toFindPassword() {
             console.log(VerificateCode.value, VerificateCodeRes.value);
+
             if (VerificateCode.value == '' || VerificateCodeRes.value == '') {
                 tipText.value = '验证码不能为空，请输入验证码';
                 tipFlag.value = true;
@@ -128,15 +135,16 @@ export default defineComponent({
                         tipFlag.value = false;
                     }, 2000)
                 } else {
-                    api.register({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
+                    api.findPassword({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
                         if (res.data == false) {
-                            tipText.value = '账号已存在，请找回密码';
+                            tipText.value = '找回密码失败';
                             tipFlag.value = true;
                             setTimeout(() => {
                                 tipFlag.value = false;
                             }, 2000)
                         } else {
                             api.login({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
+                                alert('密码修改成功');
                                 const data = res.data;
                                 router.push({
                                     name: 'Home',
@@ -293,9 +301,18 @@ export default defineComponent({
             }
         }
 
+        .tip {
+            margin-top: 1rem;
+            height: 1rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            text-align: center;
+            color: $primaryRed;
+        }
+
         .operation {
             @include disFlex(center, center);
-            margin-top: 2.5rem;
+            margin-top: 1.5rem;
             height: 3rem;
 
             button {
