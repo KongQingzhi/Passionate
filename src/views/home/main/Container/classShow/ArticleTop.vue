@@ -11,8 +11,10 @@
         </div>
         <button class="elementTopFocus">
             <div class="FocusContent">
-                <i class="bi bi-plus-lg"></i>
-                <span>关 注</span>
+                <slot>
+                    <i class="bi bi-plus-lg"></i>
+                    <span>关 注</span>
+                </slot>
             </div>
         </button>
     </div>

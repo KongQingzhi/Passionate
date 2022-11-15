@@ -6,40 +6,79 @@
             </div>
             <div class="form">
                 <h3><span>登 录</span></h3>
-                <div class="account">
-                    <i class="bi bi-person-circle"></i>
-                    <input type="email" ref="input" placeholder="邮箱">
-                </div>
-                <div class="password">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="password" ref="input" placeholder="密码">
-                </div>
-                <div class="operation">
-                    <span @click="toLogin">去注册</span>
-                    <span @click="toFindPassword">忘记密码？</span>
-                </div>
-                <div class="btn">
-                    <button class="button">
-                        <div class="content">
-                            <i class="bi bi-arrow-right"></i>
-                            <span>出 发</span>
-                        </div>
-                    </button>
-                </div>
+                <form @click.prevent="">
+                    <div class="account">
+                        <i class="bi bi-person-circle"></i>
+                        <input type="email" ref="input" v-model="UserAccount" placeholder="邮箱">
+                    </div>
+                    <div class="password">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <input type="password" ref="input" v-model="UserPassword" placeholder="密码">
+                    </div>
+                    <div class="operation">
+                        <span @click="toRegister">去注册</span>
+                        <span @click="toFindPassword">忘记密码？</span>
+                    </div>
+                    <div class="tip">
+                        <span v-show="tipFlag">账号与密码不匹配，请检查后重试！</span>
+                    </div>
+                    <div class="btn">
+                        <button class="button" @click="toLogin">
+                            <div class="content">
+                                <i class="bi bi-arrow-right"></i>
+                                <span>出 发</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
             </div>
-
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+
+import api from '../../axios/api/index';
 export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
+
+        // 用户账号和密码
+        const UserAccount = ref('');
+        const UserPassword = ref('');
+
+        const tipFlag = ref(false);
+
+        // 登录验证
         function toLogin() {
+            api.login({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
+                // 登录成功、跳转主页
+                const data = res.data; 
+                if (data === false) {
+                    tipFlag.value = true;
+                    setTimeout(() => {
+                        tipFlag.value = false;
+                    }, 2000)
+                } else {
+                    router.push({
+                        name: 'Home',
+                        query: {
+                            ...data,
+                        },
+                    })
+                }
+
+            }).catch(e => {
+                console.log(e);
+                tipFlag.value = true;
+            })
+        }
+
+
+        function toRegister() {
             router.push({
                 name: 'Register',
                 query: {
@@ -47,6 +86,9 @@ export default defineComponent({
                 },
             })
         }
+
+
+
         function toFindPassword() {
             router.push({
                 name: 'FindPwd',
@@ -56,7 +98,11 @@ export default defineComponent({
             })
         }
         return {
+            UserAccount,
+            UserPassword,
+            tipFlag,
             toLogin,
+            toRegister,
             toFindPassword
         }
     }
@@ -145,7 +191,7 @@ export default defineComponent({
             .operation {
                 @include disFlex(space-around, center);
                 height: 3rem;
-                margin-bottom: 2rem;
+                // margin-bottom: 1rem;
                 cursor: pointer;
 
                 span {
@@ -156,6 +202,14 @@ export default defineComponent({
                 span:hover {
                     color: $primaryBlue;
                 }
+            }
+
+            .tip {
+                height: 1rem;
+                font-size: 0.75rem;
+                text-align: center;
+                margin-bottom: 2rem;
+                color: $primaryRed;
             }
 
             .btn {

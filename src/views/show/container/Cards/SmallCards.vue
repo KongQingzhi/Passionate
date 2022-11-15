@@ -84,7 +84,7 @@ export default defineComponent({
     @include disFlex(space-around, center);
     width: 90rem;
     height: 9.5rem;
-    margin-bottom:8rem;
+    margin-bottom: 8rem;
 
     .boxContent {
         position: relative;
@@ -93,7 +93,7 @@ export default defineComponent({
         background-color: #fff;
         border-radius: $borRadiusBig;
         transition: all 0.3s;
-
+        box-shadow: 0.0625rem 0.0625rem 1.25rem 0.0625rem rgba(0, 0, 0, 0.05);
 
         .img {
             @include posiAR(absolute, 0.625rem, 1.7rem);

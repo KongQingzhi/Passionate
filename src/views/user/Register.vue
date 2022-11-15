@@ -4,57 +4,74 @@
             <div class="circle">
                 <img src="../../assets/img/register.svg" alt="">
             </div>
-
             <div class="form">
                 <h3><span>注 册</span></h3>
-                <div class="account">
-                    <i class="bi bi-envelope-fill"></i>
-                    <input type="emmail" ref="input" placeholder="邮箱">
-                </div>
-                <div class="passwordFirst">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="password" ref="input" placeholder="密码">
-                </div>
-                <div class="passwordSecond">
-                    <i class="bi bi-shield-lock-fill"></i>
-                    <input type="text" ref="input" placeholder="确认密码">
-                </div>
-                <div class="verificate">
-                    <i class="bi bi-person-check-fill"></i>
-                    <input type="text" ref="input" placeholder="验证码">
-                    <button class="obtain">
-                        <div class="content">
-                            <i class="bi bi-arrow-right"></i>
-                            <span>获取</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="operation">
-                    <button @click="toUser">
-                        <div class="content">
-                            <i class="bi bi-arrow-left-circle-fill"></i>
-                            <span>去登陆</span>
-                        </div>
-                    </button>
-                    <button>
-                        <div class="content">
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                            <span>注册</span>
-                        </div>
-                    </button>
-                </div>
+                <form>
+                    <div class="account">
+                        <i class="bi bi-envelope-fill"></i>
+                        <input type="email" v-model="UserAccount" ref="input" placeholder="邮箱" required>
+                    </div>
+                    <div class="passwordFirst">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <input type="password" v-model="UserPassword" ref="input" placeholder="密码" required>
+                    </div>
+                    <div class="passwordSecond">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        <input type="password" ref="input" v-model="UserPasswordSecond" placeholder="确认密码" required>
+                    </div>
+                    <div class="verificate">
+                        <i class="bi bi-person-check-fill"></i>
+                        <input type="text" ref="input" v-model="VerificateCode" placeholder="验证码">
+                        <button :disabled="isDisabled" class="obtain" @click="toVerificate">
+                            <div v-if="!isDisabled" class="content">
+                                <i class="bi bi-arrow-right"></i>
+                                <span>获 取</span>
+                            </div>
+                            <span v-else>{{ countdown }}s后重新获取</span>
+
+                        </button>
+                    </div>
+                    <div class="tip">
+                        <span v-show="tipFlag">{{ tipText }}</span>
+                    </div>
+                    <div class="operation">
+                        <button @click="toUser">
+                            <div class="content">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                                <span>去登陆</span>
+                            </div>
+                        </button>
+                        <button @click="toRigster">
+                            <div class="content">
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                                <span>注册</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { useDisabled } from 'element-plus'
+import { defineComponent, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import api from '../../axios/api/index'
 export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
+        const UserAccount = ref<string>('');
+        const UserPassword = ref<string>('');
+        const UserPasswordSecond = ref<string>('');
+        const VerificateCode = ref<string>('');
+        const VerificateCodeRes = ref<string>('');
+        const tipFlag = ref<boolean>(false);
+        const tipText = ref<string>('');
+        const isDisabled = ref<boolean>(false);
+        const countdown = ref<number>(60);
         function toUser() {
             router.push({
                 name: 'User',
@@ -63,10 +80,99 @@ export default defineComponent({
                 },
             })
         }
-        return {
-            toUser
+
+        function test() {
+            if (UserAccount.value == '' || UserPassword.value == '' || UserPasswordSecond.value == '') {
+                tipText.value = '信息不能为空';
+                tipFlag.value = true;
+                setTimeout(() => {
+                    tipFlag.value = false;
+                }, 2000)
+            } else {
+                if (UserPassword.value != UserPasswordSecond.value) {
+                    tipText.value = '两次密码不一致';
+                    tipFlag.value = true;
+                    setTimeout(() => {
+                        tipFlag.value = false;
+                    }, 2000)
+                } else {
+                    return true;
+                }
+            }
         }
-    }
+
+        function toVerificate() {
+            if (test() && !isDisabled.value) {
+                isDisabled.value = true;
+                const timer = setInterval(() => {
+                    countdown.value = countdown.value - 1;
+                    if (countdown.value == 0) {
+                        clearInterval(timer);
+                        isDisabled.value = false;
+                        countdown.value = 60;
+                    }
+                }, 1000)
+                api.verificate({ UserAccount: UserAccount.value }).then(res => {
+                    VerificateCodeRes.value = res.data;
+                })
+            }
+        }
+
+        function toRigster() {
+            console.log(VerificateCode.value, VerificateCodeRes.value);
+            if (VerificateCode.value == '' || VerificateCodeRes.value == '') {
+                tipText.value = '验证码不能为空，请输入验证码';
+                tipFlag.value = true;
+                setTimeout(() => {
+                    tipFlag.value = false;
+                }, 2000)
+            } else {
+                if (VerificateCode.value != VerificateCodeRes.value) {
+                    tipText.value = '验证码输入有误，请重新输入/获取';
+                    tipFlag.value = true;
+                    setTimeout(() => {
+                        tipFlag.value = false;
+                    }, 2000)
+                } else {
+                    api.register({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
+                        if (res.data == false) {
+                            tipText.value = '账号已存在，请找回密码';
+                            tipFlag.value = true;
+                            setTimeout(() => {
+                                tipFlag.value = false;
+                            }, 2000)
+                        } else {
+                            api.login({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
+                                const data = res.data;
+                                router.push({
+                                    name: 'Home',
+                                    query: {
+                                        ...data,
+                                    },
+                                })
+                            })
+                        }
+                    })
+                }
+            }
+        }
+
+        return {
+            UserAccount,
+            UserPassword,
+            UserPasswordSecond,
+            VerificateCode,
+            tipFlag,
+            tipText,
+            isDisabled,
+            countdown,
+            toUser,
+            toRigster,
+            toVerificate
+        }
+    },
+
+
 })
 </script>
 
@@ -194,6 +300,15 @@ export default defineComponent({
                 }
 
             }
+        }
+
+        .tip {
+            margin-top: 1rem;
+            height: 1rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            text-align: center;
+            color: $primaryRed;
         }
 
         .operation {
