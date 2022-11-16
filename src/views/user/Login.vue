@@ -117,6 +117,7 @@ export default defineComponent({
     width: 100%;
     height: 100vh;
     background-color: $primaryWhite;
+    overflow: hidden;
 
     .container {
         position: relative;
@@ -263,6 +264,5 @@ export default defineComponent({
             }
         }
     }
-
 }
 </style>
