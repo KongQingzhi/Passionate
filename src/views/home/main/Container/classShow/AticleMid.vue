@@ -2,11 +2,11 @@
     <div id="AticleMid">
         <el-col :span="24">
             <el-carousel indicator-position="outside" height="25rem">
-                <el-carousel-item v-for="(items, index) in list.src" :key="index">
+                <!-- <el-carousel-item v-for="(items, index) in list.ArticleImage" :key="index">
                     <div class="elementItems">
                         <img :src="items" alt="">
                     </div>
-                </el-carousel-item>
+                </el-carousel-item> -->
             </el-carousel>
         </el-col>
     </div>

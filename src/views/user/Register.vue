@@ -6,9 +6,7 @@
             </div>
             <div class="form">
                 <h3>
-                    <slot name="head">
                         <span>注 册</span>
-                    </slot>
                 </h3>
                 <form>
                     <div class="account">

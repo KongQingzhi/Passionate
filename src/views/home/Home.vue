@@ -9,6 +9,7 @@
 import { defineComponent } from 'vue'
 import HeadVue from './head/Head.vue';
 import MainVue from './main/Main.vue';
+
 export default defineComponent({
     setup() {
 

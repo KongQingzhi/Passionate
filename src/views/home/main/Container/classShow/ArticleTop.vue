@@ -2,21 +2,21 @@
     <div id="AticleTop">
         <div class="elementTopUser">
             <div class="elementTopUserHeadImg">
-                <img :src="list.headImg" alt="">
+                <img :src="list.UserHeadImg" alt="">
             </div>
             <div class="elementTopUserInfo">
-                <div class="elementTopUserName">{{ list.name }}</div>
-                <div class="elementTopUserAccount">{{ list.account }}</div>
+                <div class="elementTopUserName">{{ list.UserName }}</div>
+                <div class="elementTopUserAccount">{{ list.UserAccount }}</div>
             </div>
         </div>
-        <button class="elementTopFocus">
-            <div class="FocusContent">
-                <slot>
+        <slot>
+            <button class="elementTopFocus">
+                <div class="FocusContent">
                     <i class="bi bi-plus-lg"></i>
                     <span>关 注</span>
-                </slot>
-            </div>
-        </button>
+                </div>
+            </button>
+        </slot>
     </div>
 </template>
 

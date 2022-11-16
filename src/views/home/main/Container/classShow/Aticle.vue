@@ -1,8 +1,8 @@
 <template>
     <div id="Aticle">
-            <ArticleTopVue :articleTop="list"></ArticleTopVue>
-            <AticleMidVue :articleMid="list"></AticleMidVue>
-            <AticleBottomVue :articleBottom="list"></AticleBottomVue>
+        <ArticleTopVue :articleTop="list"></ArticleTopVue>
+        <AticleMidVue :articleMid="list"></AticleMidVue>
+        <AticleBottomVue :articleBottom="list"></AticleBottomVue>
     </div>
 </template>
 
@@ -12,6 +12,7 @@ import { useRouter, useRoute } from 'vue-router'
 import ArticleTopVue from './ArticleTop.vue'
 import AticleMidVue from './AticleMid.vue'
 import AticleBottomVue from './AticleBottom.vue'
+
 export default defineComponent({
     props: {
         articleInfo: Object
@@ -20,11 +21,7 @@ export default defineComponent({
         let list: any = props.articleInfo;
         const router = useRouter();
         const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
+        const User = route.query;
 
         function toComments(items: object) {
             router.push({
@@ -35,7 +32,7 @@ export default defineComponent({
             })
         }
         onMounted(() => {
-            // console.log(list);
+            
         })
 
         return {

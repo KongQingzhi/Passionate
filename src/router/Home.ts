@@ -67,6 +67,11 @@ export default {
                     path: '/information',
                     component: InformationVue
                 },
+                {
+                    name: 'Fans',
+                    path: '/Fans',
+                    component: FansVue
+                },
 
             ]
         }

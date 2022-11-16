@@ -2,26 +2,26 @@
     <div id="AticleBottom">
         <div class="elementBottomLeft">
             <span>发布时间</span>
-            <span>{{ list.time }}</span>
+            <span>{{ list.ArticleTime }}</span>
         </div>
         <div class="elementBottomRight">
             <div class="elementBottomRightLike">
-                <div class="left">
+                <!-- <div class="left">
                     <i v-if="list.likeFlag == 1" class="bi bi-heart-fill"></i>
                     <i v-else class="bi bi-heart"></i>
                 </div>
                 <div class="right">
                     {{ list.likeNum }}
-                </div>
+                </div> -->
             </div>
             <div class="elementBottomRightCollect">
-                <div class="left">
+                <!-- <div class="left">
                     <i v-if="list.collectFlag == 1" class="bi bi-star-fill"></i>
                     <i v-else class="bi bi-star"></i>
                 </div>
                 <div class="right">
                     {{ list.collectNum }}
-                </div>
+                </div> -->
             </div>
             <button class="elementBottomComments" @click="toComments(list)">
                 <div class="commentsContent">

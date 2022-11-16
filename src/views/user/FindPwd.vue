@@ -5,7 +5,9 @@
                 <img src="../../assets/img/register.svg" alt="">
             </div>
             <div class="form">
-                <h3><span>找回密码</span></h3>
+                <h3>
+                    <span>找回密码</span>
+                </h3>
                 <form>
                     <div class="account">
                         <i class="bi bi-envelope-fill"></i>

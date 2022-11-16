@@ -6,15 +6,15 @@
         </div>
         <div class="User">
             <div class="userHeadImg">
-                <img :src="UserHeadImg" alt="UserHeadImage">
+                <img :src="User.UserHeadImg" alt="UserHeadImage">
             </div>
             <div class="userInfo" :style="{ height: asideFlag ? '4rem' : '0rem' }">
-                <h3>{{ UserName }}</h3>
-                <h5>{{ UserAccount }}</h5>
+                <h3>{{ User.UserName }}</h3>
+                <h5>{{ User.UserAccount }}</h5>
             </div>
         </div>
         <ul>
-            <li v-for="(items, index) in optionList" key="index" :style="liStyle">
+            <li v-for="(items, index) in optionList" key="index" :style="liStyle" @click="toGo(index)">
                 <i :class="items.className"></i>
                 <span>{{ items.name }}</span>
             </li>
@@ -23,16 +23,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, reactive } from 'vue'
+import { defineComponent, ref, computed, reactive, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import User from '../../../../router/User'
 export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
-        const UserName = ref<any>(route.query.UserName);
-        const UserAccount = ref<any>(route.query.UserAccount);
-        const UserHeadImg = ref<any>(route.query.UserHeadImg);
-        let asideFlag = ref(false);
+        const User: any = ref(route.query);
+        const asideFlag = ref(false);
 
         interface IOption {
             className: string,
@@ -77,6 +76,65 @@ export default defineComponent({
             // }
         ];
 
+        function toGo(index: number) {
+            if (index === 0) {
+                router.push({
+                    name: 'CreationCenter',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 1) {
+                router.push({
+                    name: 'Published',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 2) {
+                router.push({
+                    name: 'Information',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 3) {
+                router.push({
+                    name: 'Fans',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 4) {
+                router.push({
+                    name: 'Focus',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 5) {
+                router.push({
+                    name: 'Collect',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            } else if (index === 6) {
+                router.push({
+                    name: 'Like',
+                    query: {
+                        ...User.value,
+                    },
+                })
+            }
+        }
+
+        onMounted(() => {
+            // User.value = route.query;
+            // console.log(User.value);
+
+        })
+
         const liStyle = computed(() => {
             return {
                 width: asideFlag.value ? '12rem' : '5rem',
@@ -84,12 +142,11 @@ export default defineComponent({
             }
         })
         return {
-            UserName,
-            UserAccount,
-            UserHeadImg,
+            User,
             optionList,
             asideFlag,
-            liStyle
+            liStyle,
+            toGo
         }
     },
     components: {
@@ -142,7 +199,7 @@ export default defineComponent({
             height: 3rem;
             text-align: center;
             overflow: hidden;
-           
+
 
             img {
                 width: 3rem;
@@ -183,7 +240,7 @@ export default defineComponent({
             height: 2.5rem;
             margin-bottom: 1rem;
             padding: 0 1rem;
-            border-radius: 1.25rem;
+            border-radius: 1.25rem 0 0 1.25rem;
             cursor: pointer;
             transition: all 0.3s;
             overflow: hidden;
@@ -197,17 +254,28 @@ export default defineComponent({
                 cursor: pointer;
                 line-height: 2.5rem;
                 // color: $primaryBlue;
-
                 text-align: center;
-
                 vertical-align: center;
+                transition: all 0.3s;
             }
 
             span {
                 margin: 0 2em;
                 vertical-align: center;
                 color: $primaryWhite;
+                transition: all 0.3s;
             }
+
+            &:hover {
+                background-color: $primaryWhite;
+                color: $primaryGreen;
+            }
+
+            &:hover i,
+            &:hover span {
+                color: $primaryGreen;
+            }
+
         }
     }
 }
