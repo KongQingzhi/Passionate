@@ -72,7 +72,7 @@ export default defineComponent({
             api.selectLoveCollectNum({ ArticleId: list.ArticleId }).then(res => {
                 const data = res.data;
                 LoveNum.value = data.LoveNum;
-                CollectNum.value = data.LoveNum;
+                CollectNum.value = data.CollectNum;
             })
         }
 
@@ -88,6 +88,7 @@ export default defineComponent({
                     selectLoveCollectNum()
                 })
             }
+          
         }
 
         function collectOption() {
@@ -118,7 +119,6 @@ export default defineComponent({
             LoveFlag,
             CollectFlag,
             list,
-
         }
     },
     components: {
