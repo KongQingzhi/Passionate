@@ -1,6 +1,9 @@
 <template>
     <div id="Like">
-        <ArticleVue v-for="items in likeList" :key="items.ArticleId" :articleInfo="items"></ArticleVue>
+        <div v-if="likeList.length == 0" class="tipTitle">还没有喜欢的作品吗？快去浏览吧！</div>
+        <div class="container" v-else>
+            <ArticleVue v-for="items in likeList" :key="items.ArticleId" :articleInfo="items"></ArticleVue>
+        </div>
     </div>
 </template>
 
@@ -15,7 +18,7 @@ export default defineComponent({
         const route = useRoute()
         const User: any = sessionStorage;
 
-        const likeList = ref<any>(null)
+        const likeList = ref<any>([])
         function selectLove() {
             api.selectLove({ UserAccount: User.UserAccount }).then(res => {
                 const data = res.data;
@@ -41,5 +44,12 @@ export default defineComponent({
 
 #Like {
     width: 64rem;
+
+    .tipTitle {
+        line-height: 10rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $primaryGreen;
+    }
 }
 </style>

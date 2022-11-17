@@ -1,6 +1,9 @@
 <template>
     <div id="Collect">
-        <ArticleVue v-for="items in collectList" :key="items.ArticleId" :articleInfo="items"></ArticleVue>
+        <div v-if="collectList.length == 0" class="tipTitle">还没有喜欢的作品吗？快去浏览吧！</div>
+        <div v-else>
+            <ArticleVue v-for="items in collectList" :key="items.ArticleId" :articleInfo="items"></ArticleVue>
+        </div>
     </div>
 </template>
 
@@ -14,7 +17,7 @@ export default defineComponent({
         const router = useRouter()
         const route = useRoute()
         const User: any = sessionStorage;
-        const collectList = ref<any>(null);
+        const collectList = ref<any>([]);
         function selectLove() {
             api.selectCollect({ UserAccount: User.UserAccount }).then(res => {
                 const data = res.data;
@@ -40,5 +43,12 @@ export default defineComponent({
 
 #Collect {
     width: 64rem;
+
+    .tipTitle {
+        line-height: 10rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $primaryGreen;
+    }
 }
 </style>

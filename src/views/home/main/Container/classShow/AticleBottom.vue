@@ -7,20 +7,20 @@
         <div class="elementBottomRight">
             <div class="elementBottomRightLike">
                 <div class="left">
-                    <i v-if="flag.LoveId != 0" class="bi bi-heart-fill" @click="loveOption"></i>
-                    <i v-else class="bi bi-heart" @click="loveOption"></i>
+                    <i v-show="LoveFlag != 0" class="bi bi-heart-fill" @click="loveOption"></i>
+                    <i v-show="LoveFlag == 0" class="bi bi-heart" @click="loveOption"></i>
                 </div>
                 <div class="right">
-                    {{ num.LoveNum }}
+                    {{ LoveNum }}
                 </div>
             </div>
             <div class="elementBottomRightCollect">
                 <div class="left">
-                    <i v-if="flag.CollectId != 0" class="bi bi-star-fill" @click="collectOption"></i>
-                    <i v-else class="bi bi-star" @click="collectOption"></i>
+                    <i v-show="CollectFlag != 0" class="bi bi-star-fill" @click="collectOption"></i>
+                    <i v-show="CollectFlag == 0" class="bi bi-star" @click="collectOption"></i>
                 </div>
                 <div class="right">
-                    {{ num.CollectNum }}
+                    {{ CollectNum }}
                 </div>
             </div>
             <button class="elementBottomComments" @click="toComments(list)">
@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
+import { defineComponent, onMounted, onBeforeMount, reactive, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import api from '../../../../../axios/api';
 import ArticleTopVue from './ArticleTop.vue'
@@ -47,17 +47,10 @@ export default defineComponent({
         const router = useRouter();
         const route = useRoute();
         const User: any = sessionStorage;
-        const num = ref<any>({
-            "ArticleId": 0,
-            "LoveNum": 0,
-            "CollectNum": 0
-        })
-        const flag = ref<any>({
-            LoveId: 0,
-            CollectId: 0,
-            loveNum: 0,
-            collectNum: 0
-        });
+        const LoveNum = ref(0);
+        const CollectNum = ref(0);
+        const LoveFlag = ref(0);
+        const CollectFlag = ref(0);
         function toComments(items: any) {
             router.push({
                 name: 'ClassShowComments',
@@ -70,37 +63,43 @@ export default defineComponent({
         function judgeLoveCollect() {
             api.judgeLoveCollect({ UserAccount: User.UserAccount, ArticleId: list.ArticleId }).then(res => {
                 const data = res.data;
-                flag.value = data
+                LoveFlag.value = data[0];
+                CollectFlag.value = data[1];
             })
         }
 
         function selectLoveCollectNum() {
             api.selectLoveCollectNum({ ArticleId: list.ArticleId }).then(res => {
                 const data = res.data;
-                num.value = data;
+                LoveNum.value = data.LoveNum;
+                CollectNum.value = data.LoveNum;
             })
         }
 
-        function loveOption() {
-            if (flag.value.LoveId != 0) {
-                api.deleteLove({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
-                    judgeLoveCollect()
-                })
-            } else {
+        async function loveOption() {
+            if (LoveFlag.value == 0) {
                 api.addLove({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
                     judgeLoveCollect()
+                    selectLoveCollectNum()
+                })
+            } else {
+                api.deleteLove({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                    selectLoveCollectNum()
                 })
             }
         }
 
         function collectOption() {
-            if (flag.value.CollectId != 0) {
-                api.deleteCollect({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
-                    judgeLoveCollect()
-                })
-            } else {
+            if (CollectFlag.value == 0) {
                 api.addCollect({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
                     judgeLoveCollect()
+                    selectLoveCollectNum()
+                })
+            } else {
+                api.deleteCollect({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                    selectLoveCollectNum()
                 })
             }
         }
@@ -114,9 +113,12 @@ export default defineComponent({
             toComments,
             loveOption,
             collectOption,
-            flag,
+            LoveNum,
+            CollectNum,
+            LoveFlag,
+            CollectFlag,
             list,
-            num
+
         }
     },
     components: {
