@@ -57,6 +57,13 @@ export function deleteComments(data: any) {
     });
 }
 
+export function selectLove(data: any) {
+    return request({
+        method: "post",
+        url: "/api/selectLove",
+        data: data,
+    });
+}
 
 export function addLove(data: any) {
     return request({
@@ -73,6 +80,15 @@ export function deleteLove(data: any) {
         data: data,
     });
 }
+
+export function selectCollect(data: any) {
+    return request({
+        method: "post",
+        url: "/api/selectCollect",
+        data: data,
+    });
+}
+
 
 export function addCollect(data: any) {
     return request({
