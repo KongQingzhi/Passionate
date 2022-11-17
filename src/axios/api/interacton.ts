@@ -1,5 +1,14 @@
 import request from "../../axios/index";
 
+export function selectAllFocus(data: any) {
+    return request({
+        method: "post",
+        url: "/api/selectAllFocus",
+        data: data,
+    });
+}
+
+
 export function selectFocus(data: any) {
     return request({
         method: "post",
@@ -7,6 +16,7 @@ export function selectFocus(data: any) {
         data: data,
     });
 }
+
 
 export function addFocus(data: any) {
     return request({
@@ -31,7 +41,6 @@ export function selectFans(data: any) {
         data: data,
     });
 }
-
 
 export function selectComments(data: any) {
     return request({
@@ -64,6 +73,17 @@ export function selectLove(data: any) {
         data: data,
     });
 }
+
+export function judgeLoveCollect(data: any) {
+    return request({
+        method: "post",
+        url: "/api/judgeLoveCollect",
+        data: data,
+    });
+}
+
+
+
 
 export function addLove(data: any) {
     return request({
@@ -109,7 +129,12 @@ export function deleteCollect(data: any) {
 }
 
 
-
-
+export function selectLoveCollectNum(data: any) {
+    return request({
+        method: "post",
+        url: "/api/selectLoveCollectNum",
+        data: data,
+    });
+}
 
 

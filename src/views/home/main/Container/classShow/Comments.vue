@@ -1,31 +1,33 @@
 <template>
     <div id="Comments">
-        <ArticleTopVue :articleTop="toArticleTop"></ArticleTopVue>
-        <div class="content">{{ list.commentsContent }}</div>
+        <ArticleTopVue :articleTop="list"></ArticleTopVue>
+        <div class="content">{{ list.CommentsContent }}</div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import api from '../../../../../axios/api';
 import ArticleTopVue from './ArticleTop.vue'
 export default defineComponent({
     props: {
         commentsInfo: Object
     },
     setup(props) {
-        let list: any = props.commentsInfo;
-        let toArticleTop = {
-            headImg: list.commentsHeadImg,
-            name: list.commentsUserName,
-            account: list.commentsUserAccount
-        }
+        const list: any = props.commentsInfo;
+
         const router = useRouter();
         const route = useRoute();
 
+        onMounted(() => {
+            list
+        })
+
+
         return {
             list,
-            toArticleTop
+
         }
     },
     components: {

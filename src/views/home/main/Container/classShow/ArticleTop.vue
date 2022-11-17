@@ -10,12 +10,22 @@
             </div>
         </div>
         <slot>
-            <button class="elementTopFocus">
-                <div class="FocusContent">
-                    <i class="bi bi-plus-lg"></i>
-                    <span>关 注</span>
-                </div>
-            </button>
+            <div v-if="textFocus">
+                <button class="elementTopFocus" @click="deleteFocus">
+                    <div style="background-color: #f75652;" class="FocusContent">
+                        <i class="bi bi-trash-fill"></i>
+                        <span>取消关注</span>
+                    </div>
+                </button>
+            </div>
+            <div v-else>
+                <button class="elementTopFocus" @click="addFocus">
+                    <div class="FocusContent">
+                        <i class="bi bi-plus-lg"></i>
+                        <span>关 注</span>
+                    </div>
+                </button>
+            </div>
         </slot>
     </div>
 </template>
@@ -23,6 +33,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import api from '../../../../../axios/api';
 export default defineComponent({
     props: {
         articleTop: Object
@@ -31,12 +42,8 @@ export default defineComponent({
         let list: any = props.articleTop;
         const router = useRouter();
         const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
-
+        const User: any = sessionStorage;
+        const textFocus = ref<boolean>(false);
         function toComments(items: object) {
             router.push({
                 name: 'ClassShowComments',
@@ -46,8 +53,39 @@ export default defineComponent({
             })
         }
 
+        function selectFocus() {
+            api.selectFocus({ UserAccount: User.UserAccount, UserAccounted: list.UserAccount }).then(res => {
+                const data = res.data;
+                if (data) {
+                    textFocus.value = true;
+                } else {
+                    textFocus.value = false;
+                }
+            })
+        }
+
+        function addFocus() {
+            api.addFocus({ UserAccount: User.UserAccount, UserAccounted: list.UserAccount }).then(res => {
+                selectFocus();
+            })
+        }
+
+        function deleteFocus() {
+            api.deleteFocus({ UserAccount: User.UserAccount, UserAccounted: list.UserAccount }).then(res => {
+                selectFocus();
+            })
+        }
+
+        onMounted(() => {
+            selectFocus()
+            console.log(list);
+        })
+
         return {
             toComments,
+            addFocus,
+            deleteFocus,
+            textFocus,
             list
         }
     }

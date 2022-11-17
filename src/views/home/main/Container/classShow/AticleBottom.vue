@@ -6,22 +6,22 @@
         </div>
         <div class="elementBottomRight">
             <div class="elementBottomRightLike">
-                <!-- <div class="left">
-                    <i v-if="list.likeFlag == 1" class="bi bi-heart-fill"></i>
-                    <i v-else class="bi bi-heart"></i>
+                <div class="left">
+                    <i v-if="flag.LoveId != 0" class="bi bi-heart-fill" @click="loveOption"></i>
+                    <i v-else class="bi bi-heart" @click="loveOption"></i>
                 </div>
                 <div class="right">
-                    {{ list.likeNum }}
-                </div> -->
+                    {{ num.LoveNum }}
+                </div>
             </div>
             <div class="elementBottomRightCollect">
-                <!-- <div class="left">
-                    <i v-if="list.collectFlag == 1" class="bi bi-star-fill"></i>
-                    <i v-else class="bi bi-star"></i>
+                <div class="left">
+                    <i v-if="flag.CollectId != 0" class="bi bi-star-fill" @click="collectOption"></i>
+                    <i v-else class="bi bi-star" @click="collectOption"></i>
                 </div>
                 <div class="right">
-                    {{ list.collectNum }}
-                </div> -->
+                    {{ num.CollectNum }}
+                </div>
             </div>
             <button class="elementBottomComments" @click="toComments(list)">
                 <div class="commentsContent">
@@ -36,6 +36,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import api from '../../../../../axios/api';
 import ArticleTopVue from './ArticleTop.vue'
 export default defineComponent({
     props: {
@@ -45,27 +46,77 @@ export default defineComponent({
         let list: any = props.articleBottom;
         const router = useRouter();
         const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
-
-        function toComments(items: object) {
+        const User: any = sessionStorage;
+        const num = ref<any>({
+            "ArticleId": 0,
+            "LoveNum": 0,
+            "CollectNum": 0
+        })
+        const flag = ref<any>({
+            LoveId: 0,
+            CollectId: 0,
+            loveNum: 0,
+            collectNum: 0
+        });
+        function toComments(items: any) {
             router.push({
                 name: 'ClassShowComments',
                 query: {
-                    ...items, ...User
+                    ...items
                 }
             })
         }
+
+        function judgeLoveCollect() {
+            api.judgeLoveCollect({ UserAccount: User.UserAccount, ArticleId: list.ArticleId }).then(res => {
+                const data = res.data;
+                flag.value = data
+            })
+        }
+
+        function selectLoveCollectNum() {
+            api.selectLoveCollectNum({ ArticleId: list.ArticleId }).then(res => {
+                const data = res.data;
+                num.value = data;
+            })
+        }
+
+        function loveOption() {
+            if (flag.value.LoveId != 0) {
+                api.deleteLove({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                })
+            } else {
+                api.addLove({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                })
+            }
+        }
+
+        function collectOption() {
+            if (flag.value.CollectId != 0) {
+                api.deleteCollect({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                })
+            } else {
+                api.addCollect({ ArticleId: list.ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    judgeLoveCollect()
+                })
+            }
+        }
+
         onMounted(() => {
-            // console.log(list);
+            judgeLoveCollect()
+            selectLoveCollectNum()
         })
 
         return {
             toComments,
-            list
+            loveOption,
+            collectOption,
+            flag,
+            list,
+            num
         }
     },
     components: {

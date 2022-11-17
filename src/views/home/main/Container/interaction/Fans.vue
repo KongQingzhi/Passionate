@@ -27,7 +27,7 @@ export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
-        const User = route.query;
+        const User: any = sessionStorage;
         const fansList: any = ref(null)
 
         function selectFans() {

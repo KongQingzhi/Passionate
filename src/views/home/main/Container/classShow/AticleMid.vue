@@ -1,12 +1,16 @@
 <template>
     <div id="AticleMid">
+        <div class="text">
+            <div class="top">{{ list.ArticleTitle }}</div>
+            <div class="bottom">{{ list.ArticleContent }}</div>
+        </div>
         <el-col :span="24">
             <el-carousel indicator-position="outside" height="25rem">
-                <!-- <el-carousel-item v-for="(items, index) in list.ArticleImage" :key="index">
+                <el-carousel-item v-for="(items, index) in list.ArticleImage" :key="index">
                     <div class="elementItems">
                         <img :src="items" alt="">
                     </div>
-                </el-carousel-item> -->
+                </el-carousel-item>
             </el-carousel>
         </el-col>
     </div>
@@ -24,20 +28,16 @@ export default defineComponent({
         let list: any = props.articleMid;
         const router = useRouter();
         const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
 
-        function toComments(items: object) {
-            router.push({
-                name: 'ClassShowComments',
-                query: {
-                    ...items, ...User
-                }
-            })
-        }
+
+        // function toComments(items: object) {
+        //     router.push({
+        //         name: 'ClassShowComments',
+        //         query: {
+        //             // ...items, ...User
+        //         }
+        //     })
+        // }
         onMounted(() => {
 
 
@@ -45,7 +45,7 @@ export default defineComponent({
         })
 
         return {
-            toComments,
+            // toComments,
             list
         }
     },
@@ -58,16 +58,34 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '../../../../../assets/style.scss';
 
-
-
 #AticleMid {
-    height: 28rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
+
+    .text {
+        padding: 1rem;
+        border: 2px solid #f3f3f3;
+        margin-bottom: 2rem;
+        border-radius: $borRadiusBig;
+
+        .top {
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bottom {
+            font-size: 1rem;
+            line-height: 1.5rem;
+
+        }
+    }
 
     .elementItems {
         text-align: center;
         width: 56rem;
-        height: 25rem;
+        height: 27rem;
+        padding: 1rem 0;
 
         img {
             height: 25rem;

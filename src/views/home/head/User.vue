@@ -1,11 +1,11 @@
 <template>
     <div id="User">
         <div class="userHeadImg">
-            <img :src="UserHeadImg" alt="UserHeadImage">
+            <img :src="User.UserHeadImg" alt="UserHeadImage">
         </div>
         <div class="userInfo">
-            <h3>{{ UserName }}</h3>
-            <h5>{{ UserAccount }}</h5>
+            <h3>{{ User.UserName }}</h3>
+            <h5>{{ User.UserAccount }}</h5>
         </div>
     </div>
 </template>
@@ -17,13 +17,9 @@ export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
-        const UserName = ref<any>(route.query.UserName);
-        const UserAccount = ref<any>(route.query.UserAccount);
-        const UserHeadImg = ref<any>(route.query.UserHeadImg);
+        const User: any = sessionStorage;
         return {
-            UserName,
-            UserAccount,
-            UserHeadImg
+            User
         }
     },
     components: {
@@ -44,7 +40,7 @@ export default defineComponent({
     .userHeadImg {
         width: 3rem;
         height: 3rem;
-      
+
         overflow: hidden;
 
         img {

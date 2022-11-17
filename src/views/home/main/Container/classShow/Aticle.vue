@@ -19,24 +19,11 @@ export default defineComponent({
     },
     setup(props) {
         let list: any = props.articleInfo;
-        const router = useRouter();
-        const route = useRoute();
-        const User = route.query;
-
-        function toComments(items: object) {
-            router.push({
-                name: 'ClassShowComments',
-                query: {
-                    ...items, ...User
-                }
-            })
-        }
         onMounted(() => {
-            
+        
         })
 
         return {
-            toComments,
             list
         }
     },

@@ -5,23 +5,24 @@
             <div class="myCommentsTop">
                 <div class="elementTopUser">
                     <div class="elementTopUserHeadImg">
-                        <img :src="articleInfo.HeadImg" alt="">
+                        <img :src="User.UserHeadImg" alt="">
                     </div>
                     <div class="elementTopUserInfo">
-                        <div class="elementTopUserName">{{ articleInfo.Name }}</div>
-                        <div class="elementTopUserAccount">{{ articleInfo.Account }}</div>
+                        <div class="elementTopUserName">{{ User.UserName }}</div>
+                        <div class="elementTopUserAccount">{{ User.UserAccount }}</div>
                     </div>
                 </div>
-                <button class="elementTopFocus">
+                <button class="elementTopFocus" @click="addComments">
                     <div class="FocusContent">
                         <i class="bi bi-plus-lg"></i>
                         <span>发 布</span>
                     </div>
                 </button>
             </div>
-            <textarea rows="10" cols="50" class="myCommentsBottom" placeholder="请输入评论"></textarea>
+            <textarea rows="10" cols="50" v-model="commentsContent" class="myCommentsBottom"
+                placeholder="请输入评论"></textarea>
         </div>
-        <CommentsVue v-for="(items, index) in comments" :articleInfo="articleInfo" :commentsInfo="items"></CommentsVue>
+        <CommentsVue v-for="(items, index) in commentsList" :commentsInfo="items"></CommentsVue>
     </div>
 </template>
 
@@ -30,6 +31,7 @@ import { defineComponent, onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import AticleVue from './Aticle.vue';
 import CommentsVue from './Comments.vue';
+import api from '../../../../../axios/api';
 export default defineComponent({
     props: {
         articleInfo: Object
@@ -37,34 +39,37 @@ export default defineComponent({
     setup() {
         const router = useRouter();
         const route = useRoute();
-        const articleInfo = route.query;
-        const comments: object[] = [
-            {
-                commentsUserName: '张三',
-                commentsUserAccount: '123456',
-                commentsHeadImg: 'https://crystal.cafe/img/src/1622257461746.png',
-                commentsContent: '真牛逼！'
-            },
-            {
-                commentsUserName: '李悦',
-                commentsUserAccount: '0000000',
-                commentsHeadImg: 'https://crystal.cafe/img/src/1622257461746.png',
-                commentsContent: '吃屁'
-            },
-            {
-                commentsUserName: '徐远娇',
-                commentsUserAccount: '2222222',
-                commentsHeadImg: 'https://crystal.cafe/img/src/1622257461746.png',
-                commentsContent: '666666'
-            },
-        ]
+        const User: any = sessionStorage;
+        const articleInfo: any = route.query;
+        const commentsList = ref<any>(null);
+        const commentsContent = ref('');
+        function selectComments() {
+            api.selectComments({ ArticleId: articleInfo.ArticleId }).then(res => {
+                const data = res.data;
+                commentsList.value = data;
+                console.log(commentsList.value);
+            })
+        }
+
+        function addComments() {
+            api.addComments({ ArticleId: articleInfo.ArticleId, UserAccount: User.UserAccount, CommentsContent: commentsContent.value }).then(res => {
+                alert('评论成功！');
+                commentsContent.value = '';
+                selectComments();
+            })
+        }
+
         onMounted(() => {
-            // console.log(articleInfo);
+            selectComments();
         })
+
 
         return {
             articleInfo,
-            comments
+            User,
+            commentsList,
+            addComments,
+            commentsContent
         }
     },
     components: {

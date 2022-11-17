@@ -1,6 +1,6 @@
 import { login, register, verificate, findPassword } from './user';
 import { recommendArticle } from './classShow';
-import { selectFocus, addFocus, deleteFocus, selectFans, selectComments, addComments, deleteComments, addLove, deleteLove, addCollect, deleteCollect } from './interacton';
+import { selectAllFocus, selectFocus, addFocus, deleteFocus, selectFans, selectComments, addComments, deleteComments, selectLove, judgeLoveCollect, addLove, deleteLove, selectCollect, addCollect, deleteCollect, selectLoveCollectNum } from './interacton';
 export default {
     login,
     register,
@@ -8,7 +8,8 @@ export default {
     findPassword,
 
     recommendArticle,
-    
+
+    selectAllFocus,
     selectFocus,
     addFocus,
     deleteFocus,
@@ -16,8 +17,12 @@ export default {
     selectComments,
     addComments,
     deleteComments,
+    selectLove,
+    judgeLoveCollect,
     addLove,
     deleteLove,
+    selectCollect,
     addCollect,
-    deleteCollect
+    deleteCollect,
+    selectLoveCollectNum
 }

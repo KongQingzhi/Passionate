@@ -56,18 +56,23 @@ export default defineComponent({
         function toLogin() {
             api.login({ UserAccount: UserAccount.value, UserPassword: UserPassword.value }).then(res => {
                 // 登录成功、跳转主页
-                const data = res.data; 
+                const data = res.data;
                 if (data === false) {
                     tipFlag.value = true;
                     setTimeout(() => {
                         tipFlag.value = false;
                     }, 2000)
                 } else {
+                    sessionStorage.setItem('UserAccount', data.UserAccount);
+                    sessionStorage.setItem('UserHeadImg', data.UserHeadImg);
+                    sessionStorage.setItem('UserName', data.UserName);
+                    sessionStorage.setItem('UserGender', data.UserGender);
+                    sessionStorage.setItem('UserMotto', data.UserMotto);
+                    sessionStorage.setItem('UerBirthday', data.UserBirthday);
+                    sessionStorage.setItem('UserHometown', data.UserHometown);
+                    console.log(sessionStorage);
                     router.push({
                         name: 'Home',
-                        query: {
-                            ...data,
-                        },
                     })
                 }
 

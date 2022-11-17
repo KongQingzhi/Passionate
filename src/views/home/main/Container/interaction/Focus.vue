@@ -22,7 +22,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -37,13 +36,16 @@ export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
-        const User = route.query;
+        const User: any = sessionStorage;
         let focusList = ref<any>([]);
 
         function selectFocus() {
-            api.selectFocus({ UserAccount: User.UserAccount }).then(res => {
+            console.log(1);
+            api.selectAllFocus({ UserAccount: User.UserAccount }).then(res => {
+                console.log(2);
                 const data = res.data;
                 focusList.value = data;
+                console.log(data);
             })
         }
 
@@ -54,8 +56,6 @@ export default defineComponent({
         }
         onMounted(() => {
             selectFocus()
-            console.log(focusList);
-
         })
         return {
             focusList,

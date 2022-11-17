@@ -25,12 +25,11 @@
 <script lang="ts">
 import { defineComponent, ref, computed, reactive, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import User from '../../../../router/User'
 export default defineComponent({
     setup() {
         const router = useRouter()
         const route = useRoute()
-        const User: any = ref(route.query);
+        const User: any = sessionStorage;
         const asideFlag = ref(false);
 
         interface IOption {
@@ -131,8 +130,10 @@ export default defineComponent({
 
         onMounted(() => {
             // User.value = route.query;
-            // console.log(User.value);
+            // console.log(User);
 
+            // console.log(sessionStorage);
+            // console.log(User);
         })
 
         const liStyle = computed(() => {
