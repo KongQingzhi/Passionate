@@ -14,12 +14,12 @@
                     <el-option :label="items" :value="items" v-for="items in optionList" />
                 </el-select>
             </el-form-item>
-            <el-form-item label="隐私" prop="articlePrivacy">
+            <!-- <el-form-item label="隐私" prop="articlePrivacy">
                 <el-radio-group v-model="ruleForm.articlePrivacy">
                     <el-radio label="公开" />
                     <el-radio label="私有" />
                 </el-radio-group>
-            </el-form-item>
+            </el-form-item> -->
         </el-form>
 
         <div class="pushImage">
@@ -27,9 +27,8 @@
                 <input type="file" name="" id="" @change="pushFile" ref="inputFile" multiple>
                 <img src="../../../../../assets/img/add.png" alt="" width="150">
             </div>
-            <!-- <img :src="items" alt="" v-for="items in dialogImageUrl" height="150" width="150"> -->
+            <img class="imgList" :src="items" alt="" v-for="items in dialogImageUrl" height="150" width="150">
         </div>
-
         <div class="formBottom">
             <button @click="submitForm(ruleFormRef)">
                 <div class="content">
@@ -47,123 +46,138 @@
     </div>
 </template>
 
-<script lang="ts" setup >
+<script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
-const User: any = sessionStorage;
-const formSize = ref('default')
-const ruleFormRef = ref<FormInstance>()
-const ruleForm = reactive({
-    articleTitle: '',
-    articleClass: '',
-    articlePrivacy: '',
-    articleContent: '',
-})
+import api from '../../../../../axios/api';
+export default ({
+    setup() {
+        const User: any = sessionStorage;
+        const formSize = ref('default')
+        const ruleFormRef = ref<FormInstance>()
+        const ruleForm = reactive({
+            articleTitle: '',
+            articleClass: '',
+            articleContent: ''
+        })
 
-const optionList = ['搞笑', '新鲜', '生活'];
-
-const rules = reactive<FormRules>({
-    articleTitle: [
-        {
-            required: true,
-            message: '请输入标题',
-            trigger: 'blur'
-        },
-    ],
-    articleClass: [
-        {
-            required: true,
-            message: '请选择类型',
-            trigger: 'change',
-        },
-    ],
-    articlePrivacy: [
-        {
-            required: true,
-            message: '请选择是否公开',
-            trigger: 'change',
-        },
-    ],
-    articleContent: [
-        { required: true, message: '请输入内容', trigger: 'blur' },
-    ],
-})
+        const optionList = ['搞笑', '新鲜', '生活'];
+        const rules = reactive<FormRules>({
+            articleTitle: [
+                {
+                    required: true,
+                    message: '请输入标题',
+                    trigger: 'blur'
+                },
+            ],
+            articleClass: [
+                {
+                    required: true,
+                    message: '请选择类型',
+                    trigger: 'change',
+                },
+            ],
+            articleContent: [
+                { required: true, message: '请输入内容', trigger: 'blur' },
+            ],
+        })
 
 
 
 
-const submitForm = async (formEl: FormInstance | undefined) => {
-    if (!formEl) return
-    await formEl.validate((valid, fields) => {
-        if (valid) {
-            console.log('submit!')
-        } else {
-            console.log('error submit!', fields)
+
+        const options = Array.from({ length: 10000 }).map((_, idx) => ({
+            value: `${idx + 1}`,
+            label: `${idx + 1}`,
+        }))
+
+        return {
+            User,
+            ruleFormRef,
+            ruleForm,
+            formSize,
+            optionList,
+            rules,
+            options
         }
-    })
-}
+    },
+    data() {
+        return {
+            dialogImageUrl: <string[]>[],
+        }
+    },
+    methods: {
+        formatDate() {
+            const myTime = new Date();
+            const date = new Date(myTime);
+            const Y = date.getFullYear() + '-';
+            const M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            const D = date.getDate() + ' ';
+            const h = date.getHours() + ':';
+            const m = date.getMinutes() + ':';
+            const s = date.getSeconds();
+            const str = (Y + M + D + h + m + s)
+            return str;
+        },
 
-const resetForm = (formEl: FormInstance | undefined) => {
-    if (!formEl) return
-    formEl.resetFields()
-}
+        pushFile() {
+            const that: any = this;
+            let formData = new FormData();
+            formData.append('uploadFile', that.$refs.inputFile.files[0], that.$refs.inputFile.files[0].name);
+            const config = {
+                headers: {
+                    "Content-Type": "multipart/form-data;boundary=" + new Date().getTime()
+                }
+            };
+            api.updateFile(formData).then(res => {
+                const data: string = res.data;
+                console.log(data);
+                this.dialogImageUrl.push(data)
+            }).catch(error => {
+                console.log(error)
+            })
+        },
 
-const options = Array.from({ length: 10000 }).map((_, idx) => ({
-    value: `${idx + 1}`,
-    label: `${idx + 1}`,
-}))
+        resetForm(formEl: FormInstance | undefined) {
+            if (!formEl) return
+            formEl.resetFields();
+            this.dialogImageUrl = [];
+        },
 
-
-function pushFile() {
-    let formData = new FormData();
-    // formData.append('uploadFile', this.$refs.inputFile.files[0], this.$refs.inputFile.files[0].name);
-    // const config = {
-    //     headers: {
-    //         "Content-Type": "multipart/form-data;boundary=" + new Date().getTime()
-    //     }
-    // };
-    // release.updateFile(formData, config).then(value => {
-    //     this.dialogImageUrl.push(value.data)
-    // }).catch(error => {
-    //     console.log(error)
-    // })
-}
-// function sendData() {
-//     function formatDate(myTime) {
-//         // 比如需要这样的格式 yyyy-MM-dd hh:mm:ss
-//         let date = new Date(myTime);
-//         let Y = date.getFullYear() + '-';
-//         let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-//         let D = date.getDate() + ' ';
-//         let h = date.getHours() + ':';
-//         let m = date.getMinutes() + ':';
-//         let s = date.getSeconds();
-//         var str = (Y + M + D + h + m + s)
-//         return str;
-//     };
-//     if (sessionStorage.getItem('U_account') != null) {
-//         if (this.ArticalTitle != '' && this.textarea != '' && this.value != '' && this.dialogImageUrl != []) {
-//             release.release({
-//                 account: sessionStorage.getItem('U_account'),
-//                 time: formatDate(new Date),
-//                 title: this.ArticalTitle,
-//                 container: this.textarea,
-//                 clazz: this.value,
-//                 img: this.dialogImageUrl.join('*')
-//             }).then(res => {
-//                 alert('上传成功')
-//                 this.ArticalTitle = '';
-//                 this.textarea = '';
-//                 this.value = '';
-//                 this.dialogImageUrl = [];
-//             })
-//         } else {
-//             alert('请补全信息')
-//         }
-//     }
-// }
-
+        async submitForm(formEl: FormInstance | undefined) {
+            if (!formEl) return
+            await formEl.validate((valid, fields) => {
+                if (valid) {
+                    console.log('submit!')
+                    if (this.User.UserAccount != null) {
+                        console.log(1);
+                        console.log(this.User.UserAccount, this.formatDate(), this.ruleForm.articleTitle, this.ruleForm.articleContent, this.ruleForm.articleClass, this.dialogImageUrl.join('*'));
+                        // if (this.ArticalTitle != '' && this.textarea != '' && this.value != '' && this.dialogImageUrl != []) {
+                        api.release({
+                            UserAccount: this.User.UserAccount,
+                            ArticleTime: this.formatDate(),
+                            ArticleTitle: this.ruleForm.articleTitle,
+                            ArticleContent: this.ruleForm.articleContent,
+                            ArticleClass: this.ruleForm.articleClass,
+                            ArticleImage: this.dialogImageUrl.join('*')
+                        }).then(res => {
+                            alert('上传成功')
+                            this.ruleForm.articleTitle = '';
+                            this.ruleForm.articleClass = '搞笑';
+                            this.ruleForm.articleContent = '';
+                            this.dialogImageUrl = [];
+                        })
+                    } else {
+                        alert('请补全信息')
+                    }
+                } else {
+                    console.log('error submit!', fields)
+                }
+            })
+        },
+    }
+})
 
 
 
@@ -230,7 +244,13 @@ function pushFile() {
         }
 
         img {
-            object-fit: contain
+            object-fit: contain;
+
+        }
+
+        .imgList {
+            border-radius: $borRadiusBig;
+            border: 2px solid #dcdfe6;
         }
     }
 

@@ -154,3 +154,19 @@ export function updateUser(data: any) {
         data: data,
     });
 }
+
+export function updateFile(data: any) {
+    return request({
+        method: "post",
+        url: "/api/updateFile",
+        data: data,
+    });
+}
+
+export function release(data: any) {
+    return request({
+        method: "post",
+        url: "/api/release",
+        data: data,
+    });
+}

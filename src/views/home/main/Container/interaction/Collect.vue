@@ -1,6 +1,6 @@
 <template>
     <div id="Collect">
-        <div v-if="collectList.length == 0" class="tipTitle">还没有喜欢的作品吗？快去浏览吧！</div>
+        <div v-if="collectList.length == 0" class="tipTitle">还没有收藏的作品吗？快去浏览吧！</div>
         <div v-else>
             <ArticleVue v-for="items in collectList" :key="items.ArticleId" :articleInfo="items"></ArticleVue>
         </div>
