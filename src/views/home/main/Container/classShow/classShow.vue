@@ -13,10 +13,10 @@ export default defineComponent({
     setup() {
         const articleList = ref<any>(null);
         onMounted(() => {
-            api.recommendArticle({ maxArticleId: 0 }).then(res => {
-                console.log(res.data);
-                articleList.value = res.data;
-            })
+            // api.recommendArticle({ maxArticleId: 0 }).then(res => {
+            //     console.log(res.data);
+            //     articleList.value = res.data;
+            // })
         })
 
 

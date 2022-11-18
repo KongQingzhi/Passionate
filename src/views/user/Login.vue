@@ -64,11 +64,12 @@ export default defineComponent({
                     }, 2000)
                 } else {
                     sessionStorage.setItem('UserAccount', data.UserAccount);
+                    sessionStorage.setItem('UserPassword', data.UserPassword);
                     sessionStorage.setItem('UserHeadImg', data.UserHeadImg);
                     sessionStorage.setItem('UserName', data.UserName);
                     sessionStorage.setItem('UserGender', data.UserGender);
                     sessionStorage.setItem('UserMotto', data.UserMotto);
-                    sessionStorage.setItem('UerBirthday', data.UserBirthday);
+                    sessionStorage.setItem('UserBirthday', data.UserBirthday);
                     sessionStorage.setItem('UserHometown', data.UserHometown);
                     console.log(sessionStorage);
                     router.push({

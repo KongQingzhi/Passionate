@@ -4,8 +4,8 @@
             status-icon>
             <el-col :span="24">
                 <div class="image">
-                    <img src="../../../../../assets/img/交流.svg" width="192" alt="">
-                    <input type="file">
+                    <img :src="ruleForm.img" ref="headimg" alt="">
+                    <input @change="getFile" ref="inputFile" type="file">
                 </div>
                 <p>点击更换头像</p>
             </el-col>
@@ -16,7 +16,7 @@
             </el-col>
             <el-col :span="24">
                 <el-form-item label="账 号" prop="account">
-                    <el-input disabled="false" v-model="ruleForm.account" />
+                    <el-input :disabled="true" v-model="ruleForm.account" />
                 </el-form-item>
             </el-col>
             <el-col :span="24">
@@ -28,7 +28,7 @@
                 </el-form-item>
             </el-col>
             <el-col :span="24">
-                <el-form-item label="生 日" required>
+                <el-form-item label="年龄" required>
                     <el-form-item prop="birthday">
                         <el-date-picker v-model="ruleForm.birthday" type="date" placeholder="请选择"
                             style="width: 255px;" />
@@ -42,7 +42,7 @@
             </el-col>
             <el-col :span="24">
                 <el-form-item label="签 名" prop="desc">
-                    <el-input v-model="ruleForm.desc" type="textarea" />
+                    <el-input v-model="ruleForm.motto" type="textarea" />
                 </el-form-item>
             </el-col>
         </el-form>
@@ -66,73 +66,124 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-import { defineComponent, reactive, ref } from 'vue'
+<script lang="ts">
+
+import { defineComponent, reactive, ref, } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-const ruleFormRef = ref<FormInstance>()
-const ruleForm = reactive({
-    name: '',
-    account: '12345678@qq.com',
-    gender: '',
-    birthday: '',
-    hometown: '',
-    desc: '',
-})
+import api from '../../../../../axios/api';
+export default ({
+    setup() {
+        const ruleFormRef = ref<FormInstance>()
+        const User: any = sessionStorage;
+        const ruleForm = reactive({
+            name: User.UserName,
+            account: User.UserAccount,
+            gender: User.UserGender,
+            birthday: User.UserBirthday,
+            hometown: User.UserHometown,
+            motto: User.UserMotto,
+            img: User.UserHeadImg
+        })
 
-const rules = reactive<FormRules>({
-    name: [
-        {
-            required: true,
-            message: '请输入昵称',
-            trigger: 'blur'
-        },
-    ],
-    gender: [
-        {
-            required: true,
-            message: '请选择性别',
-            trigger: 'change',
-        },
-    ],
-    birthday: [
-        {
-            type: 'date',
-            required: true,
-            message: '请选择生日',
-            trigger: 'change',
-        },
-    ],
-    hometown: [
-        {
-            required: true,
-            message: '请输入家乡',
-            trigger: 'change',
-        },
-    ],
-    desc: [
-        {
-            required: true,
-            message: '请输入个性签名',
-            trigger: 'blur'
-        },
-    ],
-})
-
-const submitForm = async (formEl: FormInstance | undefined) => {
-    if (!formEl) return
-    await formEl.validate((valid, fields) => {
-        if (valid) {
-            console.log('submit!')
-        } else {
-            console.log('error submit!', fields)
+        const rules = reactive<FormRules>({
+            name: [
+                {
+                    required: true,
+                    message: '请输入昵称',
+                    trigger: 'blur'
+                },
+            ],
+            gender: [
+                {
+                    required: true,
+                    message: '请选择性别',
+                    trigger: 'change',
+                },
+            ],
+            birthday: [
+                {
+                    type: 'date',
+                    required: true,
+                    message: '请选择生日',
+                    trigger: 'change',
+                },
+            ],
+            hometown: [
+                {
+                    required: true,
+                    message: '请输入家乡',
+                    trigger: 'change',
+                },
+            ],
+            motto: [
+                {
+                    required: true,
+                    message: '请输入个性签名',
+                    trigger: 'blur'
+                },
+            ],
+        })
+        return {
+            rules,
+            User,
+            ruleFormRef,
+            ruleForm
         }
-    })
-}
+    },
+    methods: {
+        getFile() {
+            const that: any = this;
+            const file: any = that.$refs.inputFile.files[0];
+            const url = window.URL.createObjectURL(file);
+            that.$refs.headimg.src = `${url}`;
+        },
+        async submitForm(formEl: FormInstance | undefined) {
+            let that: any = this;
+            if (!formEl) {
+                return;
+            }
+            await formEl.validate((valid, fields) => {
+                if (valid) {
+                    let formData = new FormData();
+                    if (that.$refs.inputFile.files[0] != undefined) {
+                        formData.append('uploadFile', that.$refs.inputFile.files[0], that.$refs.inputFile.files[0].name);
+                    }
+                    formData.append('UserAccount', that.User.UserAccount);
+                    formData.append('UserName', that.ruleForm.name);
+                    formData.append('UserGender', that.ruleForm.gender);
+                    formData.append('UserMotto', that.ruleForm.motto);
+                    formData.append('UserBirthday', that.ruleForm.birthday);
+                    formData.append('UserHometown', that.ruleForm.hometown);
+                    api.updateUser(formData).then(res => {
+                        api.login({ UserAccount: that.User.UserAccount, UserPassword: that.User.UserPassword }).then(res => {
+                            alert('信息保存成功！')
+                            const data = res.data;
+                            console.log(data);
+                            sessionStorage.setItem('UserAccount', data.UserAccount);
+                            sessionStorage.setItem('UserHeadImg', data.UserHeadImg);
+                            sessionStorage.setItem('UserName', data.UserName);
+                            sessionStorage.setItem('UserGender', data.UserGender);
+                            sessionStorage.setItem('UserMotto', data.UserMotto);
+                            sessionStorage.setItem('UerBirthday', data.UserBirthday);
+                            sessionStorage.setItem('UserHometown', data.UserHometown);
+                        }).catch(e => {
+                            alert('信息保存失败！')
+                        })
+                    }).catch(e => {
+                        alert('信息保存失败！')
+                    })
+                } else {
+                    alert('信息保存失败！')
+                }
+            })
+        },
 
-const resetForm = (formEl: FormInstance | undefined) => {
-    if (!formEl) return
-    formEl.resetFields()
-}
+        resetForm: (formEl: FormInstance | undefined) => {
+            if (!formEl) return
+            formEl.resetFields()
+        }
+    }
+})
 
 </script>
 
@@ -165,6 +216,8 @@ const resetForm = (formEl: FormInstance | undefined) => {
             img {
                 @include posiAR(absolute, 0, 0);
                 object-fit: cover;
+                width: 12rem;
+                height: 12rem;
                 // z-index: 99;
             }
 

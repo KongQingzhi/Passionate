@@ -138,3 +138,10 @@ export function selectLoveCollectNum(data: any) {
 }
 
 
+export function updateUser(data: any) {
+    return request({
+        method: "post",
+        url: "/api/updateUser",
+        data: data,
+    });
+}
