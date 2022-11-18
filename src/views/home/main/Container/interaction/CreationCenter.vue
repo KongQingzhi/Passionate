@@ -25,7 +25,7 @@
         <div class="pushImage">
             <div class="imginput">
                 <input type="file" name="" id="" @change="pushFile" ref="inputFile" multiple>
-                <img src="../img/add.png" alt="" width="150">
+                <img src="../../../../../assets/img/add.png" alt="" width="150">
             </div>
             <!-- <img :src="items" alt="" v-for="items in dialogImageUrl" height="150" width="150"> -->
         </div>

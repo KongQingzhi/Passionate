@@ -78,7 +78,6 @@ export default defineComponent({
 
         onMounted(() => {
             selectFocus()
-            console.log(list);
         })
 
         return {

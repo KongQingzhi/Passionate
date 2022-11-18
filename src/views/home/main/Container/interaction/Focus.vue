@@ -42,10 +42,8 @@ export default defineComponent({
         function selectFocus() {
             console.log(1);
             api.selectAllFocus({ UserAccount: User.UserAccount }).then(res => {
-                console.log(2);
                 const data = res.data;
                 focusList.value = data;
-                console.log(data);
             })
         }
 

@@ -28,7 +28,7 @@
                 </el-form-item>
             </el-col>
             <el-col :span="24">
-                <el-form-item label="年龄" required>
+                <el-form-item label="生 日" required>
                     <el-form-item prop="birthday">
                         <el-date-picker v-model="ruleForm.birthday" type="date" placeholder="请选择"
                             style="width: 255px;" />
@@ -154,11 +154,15 @@ export default ({
                     formData.append('UserMotto', that.ruleForm.motto);
                     formData.append('UserBirthday', that.ruleForm.birthday);
                     formData.append('UserHometown', that.ruleForm.hometown);
+                    const config = {
+                        headers: {
+                            "Content-Type": "multipart/form-data;boundary=" + new Date().getTime()
+                        }
+                    };
                     api.updateUser(formData).then(res => {
                         api.login({ UserAccount: that.User.UserAccount, UserPassword: that.User.UserPassword }).then(res => {
                             alert('信息保存成功！')
                             const data = res.data;
-                            console.log(data);
                             sessionStorage.setItem('UserAccount', data.UserAccount);
                             sessionStorage.setItem('UserHeadImg', data.UserHeadImg);
                             sessionStorage.setItem('UserName', data.UserName);

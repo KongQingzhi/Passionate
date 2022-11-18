@@ -1,5 +1,14 @@
 import request from "../../axios/index";
 
+export function myPublished(data: any) {
+    return request({
+        method: "post",
+        url: "/api/myPublished",
+        data: data,
+    });
+}
+
+
 export function selectAllFocus(data: any) {
     return request({
         method: "post",
