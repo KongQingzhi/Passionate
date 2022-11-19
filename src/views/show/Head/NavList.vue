@@ -62,8 +62,6 @@ export default defineComponent({
             transition: width 0.3s;
         }
 
-
-
         &:hover .border {
             width: 100%;
         }

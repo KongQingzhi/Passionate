@@ -35,4 +35,18 @@ export default defineComponent({
     margin: auto;
     background-color: $primaryGreen;
 }
+
+// @media only screen and (max-width: 1200px) {}
+
+// @media only screen and (max-width: 992px) {}
+
+// @media only screen and (max-width: 768px) {
+//     #Nav {
+//         background-color: #000;
+//     }
+// }
+
+// @media only screen and (max-width: 520px) {}
+
+// @media only screen and (max-width: 420px) {}
 </style>

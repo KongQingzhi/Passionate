@@ -12,7 +12,7 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
     setup() {
-        const list: string[] = ['推荐', '关注', '朋友', '搞笑', '新鲜', '生活'];
+        const list: string[] = ['推荐', '关注', '搞笑', '新鲜', '生活'];
         function toLoadByClass(index: number) {
             sessionStorage.setItem('ArticleClass', `${index - 3}`);
         }
@@ -31,7 +31,7 @@ export default defineComponent({
     @include disFlex(space-between, center);
     width: 50rem;
     height: 4rem;
-    padding: 0 5rem;
+    padding: 0 7rem;
     font-size: 18px;
     cursor: pointer;
 

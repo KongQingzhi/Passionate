@@ -26,21 +26,6 @@ export function loadByClass(data: any) {
     });
 }
 
-// export function verificate(data: any) {
-//     return request({
-//         method: "post",
-//         url: "/api/verificate",
-//         data: data,
-//     });
-// }
-
-// export function findPassword(data: any) {
-//     return request({
-//         method: "post",
-//         url: "/api/findPassword",
-//         data: data,
-//     });
-// }
 
 
 

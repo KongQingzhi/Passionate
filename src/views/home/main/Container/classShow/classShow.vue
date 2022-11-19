@@ -18,7 +18,7 @@ export default defineComponent({
         const User: any = sessionStorage;
         let ArticleClass: any = route.query.index;
         let maxNum = Number(sessionStorage.getItem(`maxNum${ArticleClass}`))
-        function loadByClass(ArticleClass: number, maxNum: number) {
+        function loadByClass() {
             api.loadByClass({ ArticleClass: ArticleClass - 3, maxNum }).then(res => {
                 const data = res.data;
                 articleList.value = data;
@@ -37,7 +37,6 @@ export default defineComponent({
                 }
             }).catch(e => {
                 console.log(e);
-
             })
         }
 
@@ -45,12 +44,6 @@ export default defineComponent({
             api.focuserArticle({ UserAccount: User.UserAccount }).then(res => {
                 const data = res.data;
                 articleList.value = data;
-                if (data.length != 0) {
-                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
-                }
-            }).catch(e => {
-                console.log(e);
-
             })
         }
 
@@ -58,14 +51,15 @@ export default defineComponent({
             ArticleClass = Number(to.query.index);
             switch (ArticleClass) {
                 case 0: recommendArticle(); break;
+                case 1: focuserArticle(); break;
             }
             if (ArticleClass > 2) {
-                loadByClass(ArticleClass, maxNum);
+                loadByClass();
             }
         });
 
         onMounted(() => {
-            loadByClass(ArticleClass, maxNum);
+            loadByClass();
         })
 
         return {
