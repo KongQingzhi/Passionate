@@ -71,6 +71,15 @@ export default defineComponent({
                     sessionStorage.setItem('UserMotto', data.UserMotto);
                     sessionStorage.setItem('UserBirthday', data.UserBirthday);
                     sessionStorage.setItem('UserHometown', data.UserHometown);
+                    sessionStorage.setItem('maxNum0', '0');
+                    sessionStorage.setItem('maxNum1', '0');
+                    sessionStorage.setItem('maxNum2', '0');
+                    sessionStorage.setItem('maxNum3', '0');
+                    sessionStorage.setItem('maxNum4', '0');
+                    sessionStorage.setItem('maxNum5', '0');
+
+
+
                     console.log(sessionStorage);
                     router.push({
                         name: 'Home',

@@ -5,79 +5,71 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, watch, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import AticleVue from './Aticle.vue'
 import api from '../../../../../axios/api/index'
+import { onBeforeRouteUpdate } from "vue-router";
 export default defineComponent({
     setup() {
         const articleList = ref<any>(null);
-        onMounted(() => {
-            // api.recommendArticle({ maxArticleId: 0 }).then(res => {
-            //     console.log(res.data);
-            //     articleList.value = res.data;
-            // })
-        })
-
-
-        // const articleList = [
-        //     {
-        //         articleId: 1,
-        //         name: 'Trevor1',
-        //         account: '123456789@qq.com',
-        //         headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-        //         src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-        //         time: '2000-10-22',
-        //         likeNum: 1,
-        //         collectNum: 11,
-        //         likeFlag: 1,
-        //         collectFlag: 0
-        //     },
-        //     {
-        //         articleId: 1,
-        //         name: 'Trevor2',
-        //         account: '123456789@qq.com',
-        //         headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-        //         src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-        //         time: '2000-9-25',
-        //         likeNum: 2,
-        //         collectNum: 22,
-        //         likeFlag: 1,
-        //         collectFlag: 1
-        //     },
-        //     {
-        //         articleId: 1,
-        //         name: 'Trevor3',
-        //         account: '123456789@qq.com',
-        //         headImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-        //         src: ['https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7', 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'],
-        //         time: '2000-10-22',
-        //         likeNum: 3,
-        //         collectNum: 33,
-        //         likeFlag: 0,
-        //         collectFlag: 0
-        //     },
-        // ]
         const router = useRouter();
         const route = useRoute();
-        const User = {
-            Account: '00000001@qq.com',
-            Name: 'Admin',
-            HeadImg: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.SFasmmDq5aIp5J12Ls7OqAHaE8?w=275&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7'
-        }
-
-        function toComments(items: object) {
-            router.push({
-                name: 'ClassShowComments',
-                query: {
-                    ...items, ...User
+        const User: any = sessionStorage;
+        let ArticleClass: any = route.query.index;
+        let maxNum = Number(sessionStorage.getItem(`maxNum${ArticleClass}`))
+        function loadByClass(ArticleClass: number, maxNum: number) {
+            api.loadByClass({ ArticleClass: ArticleClass - 3, maxNum }).then(res => {
+                const data = res.data;
+                articleList.value = data;
+                if (data.length != 0) {
+                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
                 }
             })
         }
 
+        function recommendArticle() {
+            api.recommendArticle({ maxNum }).then(res => {
+                const data = res.data;
+                articleList.value = data;
+                if (data.length != 0) {
+                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
+                }
+            }).catch(e => {
+                console.log(e);
+
+            })
+        }
+
+        function focuserArticle() {
+            api.focuserArticle({ UserAccount: User.UserAccount }).then(res => {
+                const data = res.data;
+                articleList.value = data;
+                if (data.length != 0) {
+                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
+                }
+            }).catch(e => {
+                console.log(e);
+
+            })
+        }
+
+        onBeforeRouteUpdate(to => {
+            ArticleClass = Number(to.query.index);
+            switch (ArticleClass) {
+                case 0: recommendArticle(); break;
+            }
+            if (ArticleClass > 2) {
+                loadByClass(ArticleClass, maxNum);
+            }
+        });
+
+        onMounted(() => {
+            loadByClass(ArticleClass, maxNum);
+        })
+
         return {
-            articleList,
-            toComments
+            articleList
         }
     },
     components: {

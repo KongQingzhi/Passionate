@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
+import { defineComponent, onMounted, watch, reactive, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import ArticleTopVue from './ArticleTop.vue'
 export default defineComponent({
@@ -25,11 +25,29 @@ export default defineComponent({
         articleMid: Object
     },
     setup(props) {
-        let list: any = props.articleMid;
+        const propsArticle: any = props.articleMid;
+        let list = reactive<any>({
+            ArticleTitle: '',
+            ArticleContent: '',
+            ArticleImage: []
+        });
         const router = useRouter();
         const route = useRoute();
         onMounted(() => {
+            list.ArticleTitle = propsArticle.ArticleTitle;
+            list.ArticleContent = propsArticle.ArticleContent;
+            list.ArticleImage = propsArticle.ArticleImage;
         })
+        watch(
+            props,
+            (Prop) => {
+                const propsArticle: any = Prop.articleMid;
+                list.ArticleTitle = propsArticle.ArticleTitle;
+                list.ArticleContent = propsArticle.ArticleContent;
+                list.ArticleImage = propsArticle.ArticleImage;
+            },
+            { deep: true }
+        )
 
         return {
             list

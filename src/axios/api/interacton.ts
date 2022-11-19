@@ -8,6 +8,14 @@ export function myPublished(data: any) {
     });
 }
 
+export function deletePublished(data: any) {
+    return request({
+        method: "post",
+        url: "/api/deletePublished",
+        data: data,
+    });
+}
+
 
 export function selectAllFocus(data: any) {
     return request({
