@@ -1,22 +1,26 @@
 <template>
     <div id="Comments">
         <ArticleTopVue :articleTop="list"></ArticleTopVue>
-        <div class="content">{{ list.CommentsContent }}</div>
+        <div class="content">
+            <div class="indexFloor">{{ indexFloorName }}</div>
+            <div class="text">{{ list.CommentsContent }}</div>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeMount, ref } from 'vue'
+import { defineComponent, onMounted, computed, onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import api from '../../../../../axios/api';
 import ArticleTopVue from './ArticleTop.vue'
 export default defineComponent({
     props: {
-        commentsInfo: Object
+        commentsInfo: Object,
+        indexFloor: Number
     },
     setup(props) {
         const list: any = props.commentsInfo;
-
+        const indexFloor: any = props.indexFloor;
         const router = useRouter();
         const route = useRoute();
 
@@ -24,15 +28,24 @@ export default defineComponent({
             list
         })
 
+        const indexFloorName = computed(() => {
+            if (indexFloor == 0) {
+                return '沙发';
+            } else {
+                return `${indexFloor + 1}楼`
+            }
+        });
 
         return {
             list,
-
+            indexFloor,
+            indexFloorName
         }
     },
     components: {
         ArticleTopVue
-    }
+    },
+
 })
 </script>
 
@@ -48,13 +61,26 @@ export default defineComponent({
     box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
 
     .content {
+        position: relative;
         width: 100%;
         height: 100%;
         padding: 1rem 1.5rem;
         border-radius: $borRadiusBig;
         border: 2px solid #f3f3f3;
-        font-size: 1rem;
         margin-bottom: 1rem;
+
+        .indexFloor {
+            @include posiAR(absolute, -0.8rem, 1m);
+            height: 1rem;
+            background-color: #fff;
+            font-size: 1rem;
+            color: $primaryRed;
+            text-align: center
+        }
+
+        .text {
+            font-size: 1rem;
+        }
     }
 }
 </style>

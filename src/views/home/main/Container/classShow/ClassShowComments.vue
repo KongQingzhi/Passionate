@@ -22,7 +22,7 @@
             <textarea rows="10" cols="50" v-model="commentsContent" class="myCommentsBottom"
                 placeholder="请输入评论"></textarea>
         </div>
-        <CommentsVue v-for="(items, index) in commentsList" :commentsInfo="items"></CommentsVue>
+        <CommentsVue v-for="(items, index) in commentsList" :commentsInfo="items" :indexFloor="index" ></CommentsVue>
     </div>
 </template>
 

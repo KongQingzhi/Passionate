@@ -10,6 +10,7 @@ import { useRouter, useRoute } from 'vue-router'
 import AticleVue from './Aticle.vue'
 import api from '../../../../../axios/api/index'
 import { onBeforeRouteUpdate } from "vue-router";
+import Login from '../../../../user/Login.vue';
 export default defineComponent({
     setup() {
         const articleList = ref<any>(null);
@@ -19,7 +20,7 @@ export default defineComponent({
         let ArticleClass: any = route.query.index;
         let maxNum = Number(sessionStorage.getItem(`maxNum${ArticleClass}`))
         function loadByClass() {
-            api.loadByClass({ ArticleClass: ArticleClass - 3, maxNum }).then(res => {
+            api.loadByClass({ ArticleClass: ArticleClass - 2, maxNum }).then(res => {
                 const data = res.data;
                 articleList.value = data;
                 // if (data.length != 0) {
@@ -41,6 +42,8 @@ export default defineComponent({
         }
 
         function focuserArticle() {
+            console.log(123);
+
             api.focuserArticle({ UserAccount: User.UserAccount }).then(res => {
                 const data = res.data;
                 articleList.value = data;
@@ -53,12 +56,17 @@ export default defineComponent({
                 case 0: recommendArticle(); break;
                 case 1: focuserArticle(); break;
             }
-            if (ArticleClass > 2) {
+            if (ArticleClass > 1) {
                 loadByClass();
             }
         });
 
         onMounted(() => {
+            if (sessionStorage.getItem('UserAccount') == undefined) {
+                router.push({
+                    name: 'Login'
+                })
+            }
             recommendArticle();
         })
 

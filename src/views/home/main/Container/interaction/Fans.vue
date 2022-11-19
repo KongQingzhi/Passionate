@@ -50,6 +50,11 @@ export default defineComponent({
         }
 
         onMounted(() => {
+            if (sessionStorage.getItem('UserAccount') == undefined) {
+                router.push({
+                    name: 'Login'
+                })
+            }
             selectFans()
         })
 

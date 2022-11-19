@@ -47,13 +47,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, onMounted, ref } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import api from '../../../../../axios/api';
+import { useRouter, useRoute } from 'vue-router'
 export default ({
     setup() {
         const User: any = sessionStorage;
+        const router = useRouter()
         const formSize = ref('default')
         const ruleFormRef = ref<FormInstance>()
         const ruleForm = reactive({
@@ -83,7 +85,13 @@ export default ({
             ],
         })
 
-
+        onMounted(() => {
+            if (sessionStorage.getItem('UserAccount') == undefined) {
+                router.push({
+                    name: 'Login'
+                })
+            }
+        })
 
 
 

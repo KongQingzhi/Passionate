@@ -68,11 +68,13 @@
 
 <script lang="ts">
 
-import { defineComponent, reactive, ref, } from 'vue'
+import { defineComponent, reactive, onMounted, ref, } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import api from '../../../../../axios/api';
+import { useRouter, useRoute } from 'vue-router'
 export default ({
     setup() {
+        const router = useRouter()
         const ruleFormRef = ref<FormInstance>()
         const User: any = sessionStorage;
         const ruleForm = reactive({
@@ -122,6 +124,13 @@ export default ({
                     trigger: 'blur'
                 },
             ],
+        })
+        onMounted(() => {
+            if (sessionStorage.getItem('UserAccount') == undefined) {
+                router.push({
+                    name: 'Login'
+                })
+            }
         })
         return {
             rules,

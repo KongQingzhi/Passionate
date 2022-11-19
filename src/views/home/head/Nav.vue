@@ -2,13 +2,16 @@
     <div id="Nav">
         <LogoVue></LogoVue>
         <ClassListVue></ClassListVue>
-        <UserVue></UserVue>
+        <router-link :to="{ name: 'Information' }">
+            <UserVue></UserVue>
+        </router-link>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import LogoVue from '../../show/head/Logo.vue';
+import Information from '../main/Container/interaction/Information.vue';
 import ClassListVue from './ClassList.vue';
 import UserVue from './User.vue';
 export default defineComponent({

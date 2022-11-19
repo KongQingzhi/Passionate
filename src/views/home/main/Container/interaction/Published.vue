@@ -24,8 +24,10 @@ import { defineComponent, onMounted, reactive, ref } from 'vue'
 import AticleMidVue from '../classShow/AticleMid.vue'
 import AticleBottomVue from '../classShow/AticleBottom.vue'
 import api from '../../../../../axios/api';
+import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
     setup() {
+        const router = useRouter()
         let publishedList = ref<any>([]);
         const User: any = sessionStorage;
         function myPublished() {
@@ -36,11 +38,20 @@ export default defineComponent({
         }
         function deletePublished(ArticleId: number, index: number) {
             api.deletePublished({ ArticleId }).then(res => {
-                myPublished();
+                api.deleteCollect({ ArticleId, UserAccount: User.UserAccount }).then(res => {
+                    api.deleteLove({ ArticleId, UserAccount: User.UserAccount }).then(res => {
+                        myPublished();
+                    })
+                })
             })
         }
 
         onMounted(() => {
+            if (sessionStorage.getItem('UserAccount') == undefined) {
+                router.push({
+                    name: 'Login'
+                })
+            }
             myPublished()
         })
 
