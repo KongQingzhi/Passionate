@@ -82,7 +82,10 @@ export default defineComponent({
 
                     console.log(sessionStorage);
                     router.push({
-                        name: 'Home',
+                        name: 'ClassShow',
+                        query: {
+                            index: 0
+                        }
                     })
                 }
 

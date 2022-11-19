@@ -1,6 +1,6 @@
 <template>
     <ul id="NavList">
-        <li v-for="(items, index) in list" @click="toLoadByClass(index)">
+        <li v-for="(items, index) in list">
             <router-link :to="{ name: 'ClassShow', query: { index: index} }"><span>{{ items }}</span></router-link>
             <div class="border"></div>
         </li>
@@ -13,12 +13,10 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
     setup() {
         const list: string[] = ['推荐', '关注', '搞笑', '新鲜', '生活'];
-        function toLoadByClass(index: number) {
-            sessionStorage.setItem('ArticleClass', `${index - 3}`);
-        }
+       
         return {
             list,
-            toLoadByClass
+          
         }
     }
 })

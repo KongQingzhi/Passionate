@@ -22,9 +22,9 @@ export default defineComponent({
             api.loadByClass({ ArticleClass: ArticleClass - 3, maxNum }).then(res => {
                 const data = res.data;
                 articleList.value = data;
-                if (data.length != 0) {
-                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
-                }
+                // if (data.length != 0) {
+                //     sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
+                // }
             })
         }
 
@@ -32,9 +32,9 @@ export default defineComponent({
             api.recommendArticle({ maxNum }).then(res => {
                 const data = res.data;
                 articleList.value = data;
-                if (data.length != 0) {
-                    sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
-                }
+                // if (data.length != 0) {
+                //     sessionStorage.setItem(`maxNum${ArticleClass}`, data[data.length - 1].ArticleId);
+                // }
             }).catch(e => {
                 console.log(e);
             })
@@ -59,7 +59,7 @@ export default defineComponent({
         });
 
         onMounted(() => {
-            loadByClass();
+            recommendArticle();
         })
 
         return {
