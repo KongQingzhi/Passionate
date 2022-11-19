@@ -6,7 +6,7 @@
             </div>
             <div class="form">
                 <h3>
-                        <span>注 册</span>
+                    <span>注 册</span>
                 </h3>
                 <form>
                     <div class="account">
@@ -187,6 +187,7 @@ export default defineComponent({
 
     .container {
         position: relative;
+        @include disFlex(space-between, center);
         width: 90rem;
         height: 100vh;
         margin: 0 auto;
@@ -358,5 +359,19 @@ export default defineComponent({
             }
         }
     }
+}
+
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 520px) {}
+
+@media only screen and (max-width: 420px) {
+    
+
 }
 </style>

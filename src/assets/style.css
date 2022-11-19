@@ -47,3 +47,33 @@ html select option {
   height: 3rem;
   letter-spacing: 0.1rem;
 }
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  html {
+    font-size: 12px;
+  }
+}
