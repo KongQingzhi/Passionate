@@ -12,7 +12,6 @@
                 </div>
             </div>
         </div>
-       
         <div class="right">
             <div class="mask">
                 <div class="top">铭记每一刻难忘的瞬间</div>
@@ -59,9 +58,10 @@ export default defineComponent({
     background-color: $primaryGreen;
     border-radius: $borRadiusBig;
 
-    .image{
-        margin:0 5rem;
+    .image {
+        margin: 0 5rem;
     }
+
     .left,
     .right {
         position: relative;
@@ -126,9 +126,26 @@ export default defineComponent({
             top: -40rem;
         }
     }
+}
 
+@media only screen and (max-width: 420px) {
+    #Mid {
+        width: 100%;
+        margin: 2rem 0;
+        padding: 0 0rem;
 
+        .image {
+            margin: 0 0rem;
 
+            img {
+                width: 22rem;
+            }
+        }
 
+        .left,
+        .right {
+            width: 2rem;
+        }
+    }
 }
 </style>

@@ -283,4 +283,31 @@ export default defineComponent({
         }
     }
 }
+
+@media only screen and (max-width: 420px) {
+    #Login {
+        .container {
+            position: relative;
+            width: 30rem;
+            height: 100vh;
+            margin: 0 auto;
+
+            .circle {
+                @include posiAR(absolute, -10rem, 0rem);
+                width: 50rem;
+                height: 50rem;
+
+                img {
+                    @include posiAR(absolute, 10rem, 10rem);
+                    width: 20rem;
+                    height: 20rem;
+                }
+            }
+
+            .form {
+                @include posiAR(absolute, 20rem, 2.5rem);
+            }
+        }
+    }
+}
 </style>

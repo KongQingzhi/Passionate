@@ -1,7 +1,7 @@
 <template>
     <div id="MidSecond">
         <div class="img">
-            <img src="../../../../assets/img/拍照.svg" alt="" height="500">
+            <img src="../../../../assets/img/拍照.svg" alt="">
         </div>
         <div class="card" @click="toUser">
             <div class="card-img">
@@ -64,6 +64,10 @@ export default defineComponent({
         float: left;
         width: 31rem;
         height: 31rem;
+
+        img {
+            height: 31.25rem;
+        }
     }
 
     .card {
@@ -146,6 +150,26 @@ export default defineComponent({
 
     &:hover {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #MidSecond {
+        height: 68rem;
+        clip-path: polygon(0 0, 100% 0%, 100% 95%, 0% 100%);
+
+        .img {
+            width: 10rem;
+            height: 10rem;
+
+            img {
+                height: 20rem;
+            }
+        }
+
+        .card {
+           @include posiAR(relative,12rem,7rem,)
+        }
     }
 }
 </style>

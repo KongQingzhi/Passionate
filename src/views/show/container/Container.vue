@@ -25,8 +25,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     setup() {
-
-
         return {
 
         }
@@ -48,7 +46,37 @@ export default defineComponent({
 @import '../../../assets/style.scss';
 
 #Container {
-    width: 90rem;
+    // width: 90rem;
     margin: 0 auto;
+}
+
+@media only screen and (min-width: 1200px) {
+    #Container {
+        width: 90rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #Container {
+        width: 80rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #Container {
+        width: 50rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #Container {
+        width: 40rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #Container {
+        width: 30rem;
+    }
 }
 </style>

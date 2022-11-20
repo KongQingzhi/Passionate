@@ -99,6 +99,7 @@ export default defineComponent({
             @include posiAR(absolute, 0.625rem, 1.7rem);
         }
 
+
         .boxContentTitle {
             @include posiAR(absolute, 1.25rem, 9.4rem);
             width: 9.4rem;
@@ -111,13 +112,40 @@ export default defineComponent({
         .boxContentAside {
             @include posiAR(absolute, 4rem, 9.4rem);
             width: 9.4rem;
-
         }
     }
 
     .boxContent:hover {
         transform: translateY(-0.625rem);
         box-shadow: 0.0625rem 0.0625rem 1.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+    }
+}
+
+
+@media only screen and (max-width: 420px) {
+    #SmallCards {
+        width: 100%;
+        height: 45rem;
+        margin-bottom: 2rem;
+
+        .boxContent {
+            width: 13rem;
+            height: 20rem;
+
+            .img {
+                @include posiAR(absolute, 0.625rem, 1rem);
+            }
+
+            .boxContentTitle {
+                @include posiAR(absolute, 10rem, 5rem);
+            }
+
+            .boxContentAside {
+                @include posiAR(absolute, 13rem, 2rem);
+                width: 10rem;
+            }
+        }
+
     }
 }
 </style>

@@ -68,4 +68,29 @@ export default defineComponent({
 
     }
 }
+
+
+// @media only screen and (max-width: 1200px) {
+//     #NavList {
+//         padding-left: 25rem;
+//     }
+// }
+
+// @media only screen and (max-width: 992px) {
+//     #NavList {
+//         padding-left: 15rem;
+//     }
+// }
+
+// @media only screen and (max-width: 768px) {
+//     #NavList {
+//         padding-left: 5rem;
+//     }
+// }
+
+@media only screen and (max-width: 420px) {
+    #NavList {
+        display: none;
+    }
+}
 </style>

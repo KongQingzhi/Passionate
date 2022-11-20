@@ -1,6 +1,6 @@
 <template>
     <div id="Logo">
-        <img src="../../../assets/img/logo.png" width="48" alt="">
+        <img src="../../../assets/img/logo.png" alt="">
         <h1><i>a</i><i>ssionate</i></h1>
     </div>
 </template>
@@ -31,7 +31,7 @@ export default defineComponent({
 
     h1 {
         @include posiAR(absolute, 1rem, 1.85rem);
-        font-size: 28px;
+        font-size: 1.75rem;
         color: $primaryWhite;
 
         i:first-child {
@@ -39,4 +39,14 @@ export default defineComponent({
         }
     }
 }
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 520px) {}
+
+@media only screen and (max-width: 420px) {}
 </style>

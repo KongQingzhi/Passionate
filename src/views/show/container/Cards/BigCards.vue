@@ -2,7 +2,7 @@
     <div id="BigCards">
         <div class="cards" :class="{ orderScroll: flagMid }" v-for="(items, index) in list">
             <div class="img">
-                <img :src="items.src" alt="" height="150">
+                <img :src="items.src" alt="">
             </div>
             <div class="cirle"></div>
             <div class="content">
@@ -101,6 +101,10 @@ export default defineComponent({
             height: 9.3rem;
             z-index: 2;
             transition: all 0.8s;
+
+            img {
+                height: 9.375rem;
+            }
         }
 
         .cirle {
@@ -156,6 +160,54 @@ export default defineComponent({
 
         &:hover>.img {
             left: 1.25rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #BigCards {
+        width: 100%;
+        height: 150rem;
+        margin-bottom: 2rem;
+
+        .cards {
+            width: 24rem;
+            height: 30rem;
+
+            .img {
+                @include posiAR(absolute, 0, 4.7rem);
+                width: 9.3rem;
+                height: 9.3rem;
+                z-index: 2;
+                transition: all 0.8s;
+
+                img {
+                    height: 15rem;
+                }
+            }
+
+            .cirle {
+                @include posiAR(absolute, 0, 4rem);
+                width: 10rem;
+                height: 10rem;
+            }
+
+            &:hover>.cirle {
+                top: -3.125rem;
+                left: 12rem;
+                transform: scale(2.2);
+            }
+
+            .content {
+                @include posiAR(absolute, 24rem, 0rem);
+                width: 24rem;
+                height: 20rem;
+            }
+
+            &:hover>.content {
+                border-radius: 0;
+                top: 15rem;
+            }
         }
     }
 }

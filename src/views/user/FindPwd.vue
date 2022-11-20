@@ -1,5 +1,5 @@
 <template>
-    <div id="Register">
+    <div id="FindPassword">
         <div class="container">
             <div class="circle">
                 <img src="../../assets/img/register.svg" alt="">
@@ -181,7 +181,7 @@ export default defineComponent({
 @import '../../assets/style.scss';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
-#Register {
+#FindPassword {
     width: 100%;
     height: 100vh;
     background-color: $primaryWhite;
@@ -359,6 +359,33 @@ export default defineComponent({
                         color: #fff;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #FindPassword {
+        .container {
+            position: relative;
+            width: 30rem;
+            height: 100vh;
+            margin: 0 auto;
+
+            .circle {
+                @include posiAR(absolute, -15rem, -20rem);
+                width: 50rem;
+                height: 50rem;
+
+                img {
+                    @include posiAR(absolute, 12rem, 20rem);
+                    width: 20rem;
+                    height: 20rem;
+                }
+            }
+
+            .form {
+                @include posiAR(absolute, 15rem, 2.5rem);
             }
         }
     }

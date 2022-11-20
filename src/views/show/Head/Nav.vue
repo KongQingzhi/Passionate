@@ -1,7 +1,7 @@
 <template>
     <div id="Nav">
         <LogoVue></LogoVue>
-        <NavListVue></NavListVue>
+        <NavListVue class="NavList"></NavListVue>
         <ButtonVue></ButtonVue>
     </div>
 </template>
@@ -36,17 +36,9 @@ export default defineComponent({
     background-color: $primaryGreen;
 }
 
-// @media only screen and (max-width: 1200px) {}
-
-// @media only screen and (max-width: 992px) {}
-
-// @media only screen and (max-width: 768px) {
-//     #Nav {
-//         background-color: #000;
+// @media only screen and (max-width: 420px) {
+//     .NavList {
+//         display: none;
 //     }
 // }
-
-// @media only screen and (max-width: 520px) {}
-
-// @media only screen and (max-width: 420px) {}
 </style>

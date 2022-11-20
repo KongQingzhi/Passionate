@@ -15,7 +15,6 @@ import { defineComponent } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
     setup() {
-
         const title = 'And line and see and calm, and listen and forget and with the wind.'
         const aside = 'Life is hot because of you.';
         const router = useRouter()
@@ -118,6 +117,38 @@ export default defineComponent({
 
     .btn:active {
         transform: translateY(0.1rem);
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #BannerRight {
+        width: 100%;
+        height: 32rem;
+
+        // height: 20rem;
+        .title {
+            line-height: 4rem;
+            font-size:2.7rem;
+        }
+
+        .aside {
+            margin-top: 0rem;
+            line-height: 2.5rem;
+            font-size: 2rem;
+        }
+
+        .btn {
+            @include posiAR(relative, 2rem, 9rem);
+        }
+
+        .mask {
+            @include posiAR(relative, -1.4rem, 9.3rem);
+        }
+
+        .btn:hover~.mask {
+            @include posiAR(relative, -1.6rem, 9rem);
+        }
+
     }
 }
 </style>

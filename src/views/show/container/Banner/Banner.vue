@@ -11,8 +11,6 @@ import BannerLeftVue from './BannerLeft.vue';
 import BannerRightVue from './BannerRight.vue';
 export default defineComponent({
     setup() {
-
-
         return {}
     },
     components: {
@@ -27,8 +25,16 @@ export default defineComponent({
 
 #Banner {
     @include disFlex(space-between, center);
-    width: 90rem;
-    height: 40rem;
-    padding:  3rem 0;
+    // width: 90rem;
+    // height: 40rem;
+    padding: 3rem 0;
+}
+
+@media only screen and (max-width: 420px) {
+    #Banner {
+        width: 100%;
+        padding: 1rem 0;
+        // margin-bottom: 2rem;
+    }
 }
 </style>

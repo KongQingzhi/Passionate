@@ -5,12 +5,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Microsoft YaHei';
-  background-color: #f3f3f3;
-}
-
-html button {
+button {
   width: 5.6rem;
   height: 2.5rem;
   background-color: #34d0b2;
@@ -22,27 +17,27 @@ html button {
   border-radius: 6px;
 }
 
-html a {
+a {
   text-decoration: none;
   color: #f3f3f3;
 }
 
-html input {
+input {
   border: none;
   outline: none;
   padding: 0 15px;
 }
 
-html li {
+li {
   list-style: none;
 }
 
-html select {
+select {
   outline: none;
   letter-spacing: 0.1rem;
 }
 
-html select option {
+select option {
   display: inline-block;
   height: 3rem;
   letter-spacing: 0.1rem;

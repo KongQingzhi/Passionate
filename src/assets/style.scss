@@ -38,52 +38,47 @@ $primaryDeepYellow: #ffc933;
     box-sizing: border-box;
 }
 
-html {
-    font-family: 'Microsoft YaHei';
-    background-color: $primaryWhite;
 
-    //按钮
-    button {
-        width: 5.6rem;
-        height: 2.5rem;
-        background-color: $primaryGreen;
-        color: $primaryWhite;
-        text-align: center;
-        line-height: 2.5rem;
-        border: none;
-        outline: none;
-        border-radius: $borRadiusSmall;
-    }
 
-    a {
-        text-decoration: none;
-        color: $primaryWhite;
-    }
-
-    input {
-        border: none;
-        outline: none;
-        padding: 0 15px;
-
-    }
-
-    li {
-        list-style: none;
-    }
-
-    select {
-        outline: none;
-        letter-spacing: 0.1rem;
-
-        option {
-            display: inline-block;
-            height: 3rem;
-            letter-spacing: 0.1rem;
-        }
-    }
+//按钮
+button {
+    width: 5.6rem;
+    height: 2.5rem;
+    background-color: $primaryGreen;
+    color: $primaryWhite;
+    text-align: center;
+    line-height: 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: $borRadiusSmall;
 }
 
+a {
+    text-decoration: none;
+    color: $primaryWhite;
+}
 
+input {
+    border: none;
+    outline: none;
+    padding: 0 15px;
+
+}
+
+li {
+    list-style: none;
+}
+
+select {
+    outline: none;
+    letter-spacing: 0.1rem;
+
+    option {
+        display: inline-block;
+        height: 3rem;
+        letter-spacing: 0.1rem;
+    }
+}
 
 @media only screen and (max-width: 1200px) {
     html {

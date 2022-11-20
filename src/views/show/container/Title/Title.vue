@@ -47,11 +47,11 @@ export default defineComponent({
         @include disFlex(space-around, center);
         width: 100%;
         height: 10rem;
-        font-size: 55px;
+        font-size: 3.5rem;
         color: $primaryDeepBlue;
 
         .titleCon {
-            letter-spacing: 15px;
+            letter-spacing: 0.9rem;
         }
 
         .scrolldown {
@@ -240,6 +240,23 @@ export default defineComponent({
 
     .button:hover .box:before {
         transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #Title {
+        width: 100%;
+        height: 30rem;
+        margin: 2rem 0;
+
+        .title {
+            @include disFlex(space-around, center);
+            height: 10rem;
+            font-size: 3rem;
+        }
+        .scrolldown{
+            display: none;
+        }
     }
 }
 </style>

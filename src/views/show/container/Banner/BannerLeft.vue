@@ -21,8 +21,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     setup() {
-
-
         return {}
     }
 })
@@ -117,6 +115,61 @@ export default defineComponent({
 
     &:hover {
         background-color: $primaryDeepBlue;
+    }
+}
+
+
+// @media only screen and (max-width: 768px) {
+//     #BannerLeft {
+//         width: 100%;
+//         height: 20rem;
+
+//         .circle {
+//             width: 5rem;
+//             height: 5rem;
+//             @include posiAR(absolute, 3rem, 3rem);
+//         }
+
+//         img {
+//             width: 12rem;
+//             @include posiAR(absolute, 11rem, 18rem);
+//         }
+
+//         &:hover>.circle {
+//             @include posiAR(absolute, 5rem, 20rem);
+//         }
+
+//         &:hover>img {
+//             @include posiAR(absolute, 8rem, 2rem);
+//         }
+//     }
+// }
+
+
+@media only screen and (max-width: 420px) {
+    #BannerLeft {
+        width: 100%;
+        height: 20rem;
+        margin: 2rem 0;
+
+        .circle {
+            width: 5rem;
+            height: 5rem;
+            @include posiAR(absolute, 3rem, 3rem);
+        }
+
+        img {
+            width: 12rem;
+            @include posiAR(absolute, 11rem, 18rem);
+        }
+
+        &:hover>.circle {
+            @include posiAR(absolute, 5rem, 20rem);
+        }
+
+        &:hover>img {
+            @include posiAR(absolute, 8rem, 2rem);
+        }
     }
 }
 </style>

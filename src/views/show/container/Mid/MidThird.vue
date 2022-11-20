@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="img">
-            <img src="../../../../assets/img/办公.svg" height="500">
+            <img src="../../../../assets/img/办公.svg">
         </div>
     </div>
 </template>
@@ -46,6 +46,12 @@ export default defineComponent({
 
     &:hover {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .img {
+        img {
+            height: 31.25rem;
+        }
     }
 
     .box {
@@ -156,9 +162,49 @@ export default defineComponent({
 
         .boxBot {
             margin-top: 10px;
-            font-size: 24px;
+            font-size: 1.5rem;
             color: $primaryWhite;
         }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #MidThird {
+        height: 50rem;
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+        padding: 0 1rem;
+
+        .box {
+            width: 100%;
+            height: 25rem;
+            padding: 6.25rem 0px;
+
+            .title {
+                position: relative;
+                font-size: 3.0122rem;
+            }
+
+            .boxCon {
+                margin-top: 3.75rem;
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: $primaryWhite;
+            }
+
+            .boxBot {
+                margin-top: 10px;
+                font-size: 1.5rem;
+                color: $primaryWhite;
+            }
+        }
+
+        .img {
+            img {
+                height: 20rem;
+            }
+        }
+
+
     }
 }
 </style>

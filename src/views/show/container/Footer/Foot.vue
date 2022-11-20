@@ -2,7 +2,7 @@
     <div id="Footer">
         <div class="footLeft">
             <h3>联系我们</h3>
-            <p>Tel:15653754746 Email:1428390162@qq.com</p>
+            <p>Tel:156 5375 4746 Email:1428390162@qq.com</p>
             <p>未经允许,不可复制,所有解释权归创始团队</p>
             <p>Date:2022/07/28 address:Guizhou Normal College, 115 Wudang District, Guiyang City, Guizhou Province</p>
         </div>
@@ -75,6 +75,33 @@ export default defineComponent({
             margin: 0.3125rem 0;
             cursor: pointer;
             font-size: 0.75rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #Footer {
+        padding: 1.875rem 2.7rem;
+        height: 25rem;
+
+        .footLeft {
+            height: 12rem;
+            font-size: 1rem;
+            color: $primaryWhite;
+            max-width: 31rem;
+
+            h3 {
+                margin-bottom: 2rem;
+            }
+
+            p {
+                margin: 0.5rem 0;
+                font-size: 0.75rem;
+            }
+        }
+
+        .footRight {
+            width: 100%;
         }
     }
 }
