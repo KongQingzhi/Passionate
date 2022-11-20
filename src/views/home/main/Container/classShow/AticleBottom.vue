@@ -88,7 +88,7 @@ export default defineComponent({
                     selectLoveCollectNum()
                 })
             }
-          
+
         }
 
         function collectOption() {
@@ -198,5 +198,23 @@ export default defineComponent({
             }
         }
     }
+}
+
+@media only screen and (max-width: 420px) {
+    #AticleBottom {
+        // height: 45rem;
+        padding: 0;
+
+        .elementBottomLeft {
+            @include disFlex(space-between, center);
+            width: 11rem;
+        }
+
+        .elementBottomRight {
+            @include disFlex(space-between, center);
+            width: 28rem;
+        }
+    }
+
 }
 </style>
