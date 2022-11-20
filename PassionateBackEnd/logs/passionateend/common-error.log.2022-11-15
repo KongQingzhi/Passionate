@@ -1,0 +1,180 @@
+2022-11-15 15:22:35,126 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:38,810 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:39,254 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:43,525 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:45,930 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:49,180 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:51,449 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:55,087 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:22:58,348 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:51:55,796 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 15:52:01,997 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 16:01:31,529 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 17:04:28,405 ERROR 11172 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11172
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 22:01:12,457 ERROR 11980 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 11980
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:09:49,284 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:11:10,072 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:16:57,505 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:17:51,534 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:29:38,380 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+
+2022-11-15 23:38:25,497 ERROR 26700 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:217:20)
+errno: -4077
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 26700
+hostname: LAPTOP-60VUAS4V
+

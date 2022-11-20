@@ -1,0 +1,297 @@
+{
+  "keys": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+  "multipart": {
+    "mode": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+    "fileSize": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+    "autoFields": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultParamCharset": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "allowArrayField": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js",
+      "disable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "security": {
+    "csrf": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "ignoreJSON": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "type": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "supportedRequests": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "ipExceptionList": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "cors": {
+    "origin": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+    "allowMethods": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js"
+  },
+  "cluster": {
+    "listen": {
+      "port": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "mysql": {
+    "client": {
+      "host": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "port": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "user": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "password": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js",
+      "database": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\config.default.js"
+    },
+    "default": {
+      "database": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-mysql\\config\\config.default.js"
+    },
+    "app": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-mysql\\config\\config.default.js",
+    "agent": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-mysql\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session\\config\\config.default.js",
+    "logValue": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "development": {
+    "watchDirs": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideIgnore": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "name": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "version": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "description": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "main": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "test": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "dev": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "keywords": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "author": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "license": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "egg-cors": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "nodemailer": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "cacheControl": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "strict": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "depth": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "env": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "level": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "enablePerformanceTimer": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+    },
+    "useHttpClientNext": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "meta": {
+    "enable": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "logging": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+  "clusterClient": {
+    "maxWaitTime": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\config.default.js"
+}

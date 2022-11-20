@@ -1,0 +1,10 @@
+import { EggBaseError, ErrorOptions } from '../';
+export declare const FRAMEWORK_ERROR_SYMBOL: symbol;
+export declare class FrameworkBaseError extends EggBaseError<ErrorOptions> {
+    readonly serialNumber: string;
+    readonly errorContext?: any;
+    get module(): string;
+    constructor(message: string, serialNumber: string | number, errorContext?: any);
+    static create(message: string, serialNumber: string | number, errorContext?: any): FrameworkBaseError;
+    static isFrameworkError(err: Error): err is FrameworkBaseError;
+}

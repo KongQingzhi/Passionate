@@ -1,0 +1,15 @@
+2022-11-19 00:13:17,209 ERROR 47216 [-/127.0.0.1/-/28ms POST /api/release] nodejs.TypeError: this.getParam is not a function
+    at InteractionController.release (E:\FrontEnd\MyGithubRepository\PassionateEnd\app\controller\interactionController.js:328:34)
+    at Object.callFn (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\koa-compose\index.js:44:32)
+    at next (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\koa-compose\index.js:45:18)
+    at E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\koa-compose\index.js:44:32)
+    at E:\FrontEnd\MyGithubRepository\PassionateEnd\node_modules\koa-compose\index.js:36:12
+headers: {"Access-Control-Allow-Origin":"*","vary":"Origin"}
+pid: 47216
+hostname: LAPTOP-60VUAS4V
+
