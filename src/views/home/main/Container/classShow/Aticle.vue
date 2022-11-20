@@ -20,7 +20,7 @@ export default defineComponent({
     setup(props) {
         let list: any = props.articleInfo;
         onMounted(() => {
-        
+
         })
 
         return {
@@ -45,5 +45,12 @@ export default defineComponent({
     background-color: #fff;
     border-radius: $borRadiusBig;
     box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.07);
+}
+
+@media only screen and (max-width: 420px) {
+    #Aticle {
+        width: 28rem;
+        padding: 1rem;
+    }
 }
 </style>

@@ -19,7 +19,7 @@ export default defineComponent({
         // onMounted(() => {
         //     window.addEventListener('scroll', orderScroll)
         // })
-        
+
         return {
             // top
         }
@@ -50,6 +50,19 @@ export default defineComponent({
         width: 70rem;
         padding: 0 3rem;
         margin-left: 12rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #Main {
+        width:30rem;
+        margin:3rem auto 0;
+
+        .container {
+            width: 28rem;
+            padding: 0 1.5rem;
+            margin-left: 0rem;
+        }
     }
 }
 </style>

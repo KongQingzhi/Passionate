@@ -38,7 +38,9 @@ $primaryDeepYellow: #ffc933;
     box-sizing: border-box;
 }
 
-
+body {
+    background-color: $primaryWhite;
+}
 
 //按钮
 button {

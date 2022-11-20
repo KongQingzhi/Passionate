@@ -86,4 +86,10 @@ export default defineComponent({
 #ClassShow {
     width: 64rem;
 }
+
+@media only screen and (max-width: 420px) {
+    #ClassShow {
+        width: 28rem;
+    }
+}
 </style>

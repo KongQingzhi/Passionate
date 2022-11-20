@@ -1,47 +1,51 @@
 <template>
     <div id="CreationCenter">
         <h1 class="title">发布中心</h1>
-        <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm"
-            :size="formSize" status-icon>
-            <el-form-item label="标题" prop="articleTitle">
-                <el-input v-model="ruleForm.articleTitle" placeholder="Hello Wolrd！" />
-            </el-form-item>
-            <el-form-item label="内容" prop="articleContent">
-                <el-input v-model="ruleForm.articleContent" type="textarea" />
-            </el-form-item>
-            <el-form-item label="类型" prop="articleClass">
-                <el-select v-model="ruleForm.articleClass" placeholder="搞笑">
-                    <el-option :label="items" :value="items" v-for="items in optionList" />
-                </el-select>
-            </el-form-item>
-            <!-- <el-form-item label="隐私" prop="articlePrivacy">
-                <el-radio-group v-model="ruleForm.articlePrivacy">
-                    <el-radio label="公开" />
-                    <el-radio label="私有" />
-                </el-radio-group>
-            </el-form-item> -->
-        </el-form>
+        <div class="fromContainer">
+            <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm"
+                :size="formSize" status-icon>
+                <el-rol :span="24">
+                    <el-form-item label="标题" prop="articleTitle">
+                        <el-input v-model="ruleForm.articleTitle" placeholder="Hello Wolrd！" />
+                    </el-form-item>
+                </el-rol>
+                <el-form-item label="内容" prop="articleContent">
+                    <el-input v-model="ruleForm.articleContent" type="textarea" />
+                </el-form-item>
+                <el-form-item label="类型" prop="articleClass">
+                    <el-select v-model="ruleForm.articleClass" placeholder="搞笑">
+                        <el-option :label="items" :value="items" v-for="items in optionList" />
+                    </el-select>
+                </el-form-item>
+                <!-- <el-form-item label="隐私" prop="articlePrivacy">
+                            <el-radio-group v-model="ruleForm.articlePrivacy">
+                                <el-radio label="公开" />
+                                <el-radio label="私有" />
+                            </el-radio-group>
+                        </el-form-item> -->
+            </el-form>
 
-        <div class="pushImage">
-            <div class="imginput">
-                <input type="file" name="" id="" @change="pushFile" ref="inputFile" multiple>
-                <img src="../../../../../assets/img/add.png" alt="" width="150">
+            <div class="pushImage">
+                <div class="imginput">
+                    <input type="file" name="" id="" @change="pushFile" ref="inputFile" multiple>
+                    <img src="../../../../../assets/img/add.png" alt="" width="150">
+                </div>
+                <img class="imgList" :src="items" alt="" v-for="items in dialogImageUrl">
             </div>
-            <img class="imgList" :src="items" alt="" v-for="items in dialogImageUrl" height="150" width="150">
-        </div>
-        <div class="formBottom">
-            <button @click="submitForm(ruleFormRef)">
-                <div class="content">
-                    <i class="bi bi-check-lg"></i>
-                    <span>发 布</span>
-                </div>
-            </button>
-            <button @click="resetForm(ruleFormRef)">
-                <div class="content">
-                    <i class="bi bi-trash-fill"></i>
-                    <span>取 消</span>
-                </div>
-            </button>
+            <div class="formBottom">
+                <button @click="submitForm(ruleFormRef)">
+                    <div class="content">
+                        <i class="bi bi-check-lg"></i>
+                        <span>发 布</span>
+                    </div>
+                </button>
+                <button @click="resetForm(ruleFormRef)">
+                    <div class="content">
+                        <i class="bi bi-trash-fill"></i>
+                        <span>取 消</span>
+                    </div>
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -237,23 +241,24 @@ export default ({
 
         .imginput {
             display: inline-block;
-            width: 150px;
-            height: 150px;
+            width: 9.375rem;
+            height: 9.375rem;
             overflow: hidden;
             border-radius: $borRadiusBig;
             border: 2px dotted #dcdfe6;
 
             input {
                 position: absolute;
-                width: 150px;
-                height: 150px;
+                width: 9.375rem;
+                height: 9.375rem;
                 opacity: 0;
             }
         }
 
         img {
             object-fit: contain;
-
+            width: 9.375rem;
+            height: 9.375rem;
         }
 
         .imgList {
@@ -306,6 +311,44 @@ export default ({
             &:active {
                 transform: translateY(0rem);
                 box-shadow: 1px 1px 10px 1px rgba($color: #000000, $alpha: 0.2);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #CreationCenter {
+        width: 28rem;
+        padding: 2rem 1rem;
+
+        .fromContainer {
+            width: 28rem;
+            margin-left: -4rem;
+
+            .demo-ruleForm {
+                width: 28rem;
+
+                .el-form-item {
+                    margin-bottom: 1.5rem;
+                }
+            }
+
+            .el-upload {
+                width: 28rem;
+                padding-left: 0rem;
+                margin-left: 0rem;
+            }
+
+            .pushImage {
+                width: 26rem;
+                margin-left: 4rem;
+            }
+
+            .formBottom {
+                width: 26rem;
+                margin: 2rem 0 2rem 4rem;
+                padding: 0 0rem;
+                @include disFlex(space-around, center);
             }
         }
     }

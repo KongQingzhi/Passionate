@@ -35,4 +35,11 @@ export default defineComponent({
         z-index: 22;
     }
 }
+
+@media only screen and (max-width: 420px) {
+    #Home {
+        width: 30rem;
+        margin: 0 auto;
+    }
+}
 </style>

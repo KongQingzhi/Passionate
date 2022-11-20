@@ -5,7 +5,7 @@
             <div class="bottom">{{ list.ArticleContent }}</div>
         </div>
         <el-col :span="24">
-            <el-carousel indicator-position="outside" height="25rem">
+            <el-carousel indicator-position="outside">
                 <el-carousel-item v-for="(items, index) in list.ArticleImage" :key="index">
                     <div class="elementItems">
                         <img :src="items" alt="">
@@ -94,6 +94,42 @@ export default defineComponent({
         img {
             height: 25rem;
             object-fit: cover;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #AticleMid {
+        // height: 45rem;
+
+        .el-col {
+            // width: 28rem;
+            // height: 18rem;
+            height: 28.75rem;
+
+            .el-carousel {
+                height: 30rem;
+                // width: 26rem;
+                padding: 0;
+
+                .el-carousel-item {
+                    // width: 26rem;
+                    height: 30rem;
+                    // padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+
+        .elementItems {
+            width: 28rem;
+            // height: 18.75rem;
+
+            img {
+                width: 28rem;
+                height: 30rem;
+                object-fit: cover;
+            }
         }
     }
 }

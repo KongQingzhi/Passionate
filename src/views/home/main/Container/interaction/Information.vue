@@ -312,4 +312,10 @@ export default ({
     }
 
 }
+
+@media only screen and (max-width: 420px) {
+    #Information {
+        width: 30rem;
+    }
+}
 </style>

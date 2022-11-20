@@ -165,4 +165,10 @@ export default defineComponent({
 
     }
 }
+
+@media only screen and (max-width: 420px) {
+    #AticleTop {
+       
+    }
+}
 </style>
