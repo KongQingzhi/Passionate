@@ -751,3 +751,51 @@
 2022-11-20 21:46:36,759 INFO 22676 [egg-watcher:application] watcher start success
 2022-11-20 21:46:36,762 INFO 22676 [egg-mysql] instance[0] status OK, rds currentTime: Sun Nov 20 2022 21:46:36 GMT+0800 (中国标准时间)
 2022-11-20 21:46:36,769 INFO 22676 [egg:core] dump config after ready, 6ms
+2022-11-20 21:55:43,045 INFO 24820 [egg:logger] init all loggers with options: {"dir":"E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\logs\\passionateend","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"passionateend-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2022-11-20 21:55:43,045 INFO 24820 [egg-multipart] file mode enable
+2022-11-20 21:55:43,045 INFO 24820 [egg-multipart] will save temporary files to "C:\\Users\\KONGQI~1\\AppData\\Local\\Temp\\egg-multipart-tmp\\passionateend", cleanup job cron: "0 30 4 * * *"
+2022-11-20 21:55:43,084 INFO 24820 [egg-mysql] connecting root@localhost:3306/passionate
+2022-11-20 21:55:43,331 INFO 24820 [egg-static] starting static serve /public/ -> E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\app\public
+2022-11-20 21:55:43,334 INFO 24820 [egg-security] use methodnoallow middleware
+2022-11-20 21:55:43,336 INFO 24820 [egg-security] use noopen middleware
+2022-11-20 21:55:43,337 INFO 24820 [egg-security] use nosniff middleware
+2022-11-20 21:55:43,338 INFO 24820 [egg-security] use xssProtection middleware
+2022-11-20 21:55:43,339 INFO 24820 [egg-security] use xframe middleware
+2022-11-20 21:55:43,340 INFO 24820 [egg-security] use dta middleware
+2022-11-20 21:55:43,340 INFO 24820 [egg-security] compose 6 middlewares into one security middleware
+2022-11-20 21:55:43,411 INFO 24820 [egg:core] dump config after load, 5ms
+2022-11-20 21:55:43,428 INFO 24820 [egg-watcher:application] watcher start success
+2022-11-20 21:55:43,430 INFO 24820 [egg-mysql] instance[0] status OK, rds currentTime: Sun Nov 20 2022 21:55:43 GMT+0800 (中国标准时间)
+2022-11-20 21:55:43,438 INFO 24820 [egg:core] dump config after ready, 6ms
+2022-11-20 23:01:20,680 INFO 34024 [egg:logger] init all loggers with options: {"dir":"E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\logs\\passionateend","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"passionateend-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2022-11-20 23:01:20,680 INFO 34024 [egg-multipart] file mode enable
+2022-11-20 23:01:20,680 INFO 34024 [egg-multipart] will save temporary files to "C:\\Users\\KONGQI~1\\AppData\\Local\\Temp\\egg-multipart-tmp\\passionateend", cleanup job cron: "0 30 4 * * *"
+2022-11-20 23:01:20,759 INFO 34024 [egg-mysql] connecting root@localhost:3306/passionate
+2022-11-20 23:01:21,020 INFO 34024 [egg-static] starting static serve /public/ -> E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\app\public
+2022-11-20 23:01:21,023 INFO 34024 [egg-security] use methodnoallow middleware
+2022-11-20 23:01:21,024 INFO 34024 [egg-security] use noopen middleware
+2022-11-20 23:01:21,026 INFO 34024 [egg-security] use nosniff middleware
+2022-11-20 23:01:21,027 INFO 34024 [egg-security] use xssProtection middleware
+2022-11-20 23:01:21,028 INFO 34024 [egg-security] use xframe middleware
+2022-11-20 23:01:21,029 INFO 34024 [egg-security] use dta middleware
+2022-11-20 23:01:21,029 INFO 34024 [egg-security] compose 6 middlewares into one security middleware
+2022-11-20 23:01:21,100 INFO 34024 [egg:core] dump config after load, 5ms
+2022-11-20 23:01:21,115 INFO 34024 [egg-watcher:application] watcher start success
+2022-11-20 23:01:21,118 INFO 34024 [egg-mysql] instance[0] status OK, rds currentTime: Sun Nov 20 2022 23:01:21 GMT+0800 (中国标准时间)
+2022-11-20 23:01:21,126 INFO 34024 [egg:core] dump config after ready, 7ms
+2022-11-20 23:01:22,451 INFO 29208 [egg:logger] init all loggers with options: {"dir":"E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\logs\\passionateend","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"passionateend-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2022-11-20 23:01:22,451 INFO 29208 [egg-multipart] file mode enable
+2022-11-20 23:01:22,452 INFO 29208 [egg-multipart] will save temporary files to "C:\\Users\\KONGQI~1\\AppData\\Local\\Temp\\egg-multipart-tmp\\passionateend", cleanup job cron: "0 30 4 * * *"
+2022-11-20 23:01:22,488 INFO 29208 [egg-mysql] connecting root@localhost:3306/passionate
+2022-11-20 23:01:22,718 INFO 29208 [egg-static] starting static serve /public/ -> E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\app\public
+2022-11-20 23:01:22,721 INFO 29208 [egg-security] use methodnoallow middleware
+2022-11-20 23:01:22,722 INFO 29208 [egg-security] use noopen middleware
+2022-11-20 23:01:22,724 INFO 29208 [egg-security] use nosniff middleware
+2022-11-20 23:01:22,724 INFO 29208 [egg-security] use xssProtection middleware
+2022-11-20 23:01:22,725 INFO 29208 [egg-security] use xframe middleware
+2022-11-20 23:01:22,726 INFO 29208 [egg-security] use dta middleware
+2022-11-20 23:01:22,726 INFO 29208 [egg-security] compose 6 middlewares into one security middleware
+2022-11-20 23:01:22,795 INFO 29208 [egg:core] dump config after load, 5ms
+2022-11-20 23:01:22,813 INFO 29208 [egg-watcher:application] watcher start success
+2022-11-20 23:01:22,815 INFO 29208 [egg-mysql] instance[0] status OK, rds currentTime: Sun Nov 20 2022 23:01:22 GMT+0800 (中国标准时间)
+2022-11-20 23:01:22,822 INFO 29208 [egg:core] dump config after ready, 6ms

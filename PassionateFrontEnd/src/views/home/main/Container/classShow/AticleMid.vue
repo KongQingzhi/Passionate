@@ -85,14 +85,21 @@ export default defineComponent({
         }
     }
 
+
+
+    .el-carousel-item {
+        height: 20rem;
+        margin: 0;
+    }
+
     .elementItems {
         text-align: center;
         width: 56rem;
-        height: 27rem;
+        height: 20rem;
         padding: 1rem 0;
 
         img {
-            height: 25rem;
+            height: 18.75rem;
             object-fit: cover;
         }
     }
@@ -103,19 +110,14 @@ export default defineComponent({
         // height: 45rem;
 
         .el-col {
-            // width: 28rem;
-            // height: 18rem;
             height: 28.75rem;
 
             .el-carousel {
                 height: 30rem;
-                // width: 26rem;
                 padding: 0;
 
                 .el-carousel-item {
-                    // width: 26rem;
                     height: 30rem;
-                    // padding: 0;
                     margin: 0;
                 }
             }
@@ -123,7 +125,6 @@ export default defineComponent({
 
         .elementItems {
             width: 28rem;
-            // height: 18.75rem;
 
             img {
                 width: 28rem;

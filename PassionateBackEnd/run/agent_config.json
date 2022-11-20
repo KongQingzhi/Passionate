@@ -89,7 +89,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -102,8 +102,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
@@ -153,14 +153,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\app\\public",
+      "dir": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\app\\view",
+      "root": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -217,9 +217,9 @@
         "egg-bin": "^5.4.1"
       }
     },
-    "baseDir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd",
+    "baseDir": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd",
     "HOME": "C:\\Users\\KongQingzhi",
-    "rundir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\run",
+    "rundir": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -252,7 +252,7 @@
       "onerror": "<Function onerror>"
     },
     "logger": {
-      "dir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\logs\\passionateend",
+      "dir": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\logs\\passionateend",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -331,8 +331,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-onerror",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-onerror",
       "version": "2.1.1"
     },
     "session": {
@@ -342,8 +342,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-session",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-session",
       "version": "3.3.0"
     },
     "i18n": {
@@ -353,8 +353,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-i18n",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -364,8 +364,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-watcher",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-watcher",
       "version": "3.1.1"
     },
     "multipart": {
@@ -377,8 +377,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-multipart",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-multipart",
       "version": "3.2.0"
     },
     "security": {
@@ -390,8 +390,8 @@
         "session"
       ],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-security",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-security",
       "version": "2.11.0"
     },
     "development": {
@@ -405,8 +405,8 @@
       "env": [
         "local"
       ],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-development",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-development",
       "version": "2.7.0"
     },
     "logrotator": {
@@ -418,8 +418,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-logrotator",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-logrotator",
       "version": "3.1.0"
     },
     "schedule": {
@@ -429,8 +429,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-schedule",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-schedule",
       "version": "3.7.0"
     },
     "static": {
@@ -440,8 +440,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-static",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-static",
       "version": "2.2.0"
     },
     "jsonp": {
@@ -453,8 +453,8 @@
         "security"
       ],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-jsonp",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "view": {
@@ -464,8 +464,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-view",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-view",
       "version": "2.1.3"
     },
     "cors": {
@@ -475,8 +475,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-cors",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-cors",
       "version": "2.2.3"
     },
     "mysql": {
@@ -486,14 +486,14 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\config\\plugin.js",
-      "path": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd\\node_modules\\egg-mysql",
+      "from": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\config\\plugin.js",
+      "path": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd\\node_modules\\egg-mysql",
       "version": "3.1.1"
     }
   },
   "appInfo": {
     "name": "passionateend",
-    "baseDir": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd",
+    "baseDir": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd",
     "env": "local",
     "scope": "",
     "HOME": "C:\\Users\\KongQingzhi",
@@ -519,6 +519,6 @@
         "egg-bin": "^5.4.1"
       }
     },
-    "root": "E:\\FrontEnd\\MyGithubRepository\\PassionateEnd"
+    "root": "E:\\FrontEnd\\MyGithubRepository\\Passionate\\PassionateBackEnd"
   }
 }
