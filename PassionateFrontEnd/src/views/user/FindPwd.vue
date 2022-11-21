@@ -2,7 +2,7 @@
     <div id="FindPassword">
         <div class="container">
             <div class="circle">
-                <img src="../../assets/img/register.svg" alt="">
+                <img src="../../assets/img/register.png" alt="">
             </div>
             <div class="form">
                 <h3>
@@ -203,7 +203,6 @@ export default defineComponent({
             img {
                 @include posiAR(absolute, 62rem, 20rem);
                 width: 45rem;
-                height: 45rem;
             }
         }
 

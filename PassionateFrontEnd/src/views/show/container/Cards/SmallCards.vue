@@ -1,49 +1,59 @@
 <template>
     <div id="SmallCards" :class="{ orderScroll: flag }" @scroll="orderScroll($event)">
-        <div class="boxContent" v-for="(items, index) in box">
-            <div class="img"><img :src="items.src" alt="" height="100"></div>
-            <div class="boxContentTitle">{{ items.title }}</div>
-            <div class="boxContentAside">{{ items.aside }}</div>
+        <div class="boxContent">
+            <div class="img"><img src="../../../../assets/img/风景.png" alt="" height="100"></div>
+            <div class="boxContentTitle">{{ box[0].title }}</div>
+            <div class="boxContentAside">{{ box[0].aside }}</div>
+        </div>
+        <div class="boxContent">
+            <div class="img"><img src="../../../../assets/img/交友.png" alt="" height="100"></div>
+            <div class="boxContentTitle">{{ box[1].title }}</div>
+            <div class="boxContentAside">{{ box[1].aside }}</div>
+        </div>
+        <div class="boxContent">
+            <div class="img"><img src="../../../../assets/img/旅行.png" alt="" height="100"></div>
+            <div class="boxContentTitle">{{ box[2].title }}</div>
+            <div class="boxContentAside">{{ box[2].aside }}</div>
+        </div>
+        <div class="boxContent">
+            <div class="img"><img src="../../../../assets/img/聚会.png" alt="" height="100"></div>
+            <div class="boxContentTitle">{{ box[3].title }}</div>
+            <div class="boxContentAside">{{ box[3].aside }}</div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent, onMounted } from 'vue'
-
+import { getAssetsFile } from '../../../../assets/requireImg';
 export default defineComponent({
     setup() {
         let flag = ref(false);
         interface ICards {
-            src: string,
             title: string,
             aside: string
         }
         const box: ICards[] = [
             {
-                src: '/src/assets/img/风景.svg',
                 title: '风景',
                 aside: '分享随手拍到的风景，足不出户也可一日千里。'
             },
             {
-                src: '/src/assets/img/交友.svg',
                 title: '交友',
                 aside: '与兴趣相投的人交流，分享自己的内心想法。'
             },
             {
-                src: '/src/assets/img/旅行.svg',
                 title: '旅行',
                 aside: '来一段说走就走的旅行，分享您所看到的异域风光。'
             },
             {
-                src: '/src/assets/img/聚会.svg',
                 title: '聚会',
                 aside: '记录和最亲近的家人、朋友的每一次的聚会。'
             }
         ]
 
         function orderScroll(event: any) {
-            if (flag.value == false && window.pageYOffset > 400) {
+            if (flag.value == false && window.pageYOffset > 900) {
                 flag.value = true;
             }
         }

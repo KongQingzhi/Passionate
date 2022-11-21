@@ -1,6 +1,6 @@
 <template>
     <div id="BannerLeft">
-        <img src="../../../../assets/img/飞行.svg" alt="">
+        <img src="../../../../assets/img/飞行.png" alt="">
         <div class="circle">
             <div>.</div>
             <div>.</div>

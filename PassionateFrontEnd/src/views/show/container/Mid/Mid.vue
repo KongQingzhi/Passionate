@@ -1,7 +1,7 @@
 <template>
     <div id="Mid">
         <div class="image">
-            <img src="../../../../assets//img/向日葵.svg" alt="">
+            <img src="../../../../assets/img/向日葵.png" alt="">
         </div>
         <div class="left">
             <div class="mask">

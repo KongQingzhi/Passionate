@@ -58,7 +58,7 @@
             </button>
         </div>
         <div class="mask">
-            <img src="../../../../../assets/img/堆雪人.svg" alt="">
+            <img src="../../../../../assets/img/堆雪人.png" alt="">
         </div>
     </div>
 </template>

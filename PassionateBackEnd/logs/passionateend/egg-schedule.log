@@ -163,3 +163,18 @@
 2022-11-20 23:01:22,488 INFO 29208 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
 2022-11-20 23:01:22,488 INFO 29208 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js
 2022-11-20 23:01:22,488 INFO 29208 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2022-11-21 13:19:13,579 INFO 33912 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 54646423ms at 2022-11-22 04:30:00.002
+2022-11-21 13:19:13,580 INFO 33912 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 38446421ms at 2022-11-22 00:00:00.001
+2022-11-21 13:19:13,580 INFO 33912 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 38447420ms at 2022-11-22 00:00:01.000
+2022-11-21 13:19:13,169 INFO 26564 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2022-11-21 13:19:13,169 INFO 26564 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js
+2022-11-21 13:19:13,169 INFO 26564 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2022-11-21 13:19:14,988 INFO 8884 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2022-11-21 13:19:14,988 INFO 8884 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js
+2022-11-21 13:19:14,988 INFO 8884 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2022-11-21 13:25:49,601 INFO 40768 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 54250401ms at 2022-11-22 04:30:00.002
+2022-11-21 13:25:49,601 INFO 40768 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 38050399ms at 2022-11-22 00:00:00.000
+2022-11-21 13:25:49,601 INFO 40768 [Timer] E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 38051399ms at 2022-11-22 00:00:01.000
+2022-11-21 13:25:49,261 INFO 37036 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2022-11-21 13:25:49,261 INFO 37036 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\clean_log.js
+2022-11-21 13:25:49,262 INFO 37036 [egg-schedule]: register schedule E:\FrontEnd\MyGithubRepository\Passionate\PassionateBackEnd\node_modules\egg-logrotator\app\schedule\rotate_by_file.js

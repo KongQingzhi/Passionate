@@ -1,7 +1,7 @@
 <template>
     <div id="MidSecond">
         <div class="img">
-            <img src="../../../../assets/img/拍照.svg" alt="">
+            <img src="../../../../assets/img/拍照.png" alt="">
         </div>
         <div class="card" @click="toUser">
             <div class="card-img">

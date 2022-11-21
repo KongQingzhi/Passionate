@@ -2,7 +2,7 @@
     <div id="Login">
         <div class="container">
             <div class="circle">
-                <img src="../../assets/img/login.svg" alt="">
+                <img src="../../assets/img/login.png" alt="">
             </div>
             <div class="form">
                 <h3><span>登 录</span></h3>
@@ -153,7 +153,6 @@ export default defineComponent({
             img {
                 @include posiAR(absolute, 62rem, 35rem);
                 width: 45rem;
-                height: 45rem;
             }
         }
 

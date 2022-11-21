@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="img">
-            <img src="../../../../assets/img/办公.svg">
+            <img src="../../../../assets/img/办公.png">
         </div>
     </div>
 </template>

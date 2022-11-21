@@ -28,6 +28,7 @@ export default defineComponent({
     // width: 90rem;
     // height: 40rem;
     padding: 3rem 0;
+    margin-bottom: 5rem;
 }
 
 @media only screen and (max-width: 420px) {
